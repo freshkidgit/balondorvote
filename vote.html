@@ -1982,9 +1982,7 @@
           <span>•</span>
           <span>Visa, Mastercard, Apple Pay</span>
         </div>
-        <button type="button" onclick="castVoteNow()" style="background: none; border: none; color: #666; font-size: 11px; margin-top: 8px; cursor: pointer; text-decoration: underline; width: 100%;">
-          Offline / Demo Mode: Click to simulate instant vote confirmation
-        </button>
+        
       </div>
 
       <div id="vote-stage-loading" style="display: none; text-align: center; padding: 40px 0;">
@@ -2216,7 +2214,7 @@
         // Fallback for offline / blocked environments
         showNotification('Connecting to payment gateway...');
         setTimeout(() => {
-          recordVoteSuccess('PSTK_LIVE_REF_' + Date.now(), email);
+          recordVoteSuccess('BDO_TX_' + Date.now(), email);
         }, 1200);
       }
     }
