@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account & Login | Ballon d'Or | Ballon d'Or™ Official</title>
+  <meta name="description" content="Sign in to your official Ballon d'Or fan account to manage your B.O.A.T. votes, certificates, and prediction tickets." />
+  <link rel="icon" href="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site/style.css" />
+  <style>
+
+/* Multi-page shared enhancements */
+.page-hero {
+  position: relative;
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(252, 212, 160, 0.12) 0%, rgba(0,0,0,0.95) 75%);
+  border-bottom: 1px solid rgba(252, 212, 160, 0.2);
+}
+.page-hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(252, 212, 160, 0.15);
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: var(--clr-primary-medium, #FCD4A0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: #c4c4c4;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.tabs-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #080808;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(252, 212, 160, 0.15);
+  border-color: rgba(252, 212, 160, 0.4);
+  color: #fff;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%);
+  color: #000;
+  border-color: #FCD4A0;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(252, 212, 160, 0.3);
+}
+
+/* Search Bar Component */
+.filter-search-wrapper {
+  max-width: 700px;
+  margin: 30px auto 20px;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+}
+.search-input-box {
+  flex: 1;
+  position: relative;
+}
+.search-input-box input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: #111;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input-box input:focus {
+  border-color: var(--clr-primary-medium, #FCD4A0);
+  box-shadow: 0 0 12px rgba(252, 212, 160, 0.25);
+}
+.search-input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #121212;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Toast alert */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1a1a;
+  border: 1px solid #FCD4A0;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.95rem;
+}
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+
+    .auth-container-box {
+      max-width: 500px;
+      margin: 40px auto 90px;
+      padding: 0 20px;
+    }
+    .auth-card {
+      background: #111;
+      border: 1px solid rgba(252, 212, 160, 0.3);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 24px;
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: #888;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .auth-tab-btn.active {
+      color: #FCD4A0;
+      border-bottom-color: #FCD4A0;
+    }
+    .auth-form-group {
+      margin-bottom: 18px;
+    }
+    .auth-form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .auth-form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .auth-form-group input:focus {
+      border-color: #FCD4A0;
+    }
+    .social-auth-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .social-auth-btn:hover {
+      background: rgba(255,255,255,0.12);
+    }
+  
+  </style>
+</head>
+<body>
+
+  
+  <!-- Top Sponsors Bar -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 25px; height: 25px;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img class="sponsor-desktop-only" src="assets/site/vanguart.svg" alt="Vanguart" style="width: 45px; height: 21px;" />
+      <img class="sponsor-mobile-only" src="assets/site/assets_09a24a2d-ace3-44dd-a28b-85ab89532d2a.png" alt="Vanguart" style="width: 22px; height: 22px;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 60px; height: 14px;" />
+    </a>
+  </header>
+
+  <!-- Sticky Main Nav -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html" class="">Nominees</a></li>
+          <li><a href="news.html" class="">All articles</a></li>
+          <li><a href="vote.html" class="">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html" class="">Home</a>
+      <a href="nominees.html" class="">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote B.O.A.T.</a>
+      <a href="winners.html" class="">Winners</a>
+      <a href="all-rankings.html" class="">All Rankings</a>
+      <a href="fan-zone.html" class="">Fan Zone</a>
+      <a href="the-ballon-dor.html" class="">The Ballon d’Or</a>
+      <a href="news.html" class="">News & Articles</a>
+      <a href="stories.html" class="">Stories</a>
+      <a href="champions-academy.html" class="">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html" class="">Press Room</a>
+      <a href="login.html" class="active-drawer">My Account / Login</a>
+    </div>
+  </nav>
+
+
+  <div class="auth-container-box">
+    <!-- Logged Out View -->
+    <div class="auth-card" id="auth-unlogged">
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab-btn" id="tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <div id="login-form-container">
+        <form onsubmit="handleSignIn(event)">
+          <div class="auth-form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" placeholder="name@example.com" required value="fan@ballondor.com" />
+          </div>
+          <div class="auth-form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required value="ballondor2026" />
+          </div>
+          <button type="submit" class="btn-gold-primary" style="width: 100%; padding: 14px; font-size: 1rem; margin-top: 10px;">Sign In to Account</button>
+        </form>
+      </div>
+
+      <div id="register-form-container" style="display: none;">
+        <form onsubmit="handleRegister(event)">
+          <div class="auth-form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" placeholder="Your Name" required />
+          </div>
+          <div class="auth-form-group">
+            <label for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" placeholder="name@example.com" required />
+          </div>
+          <div class="auth-form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" placeholder="Minimum 8 characters" required />
+          </div>
+          <button type="submit" class="btn-gold-primary" style="width: 100%; padding: 14px; font-size: 1rem; margin-top: 10px;">Create Fan Account</button>
+        </form>
+      </div>
+
+      <div style="margin: 24px 0 16px; text-align: center; color: #666; font-size: 0.8rem; text-transform: uppercase;">Or continue with</div>
+      <button class="social-auth-btn" onclick="socialMockLogin('Google')">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3 0-.8.1-1.6.4-2.3L1.9 7.3C.7 9.7 0 12.3 0 15s.7 5.3 1.9 7.7l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2-6.4-4.8L1.9 16.4C3.7 20.1 7.5 23 12 23z"/></svg>
+        Sign In with Google
+      </button>
+      <button class="social-auth-btn" onclick="socialMockLogin('Apple')">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-2 0.6-2.65 1.35-.58.67-1.09 1.74-0.95 2.78 1.01.08 2.05-.53 2.67-1.28z"/></svg>
+        Sign In with Apple
+      </button>
+    </div>
+
+    <!-- Logged In View -->
+    <div class="auth-card" id="auth-logged" style="display: none;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: #FCD4A0; color: #000; font-size: 2rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px;" id="dash-avatar">U</div>
+        <h2 id="dash-name" style="color: #fff; font-size: 1.6rem; font-weight: 800; margin: 0 0 4px;">User Name</h2>
+        <div id="dash-email" style="color: #aaa; font-size: 0.9rem;">user@example.com</div>
+        <div style="margin-top: 10px;"><span class="page-hero-badge" style="margin: 0;">Verified Golden Ball Member</span></div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-bottom: 24px;">
+        <div style="font-weight: 700; color: #FCD4A0; margin-bottom: 12px; font-size: 0.9rem; text-transform: uppercase;">My Ballon d'Or Activity</div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+          <span style="color: #ddd;">B.O.A.T. Vote Status:</span>
+          <span style="color: #4ade80; font-weight: 700;" id="dash-vote-status">Vote Recorded</span>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+          <span style="color: #ddd;">Downloaded Certificates:</span>
+          <span style="color: #FCD4A0; font-weight: 700;">1 Certificate Claimed</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <a href="vote.html" class="btn-gold-primary" style="flex: 1; text-align: center; padding: 12px; font-size: 0.9rem;">Go to Vote</a>
+        <button class="btn-dark-outline" onclick="handleSignOut()" style="padding: 12px 20px; font-size: 0.9rem;">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchAuthTab(tab) {
+      if (tab === 'login') {
+        document.getElementById('tab-login').classList.add('active');
+        document.getElementById('tab-register').classList.remove('active');
+        document.getElementById('login-form-container').style.display = 'block';
+        document.getElementById('register-form-container').style.display = 'none';
+      } else {
+        document.getElementById('tab-register').classList.add('active');
+        document.getElementById('tab-login').classList.remove('active');
+        document.getElementById('login-form-container').style.display = 'none';
+        document.getElementById('register-form-container').style.display = 'block';
+      }
+    }
+
+    function handleSignIn(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const name = email.split('@')[0];
+      setLoggedInUser(name.charAt(0).toUpperCase() + name.slice(1), email);
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      setLoggedInUser(name, email);
+    }
+
+    function socialMockLogin(provider) {
+      setLoggedInUser('Alex (via ' + provider + ')', 'alex@' + provider.toLowerCase() + '.com');
+    }
+
+    function setLoggedInUser(name, email) {
+      localStorage.setItem('ballondor_logged_user', name);
+      localStorage.setItem('ballondor_logged_email', email);
+      showToast('Welcome back, ' + name + '!');
+      checkAuthState();
+    }
+
+    function handleSignOut() {
+      localStorage.removeItem('ballondor_logged_user');
+      localStorage.removeItem('ballondor_logged_email');
+      showToast('Signed out successfully.');
+      checkAuthState();
+    }
+
+    function checkAuthState() {
+      const u = localStorage.getItem('ballondor_logged_user');
+      const e = localStorage.getItem('ballondor_logged_email');
+      const unlogged = document.getElementById('auth-unlogged');
+      const logged = document.getElementById('auth-logged');
+
+      if (u) {
+        unlogged.style.display = 'none';
+        logged.style.display = 'block';
+        document.getElementById('dash-name').textContent = u;
+        document.getElementById('dash-email').textContent = e || 'fan@ballondor.com';
+        document.getElementById('dash-avatar').textContent = u.charAt(0).toUpperCase();
+      } else {
+        unlogged.style.display = 'block';
+        logged.style.display = 'none';
+      }
+    }
+
+    checkAuthState();
+  </script>
+
+  
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col brand-col">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" class="footer-logo" />
+        <p class="footer-tagline">The most prestigious individual award in world football, honouring legendary excellence and greatness since 1956.</p>
+        <div class="social-links-row">
+          <a href="https://instagram.com/ballondor" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/ballondor" target="_blank" aria-label="X / Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@ballondor" target="_blank" aria-label="TikTok">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.32-6.32V8.92a8.28 8.28 0 0 0 4.84 1.57v-3.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/ballondor" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">News & Articles</a></li>
+          <li><a href="vote.html">Vote B.O.A.T.</a></li>
+          <li><a href="fan-zone.html">Fan Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Awards</h4>
+        <ul>
+          <li><a href="winners.html">Winners History</a></li>
+          <li><a href="all-rankings.html">All Rankings</a></li>
+          <li><a href="the-ballon-dor.html">The Trophy & History</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="champions-academy.html">Champions’ Academy</a></li>
+          <li><a href="ballon-dor-press-room.html">Press Room</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive Ballon d'Or ceremony announcements, nominee interviews, and voting results.</p>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletter(event)">
+          <input type="email" id="footer-newsletter-email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <span id="footer-nl-success" class="nl-success-msg" style="display:none; color: #4ade80; font-size: 0.85rem; margin-top: 6px;">Thank you for subscribing!</span>
+      </div>
+    </div>
+
+    <div class="footer-sponsors-section">
+      <span class="partners-label">OFFICIAL PARTNERS & SPONSORS</span>
+      <div class="sponsor-logos-grid">
+        <a href="https://www.adidas.com" target="_blank"><img src="assets/site/adidas.svg" alt="Adidas" /></a>
+        <a href="https://www.topps.com" target="_blank"><img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" /></a>
+        <a href="https://www.vanguart.com" target="_blank"><img src="assets/site/vanguart.svg" alt="Vanguart" /></a>
+        <a href="https://www.hankooktire.com" target="_blank"><img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook Tire" /></a>
+        <a href="https://www.lequipe.fr" target="_blank"><img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="L'Équipe" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-legal-links">
+        <a href="voting-terms-and-conditions.html">Voting Terms</a>
+        <a href="terms-and-conditions.html">Terms of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <p class="copyright-text">© 2026 Ballon d'Or™ - L'Équipe 24/24 - UEFA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global Shared Script -->
+  <div id="toast-notification" class="toast-notice">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <script>
+    function toggleHamburgerMenu() {
+      const panel = document.getElementById('menu-drawer-panel');
+      const backdrop = document.getElementById('menu-backdrop');
+      if (panel && backdrop) {
+        panel.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      }
+    }
+
+    function toggleLangPanel() {
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.toggle('open');
+    }
+
+    function selectLangCode(code) {
+      const lbl = document.getElementById('label-selected-lang');
+      if (lbl) lbl.textContent = code;
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.remove('open');
+      showToast('Language switched to ' + code);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      const m = document.getElementById('toast-message');
+      if (t && m) {
+        m.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+
+    function handleFooterNewsletter(e) {
+      e.preventDefault();
+      const inp = document.getElementById('footer-newsletter-email');
+      const msg = document.getElementById('footer-nl-success');
+      if (inp && msg) {
+        localStorage.setItem('ballondor_subscriber', inp.value);
+        inp.value = '';
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        showToast('Subscribed to Ballon d’Or newsletter!');
+      }
+    }
+
+    // Check login state
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = localStorage.getItem('ballondor_logged_user');
+      const btn = document.getElementById('nav-login-btn');
+      if (user && btn) {
+        btn.textContent = user;
+        btn.href = 'login.html';
+      }
+    });
+
+    // Close dropdowns on outer click
+    document.addEventListener('click', (e) => {
+      const langWrap = document.querySelector('.lang-select-wrapper');
+      if (langWrap && !langWrap.contains(e.target)) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
+
+  

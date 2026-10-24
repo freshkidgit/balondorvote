@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Rankings | Ballon d'Or | Ballon d'Or™ Official</title>
+  <meta name="description" content="Explore the complete official voting records and full standings for every edition of the Ballon d'Or." />
+  <link rel="icon" href="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site/style.css" />
+  <style>
+
+/* Multi-page shared enhancements */
+.page-hero {
+  position: relative;
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(252, 212, 160, 0.12) 0%, rgba(0,0,0,0.95) 75%);
+  border-bottom: 1px solid rgba(252, 212, 160, 0.2);
+}
+.page-hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(252, 212, 160, 0.15);
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: var(--clr-primary-medium, #FCD4A0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: #c4c4c4;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.tabs-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #080808;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(252, 212, 160, 0.15);
+  border-color: rgba(252, 212, 160, 0.4);
+  color: #fff;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%);
+  color: #000;
+  border-color: #FCD4A0;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(252, 212, 160, 0.3);
+}
+
+/* Search Bar Component */
+.filter-search-wrapper {
+  max-width: 700px;
+  margin: 30px auto 20px;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+}
+.search-input-box {
+  flex: 1;
+  position: relative;
+}
+.search-input-box input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: #111;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input-box input:focus {
+  border-color: var(--clr-primary-medium, #FCD4A0);
+  box-shadow: 0 0 12px rgba(252, 212, 160, 0.25);
+}
+.search-input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #121212;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Toast alert */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1a1a;
+  border: 1px solid #FCD4A0;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.95rem;
+}
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+
+.rankings-page-container {
+  max-width: 1100px;
+  margin: 0 auto 90px;
+  padding: 0 20px;
+}
+.rankings-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 24px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.year-select-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.year-select-dropdown {
+  background: #1a1a1a;
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: #FCD4A0;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.year-select-dropdown option {
+  background: #111;
+  color: #fff;
+}
+
+/* Podium Cards */
+.podium-container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+.podium-card {
+  background: #141414;
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  transition: transform 0.2s;
+}
+.podium-card.rank-1 {
+  background: linear-gradient(180deg, rgba(252, 212, 160, 0.15) 0%, #141414 100%);
+  border-color: #FCD4A0;
+  padding-bottom: 36px;
+  transform: translateY(-10px);
+}
+.podium-card.rank-2 {
+  border-color: #c0c0c0;
+}
+.podium-card.rank-3 {
+  border-color: #cd7f32;
+}
+.podium-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.podium-badge.gold { background: #FCD4A0; color: #000; }
+.podium-badge.silver { background: #c0c0c0; color: #000; }
+.podium-badge.bronze { background: #cd7f32; color: #fff; }
+.podium-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.podium-card.rank-1 .podium-avatar {
+  width: 96px;
+  height: 96px;
+  border-color: #FCD4A0;
+}
+.podium-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.podium-club {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 8px;
+}
+.podium-pts {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FCD4A0;
+}
+
+/* Standings Table */
+.standings-table-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.standings-table th {
+  background: #181818;
+  padding: 16px 20px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.standings-table td {
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  color: #ddd;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.standings-table tr:hover td {
+  background: rgba(252, 212, 160, 0.04);
+}
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.rank-badge.top-1 { background: #FCD4A0; color: #000; }
+.rank-badge.top-2 { background: #c0c0c0; color: #000; }
+.rank-badge.top-3 { background: #cd7f32; color: #fff; }
+
+@media (max-width: 768px) {
+  .podium-container { grid-template-columns: 1fr; }
+  .podium-card.rank-1 { transform: none; }
+}
+
+  </style>
+</head>
+<body>
+
+  
+  <!-- Top Sponsors Bar -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 25px; height: 25px;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img class="sponsor-desktop-only" src="assets/site/vanguart.svg" alt="Vanguart" style="width: 45px; height: 21px;" />
+      <img class="sponsor-mobile-only" src="assets/site/assets_09a24a2d-ace3-44dd-a28b-85ab89532d2a.png" alt="Vanguart" style="width: 22px; height: 22px;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 60px; height: 14px;" />
+    </a>
+  </header>
+
+  <!-- Sticky Main Nav -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html" class="">Nominees</a></li>
+          <li><a href="news.html" class="">All articles</a></li>
+          <li><a href="vote.html" class="">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html" class="">Home</a>
+      <a href="nominees.html" class="">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote B.O.A.T.</a>
+      <a href="winners.html" class="">Winners</a>
+      <a href="all-rankings.html" class="active-drawer">All Rankings</a>
+      <a href="fan-zone.html" class="">Fan Zone</a>
+      <a href="the-ballon-dor.html" class="">The Ballon d’Or</a>
+      <a href="news.html" class="">News & Articles</a>
+      <a href="stories.html" class="">Stories</a>
+      <a href="champions-academy.html" class="">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html" class="">Press Room</a>
+      <a href="login.html" class="">My Account / Login</a>
+    </div>
+  </nav>
+
+
+  <div class="page-hero">
+    <div class="page-hero-badge">Voting Database</div>
+    <h1>Ballon d'Or™ All Rankings</h1>
+    <p>Discover the official top-ranked players, points breakdown, and votes cast by the international jury of journalists.</p>
+  </div>
+
+  <div class="rankings-page-container">
+    <div class="rankings-controls-bar">
+      <div class="year-select-group">
+        <label for="rankings-year-select" style="font-weight: 700; color: #fff;">Select Edition Year:</label>
+        <select id="rankings-year-select" class="year-select-dropdown" onchange="loadYearRankings(this.value)">
+          <option value="2024">2024 Edition</option>
+          <option value="2023">2023 Edition</option>
+          <option value="2022">2022 Edition</option>
+        </select>
+      </div>
+
+      <div class="search-input-box" style="min-width: 280px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="ranking-table-search" placeholder="Filter this year's players..." oninput="filterTable()" />
+      </div>
+    </div>
+
+    <!-- Top 3 Podium Highlights -->
+    <div class="podium-container" id="podium-row">
+      <!-- Injected by script -->
+    </div>
+
+    <!-- Full Standings Table -->
+    <div class="standings-table-card">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th style="width: 70px;">Rank</th>
+            <th>Player Name</th>
+            <th>Club</th>
+            <th>Country</th>
+            <th style="text-align: right;">Total Points</th>
+          </tr>
+        </thead>
+        <tbody id="standings-tbody">
+          <!-- Injected by script -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const dataByYear = {"2022":[{"rank":1,"name":"Karim Benzema","club":"Real Madrid","country":"France","points":"549","img":"assets/winners/2022_karim_benzema.jpg"},{"rank":2,"name":"Sadio Mané","club":"Liverpool / Bayern","country":"Senegal","points":"193","img":"assets/nominees/ademola_lookman.jpg"},{"rank":3,"name":"Kevin De Bruyne","club":"Manchester City","country":"Belgium","points":"175","img":"assets/nominees/jude_bellingham.jpg"},{"rank":4,"name":"Robert Lewandowski","club":"Bayern / Barcelona","country":"Poland","points":"170","img":"assets/nominees/harry_kane.jpg"},{"rank":5,"name":"Mohamed Salah","club":"Liverpool","country":"Egypt","points":"116","img":"assets/nominees/vinicius_junior.jpg"},{"rank":6,"name":"Kylian Mbappé","club":"PSG","country":"France","points":"85","img":"assets/nominees/kylian_mbappe.jpg"},{"rank":7,"name":"Thibaut Courtois","club":"Real Madrid","country":"Belgium","points":"82","img":"assets/players/043dc6b7d0027de95d83b02475f4fdb0.jpeg"},{"rank":8,"name":"Vinícius Júnior","club":"Real Madrid","country":"Brazil","points":"61","img":"assets/nominees/vinicius_junior.jpg"},{"rank":9,"name":"Luka Modrić","club":"Real Madrid","country":"Croatia","points":"20","img":"assets/winners/2018_luka_modric.jpg"},{"rank":10,"name":"Erling Haaland","club":"Dortmund / Man City","country":"Norway","points":"18","img":"assets/nominees/erling_haaland.jpg"}],"2023":[{"rank":1,"name":"Lionel Messi","club":"Inter Miami / PSG","country":"Argentina","points":"462","img":"assets/winners/2023_lionel_messi.jpg"},{"rank":2,"name":"Erling Haaland","club":"Manchester City","country":"Norway","points":"357","img":"assets/nominees/erling_haaland.jpg"},{"rank":3,"name":"Kylian Mbappé","club":"PSG","country":"France","points":"270","img":"assets/nominees/kylian_mbappe.jpg"},{"rank":4,"name":"Kevin De Bruyne","club":"Manchester City","country":"Belgium","points":"100","img":"assets/nominees/jude_bellingham.jpg"},{"rank":5,"name":"Rodri","club":"Manchester City","country":"Spain","points":"57","img":"assets/winners/2024_rodri.jpg"},{"rank":6,"name":"Vinícius Júnior","club":"Real Madrid","country":"Brazil","points":"49","img":"assets/nominees/vinicius_junior.jpg"},{"rank":7,"name":"Julián Álvarez","club":"Manchester City","country":"Argentina","points":"28","img":"assets/nominees/lautaro_martinez.jpg"},{"rank":8,"name":"Victor Osimhen","club":"Napoli","country":"Nigeria","points":"24","img":"assets/nominees/ademola_lookman.jpg"},{"rank":9,"name":"Bernardo Silva","club":"Manchester City","country":"Portugal","points":"20","img":"assets/players/076a83a0810b2acf0930248035248054.jpeg"},{"rank":10,"name":"Luka Modrić","club":"Real Madrid","country":"Croatia","points":"19","img":"assets/winners/2018_luka_modric.jpg"}],"2024":[{"rank":1,"name":"Rodri","club":"Manchester City","country":"Spain","points":"1,170","img":"assets/winners/2024_rodri.jpg"},{"rank":2,"name":"Vinícius Júnior","club":"Real Madrid","country":"Brazil","points":"1,129","img":"assets/nominees/vinicius_junior.jpg"},{"rank":3,"name":"Jude Bellingham","club":"Real Madrid","country":"England","points":"917","img":"assets/nominees/jude_bellingham.jpg"},{"rank":4,"name":"Dani Carvajal","club":"Real Madrid","country":"Spain","points":"550","img":"assets/nominees/dani_carvajal.jpg"},{"rank":5,"name":"Erling Haaland","club":"Manchester City","country":"Norway","points":"432","img":"assets/nominees/erling_haaland.jpg"},{"rank":6,"name":"Kylian Mbappé","club":"Real Madrid / PSG","country":"France","points":"420","img":"assets/nominees/kylian_mbappe.jpg"},{"rank":7,"name":"Lautaro Martínez","club":"Inter Milan","country":"Argentina","points":"402","img":"assets/nominees/lautaro_martinez.jpg"},{"rank":8,"name":"Lamine Yamal","club":"FC Barcelona","country":"Spain","points":"383","img":"assets/nominees/lamine_yamal.jpg"},{"rank":9,"name":"Toni Kroos","club":"Real Madrid","country":"Germany","points":"291","img":"assets/players/043dc6b7d0027de95d83b02475f4fdb0.jpeg"},{"rank":10,"name":"Harry Kane","club":"Bayern Munich","country":"England","points":"201","img":"assets/nominees/harry_kane.jpg"},{"rank":11,"name":"Phil Foden","club":"Manchester City","country":"England","points":"157","img":"assets/nominees/phil_foden.jpg"},{"rank":12,"name":"Florian Wirtz","club":"Bayer Leverkusen","country":"Germany","points":"101","img":"assets/nominees/florian_wirtz.jpg"},{"rank":13,"name":"Dani Olmo","club":"Barcelona / Leipzig","country":"Spain","points":"86","img":"assets/nominees/dani_olmo.jpg"},{"rank":14,"name":"Ademola Lookman","club":"Atalanta","country":"Nigeria","points":"82","img":"assets/nominees/ademola_lookman.jpg"},{"rank":15,"name":"Nico Williams","club":"Athletic Bilbao","country":"Spain","points":"73","img":"assets/nominees/nico_williams.jpg"},{"rank":16,"name":"Granit Xhaka","club":"Bayer Leverkusen","country":"Switzerland","points":"60","img":"assets/nominees/granit_xhaka.jpg"},{"rank":17,"name":"Federico Valverde","club":"Real Madrid","country":"Uruguay","points":"58","img":"assets/nominees/federico_valverde.jpg"},{"rank":18,"name":"Emiliano Martínez","club":"Aston Villa","country":"Argentina","points":"28","img":"assets/winners/2023_lionel_messi.jpg"},{"rank":19,"name":"Martin Ødegaard","club":"Arsenal","country":"Norway","points":"16","img":"assets/nominees/martin_odegaard.jpg"},{"rank":20,"name":"Hakan Çalhanoğlu","club":"Inter Milan","country":"Turkey","points":"15","img":"assets/winners/2018_luka_modric.jpg"}]};
+
+    function loadYearRankings(yr) {
+      const list = dataByYear[yr] || dataByYear["2024"];
+
+      // Podium
+      const p1 = list[0];
+      const p2 = list[1];
+      const p3 = list[2];
+
+      const podiumHtml = `
+        <div class="podium-card rank-2">
+          <span class="podium-badge silver">2nd Place</span>
+          <img src="${p2.img}" alt="${p2.name}" class="podium-avatar" />
+          <div class="podium-name">${p2.name}</div>
+          <div class="podium-club">${p2.club} • ${p2.country}</div>
+          <div class="podium-pts">${p2.points} pts</div>
+        </div>
+
+        <div class="podium-card rank-1">
+          <span class="podium-badge gold">1st Place • Winner</span>
+          <img src="${p1.img}" alt="${p1.name}" class="podium-avatar" />
+          <div class="podium-name">${p1.name}</div>
+          <div class="podium-club">${p1.club} • ${p1.country}</div>
+          <div class="podium-pts">${p1.points} pts</div>
+        </div>
+
+        <div class="podium-card rank-3">
+          <span class="podium-badge bronze">3rd Place</span>
+          <img src="${p3.img}" alt="${p3.name}" class="podium-avatar" />
+          <div class="podium-name">${p3.name}</div>
+          <div class="podium-club">${p3.club} • ${p3.country}</div>
+          <div class="podium-pts">${p3.points} pts</div>
+        </div>
+      `;
+      document.getElementById('podium-row').innerHTML = podiumHtml;
+
+      // Table
+      const rowsHtml = list.map(item => {
+        let badgeCls = '';
+        if (item.rank === 1) badgeCls = 'top-1';
+        else if (item.rank === 2) badgeCls = 'top-2';
+        else if (item.rank === 3) badgeCls = 'top-3';
+
+        return `
+          <tr data-name="${item.name.toLowerCase()}" data-club="${item.club.toLowerCase()}" data-country="${item.country.toLowerCase()}">
+            <td><span class="rank-badge ${badgeCls}">${item.rank}</span></td>
+            <td><strong>${item.name}</strong></td>
+            <td>${item.club}</td>
+            <td>${item.country}</td>
+            <td style="text-align: right; font-weight: 800; color: #FCD4A0;">${item.points}</td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('standings-tbody').innerHTML = rowsHtml;
+    }
+
+    function filterTable() {
+      const q = (document.getElementById('ranking-table-search').value || '').toLowerCase().trim();
+      const rows = document.querySelectorAll('#standings-tbody tr');
+      rows.forEach(r => {
+        const name = r.getAttribute('data-name');
+        const club = r.getAttribute('data-club');
+        const country = r.getAttribute('data-country');
+        if (!q || name.includes(q) || club.includes(q) || country.includes(q)) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    // Init with 2024
+    loadYearRankings("2024");
+  </script>
+
+  
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col brand-col">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" class="footer-logo" />
+        <p class="footer-tagline">The most prestigious individual award in world football, honouring legendary excellence and greatness since 1956.</p>
+        <div class="social-links-row">
+          <a href="https://instagram.com/ballondor" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/ballondor" target="_blank" aria-label="X / Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@ballondor" target="_blank" aria-label="TikTok">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.32-6.32V8.92a8.28 8.28 0 0 0 4.84 1.57v-3.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/ballondor" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">News & Articles</a></li>
+          <li><a href="vote.html">Vote B.O.A.T.</a></li>
+          <li><a href="fan-zone.html">Fan Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Awards</h4>
+        <ul>
+          <li><a href="winners.html">Winners History</a></li>
+          <li><a href="all-rankings.html">All Rankings</a></li>
+          <li><a href="the-ballon-dor.html">The Trophy & History</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="champions-academy.html">Champions’ Academy</a></li>
+          <li><a href="ballon-dor-press-room.html">Press Room</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive Ballon d'Or ceremony announcements, nominee interviews, and voting results.</p>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletter(event)">
+          <input type="email" id="footer-newsletter-email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <span id="footer-nl-success" class="nl-success-msg" style="display:none; color: #4ade80; font-size: 0.85rem; margin-top: 6px;">Thank you for subscribing!</span>
+      </div>
+    </div>
+
+    <div class="footer-sponsors-section">
+      <span class="partners-label">OFFICIAL PARTNERS & SPONSORS</span>
+      <div class="sponsor-logos-grid">
+        <a href="https://www.adidas.com" target="_blank"><img src="assets/site/adidas.svg" alt="Adidas" /></a>
+        <a href="https://www.topps.com" target="_blank"><img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" /></a>
+        <a href="https://www.vanguart.com" target="_blank"><img src="assets/site/vanguart.svg" alt="Vanguart" /></a>
+        <a href="https://www.hankooktire.com" target="_blank"><img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook Tire" /></a>
+        <a href="https://www.lequipe.fr" target="_blank"><img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="L'Équipe" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-legal-links">
+        <a href="voting-terms-and-conditions.html">Voting Terms</a>
+        <a href="terms-and-conditions.html">Terms of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <p class="copyright-text">© 2026 Ballon d'Or™ - L'Équipe 24/24 - UEFA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global Shared Script -->
+  <div id="toast-notification" class="toast-notice">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <script>
+    function toggleHamburgerMenu() {
+      const panel = document.getElementById('menu-drawer-panel');
+      const backdrop = document.getElementById('menu-backdrop');
+      if (panel && backdrop) {
+        panel.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      }
+    }
+
+    function toggleLangPanel() {
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.toggle('open');
+    }
+
+    function selectLangCode(code) {
+      const lbl = document.getElementById('label-selected-lang');
+      if (lbl) lbl.textContent = code;
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.remove('open');
+      showToast('Language switched to ' + code);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      const m = document.getElementById('toast-message');
+      if (t && m) {
+        m.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+
+    function handleFooterNewsletter(e) {
+      e.preventDefault();
+      const inp = document.getElementById('footer-newsletter-email');
+      const msg = document.getElementById('footer-nl-success');
+      if (inp && msg) {
+        localStorage.setItem('ballondor_subscriber', inp.value);
+        inp.value = '';
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        showToast('Subscribed to Ballon d’Or newsletter!');
+      }
+    }
+
+    // Check login state
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = localStorage.getItem('ballondor_logged_user');
+      const btn = document.getElementById('nav-login-btn');
+      if (user && btn) {
+        btn.textContent = user;
+        btn.href = 'login.html';
+      }
+    });
+
+    // Close dropdowns on outer click
+    document.addEventListener('click', (e) => {
+      const langWrap = document.querySelector('.lang-select-wrapper');
+      if (langWrap && !langWrap.contains(e.target)) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
+
+  

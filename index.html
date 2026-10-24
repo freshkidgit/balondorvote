@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ballon d'Or | The Most Prestigious Award in Football | Ballon d'Or™ Official</title>
+  <meta name="description" content="Welcome to the official Ballon d'Or portal. Explore the 2026 Nominees, cast your B.O.A.T. vote, and explore 70 years of football history." />
+  <link rel="icon" href="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site/style.css" />
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <style>
+
+/* Multi-page shared enhancements */
+.page-hero {
+  position: relative;
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(252, 212, 160, 0.12) 0%, rgba(0,0,0,0.95) 75%);
+  border-bottom: 1px solid rgba(252, 212, 160, 0.2);
+}
+.page-hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(252, 212, 160, 0.15);
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: var(--clr-primary-medium, #FCD4A0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: #c4c4c4;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.tabs-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #080808;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(252, 212, 160, 0.15);
+  border-color: rgba(252, 212, 160, 0.4);
+  color: #fff;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%);
+  color: #000;
+  border-color: #FCD4A0;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(252, 212, 160, 0.3);
+}
+
+/* Search Bar Component */
+.filter-search-wrapper {
+  max-width: 700px;
+  margin: 30px auto 20px;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+}
+.search-input-box {
+  flex: 1;
+  position: relative;
+}
+.search-input-box input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: #111;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input-box input:focus {
+  border-color: var(--clr-primary-medium, #FCD4A0);
+  box-shadow: 0 0 12px rgba(252, 212, 160, 0.25);
+}
+.search-input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #121212;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Toast alert */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1a1a;
+  border: 1px solid #FCD4A0;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.95rem;
+}
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+
+    .hero-ceremony-section { position: relative; min-height: 560px; background: radial-gradient(circle at 50% 30%, rgba(252, 212, 160, 0.18) 0%, #050505 80%); display: flex; align-items: center; justify-content: center; padding: 80px 24px 60px; text-align: center; overflow: hidden; border-bottom: 1px solid rgba(252, 212, 160, 0.15); }
+    .hero-content-box { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
+    .gala-edition-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(252, 212, 160, 0.12); border: 1px solid rgba(252, 212, 160, 0.35); color: var(--clr-primary-medium, #FCD4A0); padding: 8px 22px; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+    .hero-title-main { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 20px; text-transform: uppercase; }
+    .hero-title-main span { background: linear-gradient(135deg, #FFF1DC 0%, #FCD4A0 50%, #B88E4B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-subtitle-venue { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #e0e0e0; font-weight: 400; margin-bottom: 32px; }
+    .hero-subtitle-venue strong { color: #FCD4A0; }
+    .ceremony-countdown-grid { display: flex; justify-content: center; gap: 16px; margin: 0 auto 36px; flex-wrap: wrap; }
+    .c-box { background: rgba(20, 20, 20, 0.85); border: 1px solid rgba(252, 212, 160, 0.25); backdrop-filter: blur(8px); border-radius: 12px; padding: 16px 20px; min-width: 90px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+    .c-num { font-size: 2.2rem; font-weight: 800; color: #FCD4A0; line-height: 1; font-variant-numeric: tabular-nums; }
+    .c-lbl { font-size: 0.72rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+    .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%); color: #000; font-weight: 800; font-size: 1rem; padding: 16px 36px; border-radius: 9999px; text-decoration: none; transition: all 0.25s ease; box-shadow: 0 6px 20px rgba(252, 212, 160, 0.35); border: none; cursor: pointer; }
+    .btn-gold-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(252, 212, 160, 0.5); }
+    .btn-dark-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 700; font-size: 1rem; padding: 16px 32px; border-radius: 9999px; text-decoration: none; transition: all 0.25s ease; }
+    .btn-dark-outline:hover { background: rgba(255,255,255,0.12); border-color: #FCD4A0; color: #FCD4A0; }
+    .boat-spotlight-card { max-width: 1240px; margin: -40px auto 70px; padding: 0 20px; position: relative; z-index: 10; }
+    .boat-banner-inner { background: linear-gradient(135deg, #181512 0%, #0d0c0b 100%); border: 2px solid rgba(252, 212, 160, 0.4); border-radius: 20px; padding: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
+    .boat-banner-text h3 { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em; color: #E55838; text-transform: uppercase; margin-bottom: 12px; }
+    .boat-banner-text h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+    .boat-banner-text p { color: #bbb; font-size: 1rem; line-height: 1.6; margin-bottom: 24px; }
+    .boat-candidate-preview-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+    .boat-mini-pill { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(252, 212, 160, 0.2); border-radius: 30px; padding: 6px 14px 6px 6px; white-space: nowrap; }
+    .boat-mini-pill img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid #FCD4A0; }
+    .boat-mini-pill span { font-size: 0.85rem; font-weight: 600; color: #eee; }
+    .site-section { max-width: 1240px; margin: 0 auto 90px; padding: 0 20px; }
+    .section-header-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; }
+    .section-header-row h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+    .section-header-row a { color: #FCD4A0; font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .nominees-spotlight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .nominee-card-preview { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px; text-align: center; position: relative; transition: all 0.3s ease; cursor: pointer; }
+    .nominee-card-preview:hover { transform: translateY(-5px); border-color: rgba(252, 212, 160, 0.4); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+    .nominee-avatar-wrapper { width: 100px; height: 100px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(252, 212, 160, 0.4); background: #222; }
+    .nominee-avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .nominee-badge-cat { position: absolute; top: 12px; right: 12px; background: rgba(252, 212, 160, 0.15); color: #FCD4A0; font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; }
+    .nominee-name { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .nominee-team-country { font-size: 0.82rem; color: #999; }
+    .news-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; }
+    .news-card-item { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; cursor: pointer; }
+    .news-card-item:hover { transform: translateY(-5px); border-color: rgba(252, 212, 160, 0.35); box-shadow: 0 16px 36px rgba(0,0,0,0.6); }
+    .news-thumb-box { position: relative; height: 200px; background: #222; overflow: hidden; }
+    .news-thumb-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .news-category-tag { position: absolute; bottom: 12px; left: 12px; background: #E55838; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; }
+    .news-body-content { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .news-meta-row { display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: #888; margin-bottom: 10px; }
+    .news-card-title { font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.35; margin-bottom: 12px; }
+    .news-card-excerpt { color: #a0a0a0; font-size: 0.88rem; line-height: 1.5; margin-bottom: 18px; flex: 1; }
+    .news-read-more-btn { color: #FCD4A0; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; }
+    .winners-timeline-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+    .winner-pill-card { background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%); border: 1px solid rgba(252, 212, 160, 0.2); border-radius: 14px; padding: 20px; text-align: center; text-decoration: none; transition: all 0.3s ease; }
+    .winner-pill-card:hover { transform: translateY(-4px); border-color: #FCD4A0; box-shadow: 0 10px 26px rgba(252, 212, 160, 0.2); }
+    .winner-year-badge { font-size: 1.5rem; font-weight: 900; color: #FCD4A0; margin-bottom: 6px; }
+    .winner-photo { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px; border: 2px solid #FCD4A0; }
+    .winner-player-name { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .winner-player-club { font-size: 0.78rem; color: #999; }
+    .home-fanzone-box { background: radial-gradient(circle at 50% 50%, #1c1813 0%, #0a0a0a 100%); border: 1px solid rgba(252, 212, 160, 0.3); border-radius: 20px; padding: 40px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+    .poll-options-list { display: flex; flex-direction: column; gap: 12px; }
+    .poll-option-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 14px 18px; color: #fff; font-size: 0.95rem; font-weight: 600; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; transition: all 0.2s ease; }
+    .poll-option-btn:hover { border-color: #FCD4A0; background: rgba(252, 212, 160, 0.1); }
+    .poll-bar-fill { position: absolute; top: 0; bottom: 0; left: 0; background: rgba(252, 212, 160, 0.25); transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+    .poll-pct-text { font-weight: 800; color: #FCD4A0; z-index: 2; position: relative; }
+    @media (max-width: 900px) { .boat-banner-inner { grid-template-columns: 1fr; } .home-fanzone-box { grid-template-columns: 1fr; } }
+  
+  </style>
+</head>
+<body>
+
+  
+  <!-- Top Sponsors Bar -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 32px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px; object-fit: contain;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img src="assets/site/vanguart.svg" alt="Vanguart" style="width: 65px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 65px; height: 16px; object-fit: contain;" />
+    </a>
+  </header>
+
+  <!-- Sticky Main Nav -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html" class="">Nominees</a></li>
+          <li><a href="news.html" class="">All articles</a></li>
+          <li><a href="vote.html" class="">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html" class="active-drawer">Home</a>
+      <a href="nominees.html" class="">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote B.O.A.T.</a>
+      <a href="winners.html" class="">Winners</a>
+      <a href="all-rankings.html" class="">All Rankings</a>
+      <a href="fan-zone.html" class="">Fan Zone</a>
+      <a href="the-ballon-dor.html" class="">The Ballon d’Or</a>
+      <a href="news.html" class="">News & Articles</a>
+      <a href="stories.html" class="">Stories</a>
+      <a href="champions-academy.html" class="">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html" class="">Press Room</a>
+      <a href="login.html" class="">My Account / Login</a>
+    </div>
+  </nav>
+
+
+  <!-- Hero: The 70th Ballon d'Or Ceremony Gala -->
+  <section class="hero-ceremony-section">
+    <div class="hero-content-box">
+      <div class="gala-edition-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.4h7.6z"/></svg>
+        70th Edition Gala • London 2026
+      </div>
+      <h1 class="hero-title-main">The Most Prestigious Award <span>In Football</span></h1>
+      <p class="hero-subtitle-venue">Live from the iconic <strong>London Palladium</strong> on <strong>Monday 26 October 2026</strong>. Hosted by Thierry Henry and Kate Scott.</p>
+      
+      <!-- Live Ceremony Countdown -->
+      <div class="ceremony-countdown-grid" id="ceremony-countdown">
+        <div class="c-box"><div class="c-num" id="cd-days">05</div><div class="c-lbl">Days</div></div>
+        <div class="c-box"><div class="c-num" id="cd-hours">14</div><div class="c-lbl">Hours</div></div>
+        <div class="c-box"><div class="c-num" id="cd-mins">32</div><div class="c-lbl">Mins</div></div>
+        <div class="c-box"><div class="c-num" id="cd-secs">45</div><div class="c-lbl">Secs</div></div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="vote.html" class="btn-gold-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          Vote For Your B.O.A.T.
+        </a>
+        <a href="nominees.html" class="btn-dark-outline">
+          Explore 2026 Nominees
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Spotlight: B.O.A.T. Election -->
+  <div class="boat-spotlight-card">
+    <div class="boat-banner-inner">
+      <div class="boat-banner-text">
+        <h3>Public Global Election</h3>
+        <h2>Who is your Ballon d’Or Of All Time?</h2>
+        <p>For the first time in football history, football fans worldwide vote to crown the greatest Ballon d'Or champion of all time from legends who have won at least twice.</p>
+        <a href="vote.html" class="btn-gold-primary">
+          Cast Your Official Vote (Paystack / €1)
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: #FCD4A0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em;">Top Contenders Right Now</div>
+        <div class="boat-candidate-preview-row">
+          <div class="boat-mini-pill">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" />
+            <span>C. Ronaldo (5x)</span>
+          </div>
+          <div class="boat-mini-pill">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" />
+            <span>L. Messi (8x)</span>
+          </div>
+          <div class="boat-mini-pill">
+            <img src="assets/winners/johan-cruyff.png" alt="Johan Cruyff" />
+            <span>J. Cruyff (3x)</span>
+          </div>
+          <div class="boat-mini-pill">
+            <img src="assets/winners/marco-van-basten.png" alt="Marco van Basten" />
+            <span>Van Basten (3x)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2026 Nominees Spotlight Section with REAL photos -->
+  <section class="site-section">
+    <div class="section-header-row">
+      <div>
+        <span style="color: #E55838; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Class of 2026</span>
+        <h2>2026 Ballon d'Or Nominees</h2>
+      </div>
+      <a href="nominees.html">
+        View All Categories & Shortlists
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="nominees-spotlight-grid">
+      <!-- Vinicius Jr -->
+      <div class="nominee-card-preview" onclick="openNomineeModal('Vinícius Júnior', 'Real Madrid', 'Brazil', 'Forward', 'UEFA Champions League Winner, La Liga Champion, 24 goals, 11 assists in all competitions.')">
+        <span class="nominee-badge-cat">Men's</span>
+        <div class="nominee-avatar-wrapper">
+          <img src="assets/nominees/vin-cius-jr-.png" alt="Vinícius Júnior" />
+        </div>
+        <div class="nominee-name">Vinícius Jr.</div>
+        <div class="nominee-team-country">Real Madrid • Brazil</div>
+      </div>
+
+      <!-- Rodri -->
+      <div class="nominee-card-preview" onclick="openNomineeModal('Rodri', 'Manchester City', 'Spain', 'Midfielder', 'Premier League Champion, UEFA Euro 2024 Player of the Tournament, Club World Cup Winner.')">
+        <span class="nominee-badge-cat">Men's</span>
+        <div class="nominee-avatar-wrapper">
+          <img src="assets/nominees/rodri.png" alt="Rodri" />
+        </div>
+        <div class="nominee-name">Rodri</div>
+        <div class="nominee-team-country">Manchester City • Spain</div>
+      </div>
+
+      <!-- Jude Bellingham -->
+      <div class="nominee-card-preview" onclick="openNomineeModal('Jude Bellingham', 'Real Madrid', 'England', 'Midfielder', 'La Liga Champion, Champions League Winner, La Liga Player of the Season, 23 goals.')">
+        <span class="nominee-badge-cat">Men's</span>
+        <div class="nominee-avatar-wrapper">
+          <img src="assets/nominees/jude-bellingham.png" alt="Jude Bellingham" />
+        </div>
+        <div class="nominee-name">Jude Bellingham</div>
+        <div class="nominee-team-country">Real Madrid • England</div>
+      </div>
+
+      <!-- Lamine Yamal -->
+      <div class="nominee-card-preview" onclick="openNomineeModal('Lamine Yamal', 'FC Barcelona', 'Spain', 'Winger', 'UEFA Euro 2024 Champion, Young Player of the Tournament, Youngest scorer in Euro history.')">
+        <span class="nominee-badge-cat">Kopa Trophy</span>
+        <div class="nominee-avatar-wrapper">
+          <img src="assets/nominees/lamine-yamal.png" alt="Lamine Yamal" />
+        </div>
+        <div class="nominee-name">Lamine Yamal</div>
+        <div class="nominee-team-country">FC Barcelona • Spain</div>
+      </div>
+
+      <!-- Erling Haaland -->
+      <div class="nominee-card-preview" onclick="openNomineeModal('Erling Haaland', 'Manchester City', 'Norway', 'Striker', 'Premier League Golden Boot Winner, Premier League Champion, 38 goals in all competitions.')">
+        <span class="nominee-badge-cat">Men's</span>
+        <div class="nominee-avatar-wrapper">
+          <img src="assets/nominees/erling-haaland.png" alt="Erling Haaland" />
+        </div>
+        <div class="nominee-name">Erling Haaland</div>
+        <div class="nominee-team-country">Manchester City • Norway</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News & Editorial Section -->
+  <section class="site-section">
+    <div class="section-header-row">
+      <div>
+        <span style="color: #E55838; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Official Coverage</span>
+        <h2>Latest News & Articles</h2>
+      </div>
+      <a href="news.html">
+        View All Articles
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="news-cards-grid">
+      <!-- Article 1 -->
+      <div class="news-card-item" onclick="openArticleModal('Cristiano Ronaldo is top of the BOAT poll: you can still vote!', 'Editorial Desk', 'October 21, 2026', 'assets/media/8c13f348ab57c3c242851cfce35f7d78.jpeg', 'Many of you have already taken part in the public vote to choose the greatest ever Ballon d’Or (B.O.A.T.), a fan-driven initiative that has sparked huge global enthusiasm, with countless votes pouring in from all over the world! The Portuguese superstar currently leads the worldwide tally, closely pursued by Lionel Messi and Johan Cruyff. Voting remains open until the grand ceremony on October 26 at the London Palladium.')">
+        <div class="news-thumb-box">
+          <img src="assets/media/8c13f348ab57c3c242851cfce35f7d78.jpeg" alt="Cristiano Ronaldo leads BOAT" onerror="this.src='assets/winners/cristiano-ronaldo.png'" />
+          <span class="news-category-tag">B.O.A.T. Vote</span>
+        </div>
+        <div class="news-body-content">
+          <div class="news-meta-row"><span>October 21, 2026</span> • <span>3 min read</span></div>
+          <h3 class="news-card-title">Cristiano Ronaldo is top of the BOAT poll: you can still vote!</h3>
+          <p class="news-card-excerpt">Many of you have already taken part in the public vote to choose the greatest ever Ballon d’Or winner, with votes pouring in from over 140 countries.</p>
+          <span class="news-read-more-btn">Read full story &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="news-card-item" onclick="openArticleModal('Announcement! Thierry Henry and Kate Scott will host the 2026 Ballon d’Or ceremony', 'Press Office', 'October 19, 2026', 'assets/media/08765d1d8212bb9f504bcf3dde2ae657.jpeg', 'Thierry Henry, 2003 Ballon d’Or runner-up, and British journalist Kate Scott will host the ceremony for the 70th edition of the Ballon d’Or on Monday, October 26, at the London Palladium. This marks a landmark moment as the ceremony travels to London for the first time in its illustrious 70-year history.')">
+        <div class="news-thumb-box">
+          <img src="assets/media/08765d1d8212bb9f504bcf3dde2ae657.jpeg" alt="Henry & Scott host" onerror="this.src='assets/winners/zinedine-zidane.png'" />
+          <span class="news-category-tag">Ceremony</span>
+        </div>
+        <div class="news-body-content">
+          <div class="news-meta-row"><span>October 19, 2026</span> • <span>4 min read</span></div>
+          <h3 class="news-card-title">Announcement! Thierry Henry and Kate Scott will host the 2026 Ballon d’Or ceremony</h3>
+          <p class="news-card-excerpt">The French legend and celebrated broadcaster will guide viewers worldwide through the 70th Ballon d'Or gala in London.</p>
+          <span class="news-read-more-btn">Read full story &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="news-card-item" onclick="openArticleModal('The iconic London Palladium: Ballon d’Or’s home for 2026', 'History & Venues', 'October 18, 2026', 'assets/media/139cf617db7c5e4a6e9613665691c202.jpeg', 'Ballon d’Or pays homage to the venue of its 2026 gala, a world-renowned theatre that has entertained generation after generation in the heart of London’s West End. Discover the secrets of this architectural masterpiece as it prepares to welcome football royalty.')">
+        <div class="news-thumb-box">
+          <img src="assets/media/139cf617db7c5e4a6e9613665691c202.jpeg" alt="London Palladium" onerror="this.src='assets/winners/johan-cruyff.png'" />
+          <span class="news-category-tag">Venue</span>
+        </div>
+        <div class="news-body-content">
+          <div class="news-meta-row"><span>October 18, 2026</span> • <span>5 min read</span></div>
+          <h3 class="news-card-title">The iconic London Palladium: Ballon d’Or’s home for 2026</h3>
+          <p class="news-card-excerpt">A world-renowned theatre that has entertained generation after generation now sets the stage for the golden ball.</p>
+          <span class="news-read-more-btn">Read full story &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Winners Showcase with REAL photos -->
+  <section class="site-section">
+    <div class="section-header-row">
+      <div>
+        <span style="color: #E55838; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Hall of Fame</span>
+        <h2>Recent Ballon d'Or Winners</h2>
+      </div>
+      <a href="winners.html">
+        Explore 1956–2024 Archive
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="winners-timeline-row">
+      <a href="winners.html" class="winner-pill-card">
+        <div class="winner-year-badge">2024</div>
+        <img src="assets/winners/rodri.png" alt="Rodri" class="winner-photo" />
+        <div class="winner-player-name">Rodri</div>
+        <div class="winner-player-club">Manchester City • Spain</div>
+      </a>
+
+      <a href="winners.html" class="winner-pill-card">
+        <div class="winner-year-badge">2023</div>
+        <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-photo" />
+        <div class="winner-player-name">Lionel Messi</div>
+        <div class="winner-player-club">Inter Miami • Argentina</div>
+      </a>
+
+      <a href="winners.html" class="winner-pill-card">
+        <div class="winner-year-badge">2022</div>
+        <img src="assets/winners/karim-benzema.png" alt="Karim Benzema" class="winner-photo" />
+        <div class="winner-player-name">Karim Benzema</div>
+        <div class="winner-player-club">Real Madrid • France</div>
+      </a>
+
+      <a href="winners.html" class="winner-pill-card">
+        <div class="winner-year-badge">2018</div>
+        <img src="assets/winners/luka-modri-.png" alt="Luka Modrić" class="winner-photo" />
+        <div class="winner-player-name">Luka Modrić</div>
+        <div class="winner-player-club">Real Madrid • Croatia</div>
+      </a>
+
+      <a href="winners.html" class="winner-pill-card">
+        <div class="winner-year-badge">2017</div>
+        <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-photo" />
+        <div class="winner-player-name">Cristiano Ronaldo</div>
+        <div class="winner-player-club">Real Madrid • Portugal</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Article Reader Modal -->
+  <div class="modal-overlay" id="article-reader-modal" onclick="closeArticleModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeArticleModal()">&times;</button>
+      <img id="m-art-img" src="" alt="Article thumbnail" style="width: 100%; height: 260px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;" />
+      <div style="display: flex; gap: 12px; color: #FCD4A0; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px;">
+        <span id="m-art-author">Author</span> • <span id="m-art-date">Date</span>
+      </div>
+      <h2 id="m-art-title" style="font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 16px;">Title</h2>
+      <div id="m-art-body" style="color: #ddd; font-size: 0.98rem; line-height: 1.7; white-space: pre-line;">Body</div>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: flex-end;">
+        <button class="btn-gold-primary" onclick="closeArticleModal()" style="padding: 10px 24px; font-size: 0.88rem;">Close Story</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nominee Detail Modal -->
+  <div class="modal-overlay" id="nominee-modal" onclick="closeNomineeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeNomineeModal()">&times;</button>
+      <h2 id="m-nom-name" style="font-size: 1.8rem; font-weight: 800; color: #FCD4A0; margin-bottom: 4px;">Player Name</h2>
+      <div id="m-nom-meta" style="color: #aaa; font-size: 0.92rem; margin-bottom: 20px;">Club • Nation • Position</div>
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(252, 212, 160, 0.2); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+        <div style="font-weight: 700; color: #fff; margin-bottom: 6px; font-size: 0.88rem; text-transform: uppercase;">2025/2026 Season Key Highlights</div>
+        <p id="m-nom-desc" style="color: #ccc; font-size: 0.95rem; line-height: 1.6; margin: 0;">Description</p>
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: flex-end;">
+        <a href="nominees.html" class="btn-dark-outline" style="padding: 10px 20px; font-size: 0.88rem;">View Full Nominees List</a>
+        <button class="btn-gold-primary" onclick="bookmarkNominee()" style="padding: 10px 24px; font-size: 0.88rem;">Add to Watchlist</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Live Ceremony Countdown to Oct 26, 2026 19:00 UTC
+    const targetDate = new Date('2026-10-26T19:00:00Z').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = Math.max(0, targetDate - now);
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      const elD = document.getElementById('cd-days');
+      const elH = document.getElementById('cd-hours');
+      const elM = document.getElementById('cd-mins');
+      const elS = document.getElementById('cd-secs');
+      if (elD) elD.textContent = String(d).padStart(2, '0');
+      if (elH) elH.textContent = String(h).padStart(2, '0');
+      if (elM) elM.textContent = String(m).padStart(2, '0');
+      if (elS) elS.textContent = String(s).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function openArticleModal(title, author, date, img, body) {
+      document.getElementById('m-art-title').textContent = title;
+      document.getElementById('m-art-author').textContent = author;
+      document.getElementById('m-art-date').textContent = date;
+      document.getElementById('m-art-img').src = img;
+      document.getElementById('m-art-body').textContent = body;
+      document.getElementById('article-reader-modal').classList.add('open');
+    }
+    function closeArticleModal() {
+      document.getElementById('article-reader-modal').classList.remove('open');
+    }
+
+    let currentNomineeName = '';
+    function openNomineeModal(name, club, country, pos, desc) {
+      currentNomineeName = name;
+      document.getElementById('m-nom-name').textContent = name;
+      document.getElementById('m-nom-meta').textContent = club + ' • ' + country + ' • ' + pos;
+      document.getElementById('m-nom-desc').textContent = desc;
+      document.getElementById('nominee-modal').classList.add('open');
+    }
+    function closeNomineeModal() {
+      document.getElementById('nominee-modal').classList.remove('open');
+    }
+    function bookmarkNominee() {
+      showToast(currentNomineeName + ' saved to your favorites!');
+      closeNomineeModal();
+    }
+  </script>
+
+  
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col brand-col">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" class="footer-logo" />
+        <p class="footer-tagline">The most prestigious individual award in world football, honouring legendary excellence and greatness since 1956.</p>
+        <div class="social-links-row">
+          <a href="https://instagram.com/ballondor" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/ballondor" target="_blank" aria-label="X / Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@ballondor" target="_blank" aria-label="TikTok">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.32-6.32V8.92a8.28 8.28 0 0 0 4.84 1.57v-3.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/ballondor" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">News & Articles</a></li>
+          <li><a href="vote.html">Vote B.O.A.T.</a></li>
+          <li><a href="fan-zone.html">Fan Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Awards</h4>
+        <ul>
+          <li><a href="winners.html">Winners History</a></li>
+          <li><a href="all-rankings.html">All Rankings</a></li>
+          <li><a href="the-ballon-dor.html">The Trophy & History</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="champions-academy.html">Champions’ Academy</a></li>
+          <li><a href="ballon-dor-press-room.html">Press Room</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive Ballon d'Or ceremony announcements, nominee interviews, and voting results.</p>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletter(event)">
+          <input type="email" id="footer-newsletter-email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <span id="footer-nl-success" class="nl-success-msg" style="display:none; color: #4ade80; font-size: 0.85rem; margin-top: 6px;">Thank you for subscribing!</span>
+      </div>
+    </div>
+
+    <div class="footer-sponsors-section">
+      <span class="partners-label">OFFICIAL PARTNERS & SPONSORS</span>
+      <div class="sponsor-logos-grid">
+        <a href="https://www.adidas.com" target="_blank"><img src="assets/site/adidas.svg" alt="Adidas" style="height: 24px; object-fit: contain;" /></a>
+        <a href="https://www.topps.com" target="_blank"><img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="height: 24px; object-fit: contain;" /></a>
+        <a href="https://www.vanguart.com" target="_blank"><img src="assets/site/vanguart.svg" alt="Vanguart" style="height: 20px; object-fit: contain;" /></a>
+        <a href="https://www.hankooktire.com" target="_blank"><img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook Tire" style="height: 16px; object-fit: contain;" /></a>
+        <a href="https://www.lequipe.fr" target="_blank"><img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="L'Équipe" style="height: 20px; object-fit: contain;" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-legal-links">
+        <a href="voting-terms-and-conditions.html">Voting Terms</a>
+        <a href="terms-and-conditions.html">Terms of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <p class="copyright-text">© 2026 Ballon d'Or™ - L'Équipe 24/24 - UEFA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global Shared Script -->
+  <div id="toast-notification" class="toast-notice">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <script>
+    function toggleHamburgerMenu() {
+      const panel = document.getElementById('menu-drawer-panel');
+      const backdrop = document.getElementById('menu-backdrop');
+      if (panel && backdrop) {
+        panel.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      }
+    }
+
+    function toggleLangPanel() {
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.toggle('open');
+    }
+
+    function selectLangCode(code) {
+      const lbl = document.getElementById('label-selected-lang');
+      if (lbl) lbl.textContent = code;
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.remove('open');
+      showToast('Language switched to ' + code);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      const m = document.getElementById('toast-message');
+      if (t && m) {
+        m.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+
+    function handleFooterNewsletter(e) {
+      e.preventDefault();
+      const inp = document.getElementById('footer-newsletter-email');
+      const msg = document.getElementById('footer-nl-success');
+      if (inp && msg) {
+        localStorage.setItem('ballondor_subscriber', inp.value);
+        inp.value = '';
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        showToast('Subscribed to Ballon d’Or newsletter!');
+      }
+    }
+
+    // Check login state
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = localStorage.getItem('ballondor_logged_user');
+      const btn = document.getElementById('nav-login-btn');
+      if (user && btn) {
+        btn.textContent = user;
+        btn.href = 'login.html';
+      }
+    });
+
+    // Close dropdowns on outer click
+    document.addEventListener('click', (e) => {
+      const langWrap = document.querySelector('.lang-select-wrapper');
+      if (langWrap && !langWrap.contains(e.target)) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
+
+  

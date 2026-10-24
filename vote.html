@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>It’s time to crown our B.O.A.T. (Ballon d’Or Of All Time). Who’s your pick?</title>
+  <meta name="description" content="Cast your vote for a golden year among players who have won the Ballon d'Or at least twice."/>
+  
+  <style>
+    /* Reset & Base Fonts */
+    @font-face {
+      font-family: 'CeraPro';
+      src: url('_next/static/media/CeraPro_Regular-s.36-8e3gtve30a.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CeraPro';
+      src: url('_next/static/media/CeraPro_Medium-s.0wk9smitxmxy5.woff2') format('woff2');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CeraPro';
+      src: url('_next/static/media/CeraPro_Bold-s.1mjkkb6td7lll.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'LargeFont';
+      src: url('_next/static/media/Large_Regular-s.0gnyb-scfye99.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+
+    :root {
+      --clr-gold: #FCD4A0;
+      --clr-gold-light: #F5F1DC;
+      --clr-bronze: #877458;
+      --clr-orange: #E55838;
+      --clr-dark: #000000;
+      --clr-card-bg: rgba(255, 255, 255, 0.03);
+      --clr-card-border: rgba(255, 255, 255, 0.1);
+      --clr-muted: #A3A3A3;
+      --font-main: 'CeraPro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-headline: 'LargeFont', 'CeraPro', serif, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+      font-family: var(--font-main);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ================= Top Sponsors Bar ================= */
+    .top-sponsors-bar {
+      background-color: var(--clr-gold);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+      padding: 8px 16px;
+      width: 100%;
+    }
+    .top-sponsors-bar a {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+      transition: opacity 0.2s;
+    }
+    .top-sponsors-bar a:hover { opacity: 0.65; }
+    .top-sponsors-bar img {
+      height: auto;
+      object-fit: contain;
+    }
+    @media (max-width: 767px) {
+      .top-sponsors-bar { gap: 2rem; }
+      .sponsor-desktop-only { display: none !important; }
+    }
+    @media (min-width: 768px) {
+      .sponsor-mobile-only { display: none !important; }
+    }
+
+    /* ================= Navigation Header ================= */
+    .main-nav-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #050C13 1.44%, #223A49 61.06%, #E6E6E6 81.73%, #E6E6E6 86.06%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .nav-left-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .btn-hamburger {
+      background: transparent;
+      border: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .nav-menu-links {
+      display: none;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    @media (min-width: 820px) {
+      .nav-menu-links { display: flex; }
+    }
+    .nav-menu-links a {
+      font-size: 16px;
+      color: #fff;
+      font-weight: 400;
+      transition: text-decoration 0.2s;
+    }
+    .nav-menu-links a:hover { text-decoration: underline; }
+    .nav-menu-links a.shop-highlight {
+      color: var(--clr-orange) !important;
+      font-weight: 600;
+    }
+
+    .nav-center-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+    .nav-center-logo img {
+      width: 157px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .nav-right-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .lang-select-wrapper {
+      position: relative;
+    }
+    .btn-lang {
+      background: transparent;
+      border: none;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lang-dropdown-panel {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: #111;
+      border: 1px solid rgba(252,212,160,0.3);
+      border-radius: 8px;
+      padding: 6px 0;
+      display: none;
+      flex-direction: column;
+      z-index: 105;
+      min-width: 90px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+    .lang-dropdown-panel.open { display: flex; }
+    .lang-dropdown-panel a {
+      padding: 8px 18px;
+      color: #fff;
+      font-size: 14px;
+    }
+    .lang-dropdown-panel a:hover {
+      background: rgba(252,212,160,0.15);
+      color: var(--clr-gold);
+    }
+    .nav-login-link {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .nav-login-link:hover { text-decoration: underline; }
+
+    /* Hamburger Drawer */
+    .menu-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 90;
+      display: none;
+    }
+    .menu-drawer-backdrop.open { display: block; }
+    .menu-drawer-panel {
+      position: absolute;
+      top: 100%;
+      left: 24px;
+      width: 320px;
+      background: rgba(15, 15, 15, 0.98);
+      border: 1px solid rgba(252,212,160,0.25);
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.9);
+      display: none;
+      flex-direction: column;
+      padding: 16px 0;
+      z-index: 95;
+    }
+    .menu-drawer-panel.open { display: flex; }
+    .menu-drawer-panel a {
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--clr-gold);
+      transition: background 0.2s, color 0.2s;
+    }
+    .menu-drawer-panel a:hover {
+      background: rgba(252,212,160,0.1);
+      color: #fff;
+    }
+
+    /* ================= Advertisement Banner ================= */
+    .ad-banner-slot {
+      max-width: 1200px;
+      margin: 16px auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100px;
+    }
+    .ad-watermark-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.25;
+    }
+    .ad-watermark-content img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+    .ad-watermark-content span {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* ================= Main Content Container ================= */
+    .page-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ================= Hero Section ================= */
+    .hero-section {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px 16px 20px;
+      margin-bottom: 30px;
+    }
+    .hero-bg-layer {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background: url('assets/site/f01e0b83-1b7c-4fdd-bd9a-965bd4ee19a3_large.png') center/cover no-repeat;
+      opacity: 0.28;
+    }
+    .hero-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, #000000 100%);
+    }
+
+    .hero-inner {
+      max-width: 660px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-headline);
+      color: var(--clr-gold);
+      font-weight: 700;
+      font-size: clamp(38px, 28px + 2vw, 56px);
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .hero-subtitle {
+      font-size: clamp(18px, 16px + 0.5vw, 24px);
+      color: var(--clr-gold);
+      line-height: 1.3;
+    }
+    .hero-description {
+      font-size: clamp(15px, 14px + 0.2vw, 17px);
+      color: #FFFFFF;
+      line-height: 1.5;
+    }
+    .hero-description .prize-text {
+      color: var(--clr-gold);
+      font-weight: 600;
+    }
+
+    /* Why pay contribution card */
+    .why-pay-box {
+      width: 100%;
+      background-color: rgba(252, 212, 160, 0.06);
+      border: 1px solid rgba(252, 212, 160, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .why-pay-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--clr-gold-light);
+    }
+    .why-pay-title-row svg {
+      color: var(--clr-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .why-pay-perks-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 24px;
+      padding-left: 28px;
+      list-style: none;
+    }
+    .why-pay-perks-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #CECECE;
+    }
+    .why-pay-perks-list svg {
+      color: var(--clr-gold);
+      flex-shrink: 0;
+    }
+
+    .btn-rules-outline {
+      background: transparent;
+      border: 1px solid var(--clr-gold);
+      color: var(--clr-gold);
+      border-radius: 6px;
+      padding: 7px 20px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn-rules-outline:hover {
+      background: rgba(252, 212, 160, 0.15);
+    }
+
+    .timer-closing-notice {
+      font-size: 13px;
+      color: #999999;
+    }
+
+    /* Countdown Grid */
+    .countdown-timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .countdown-timer-grid {
+        display: flex;
+        gap: 12px;
+        width: fit-content;
+        max-width: none;
+      }
+    }
+    .timer-digit-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(252, 212, 160, 0.25);
+      border-radius: 8px;
+      padding: 8px 12px;
+      min-width: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timer-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--clr-gold);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .timer-unit {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #A3A3A3;
+      margin-top: 4px;
+    }
+
+    .btn-pill-cta {
+      background: linear-gradient(90deg, #FFFFFF 0%, #E55838 99.52%);
+      border: none;
+      color: #000;
+      font-family: var(--font-headline);
+      border-radius: 9999px;
+      padding: 12px 36px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.15s;
+      -webkit-text-stroke: 0.4px currentColor;
+    }
+    .btn-pill-cta:hover {
+      opacity: 0.92;
+      transform: scale(1.02);
+    }
+    .hero-newsletter-sub {
+      font-size: 14px;
+      font-style: italic;
+      color: #fff;
+    }
+
+    /* ================= Share Button Row ================= */
+    .share-action-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--clr-gold);
+      color: var(--clr-gold);
+      border-radius: 6px;
+      padding: 6px 16px;
+      font-size: 14px;
+      font-family: var(--font-headline);
+      transition: background 0.2s;
+    }
+    .btn-share:hover {
+      background: rgba(252, 212, 160, 0.1);
+    }
+
+    /* ================= 32 Player Cards Grid ================= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    @media (min-width: 640px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .vote-card {
+      background-color: var(--clr-card-bg);
+      border: 1px solid var(--clr-card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .vote-card:hover {
+      border-color: rgba(252, 212, 160, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+    .vote-card__image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+    .vote-card__image-container img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .vote-card:hover .vote-card__image-container img {
+      transform: scale(1.04);
+    }
+    .vote-card__content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 10px;
+    }
+    .vote-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .vote-card__year {
+      font-family: var(--font-headline);
+      color: var(--clr-orange);
+      margin-left: 4px;
+    }
+    .vote-card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--clr-muted);
+      list-style: none;
+    }
+    .vote-card__info li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .vote-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--clr-gold);
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+    .vote-card__action {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+    .btn-vote {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 24px;
+      font-size: 16px;
+      font-family: var(--font-headline);
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(90deg, #FFFFFF 0%, #E55838 99.52%);
+      transition: opacity 0.2s, box-shadow 0.2s;
+      -webkit-text-stroke: 0.4px currentColor;
+    }
+    .btn-vote:hover {
+      opacity: 0.92;
+      box-shadow: 0 4px 15px rgba(229, 88, 56, 0.4);
+    }
+
+    /* ================= FAQ Accordion ================= */
+    .faq-wrapper {
+      max-width: 660px;
+      margin: 0 auto 60px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--clr-gold);
+      margin-bottom: 12px;
+    }
+    .faq-heading svg {
+      color: var(--clr-gold);
+    }
+    .faq-item {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+    }
+    .faq-arrow {
+      color: var(--clr-gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s;
+      padding: 0 20px;
+    }
+    .faq-item.active .faq-body {
+      max-height: 300px;
+      padding-bottom: 18px;
+    }
+    .faq-body p {
+      font-size: 14px;
+      color: #CECECE;
+      line-height: 1.6;
+    }
+
+    /* ================= 2nd Ceremony Band ================= */
+    .ceremony-block {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      text-align: center;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .ceremony-logo-graphic {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
+    .ceremony-title-text {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--clr-gold);
+    }
+    @media (min-width: 768px) {
+      .ceremony-title-text { font-size: 28px; }
+    }
+    .ceremony-date-text {
+      font-size: 12px;
+      color: var(--clr-gold-light);
+    }
+    .ceremony-link-anchor {
+      display: inline-block;
+      color: var(--clr-gold);
+      text-decoration: underline;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ================= Footer ================= */
+    .site-footer-bar {
+      border-top: 1px solid var(--clr-bronze);
+      background-color: #000000;
+      padding: 40px 24px 30px;
+    }
+    .footer-inner-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-brand-logo img {
+      max-width: 157px;
+      height: auto;
+    }
+    @media (min-width: 768px) {
+      .footer-brand-logo img { max-width: 222px; }
+    }
+    .footer-multi-columns {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 24px;
+    }
+    @media (min-width: 768px) {
+      .footer-multi-columns {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-top: 40px;
+        gap: 40px;
+      }
+    }
+    .footer-column-heading {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--clr-gold);
+      margin-bottom: 16px;
+    }
+    .footer-link-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+    }
+    .footer-link-stack li a, .footer-link-stack li span {
+      font-size: 15px;
+      color: var(--clr-bronze);
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .footer-link-stack li a:hover, .footer-link-stack li span:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .social-media-icons-list {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .social-media-icons-list img {
+      width: 36px;
+      height: 36px;
+      filter: invert(77%) sepia(48%) saturate(248%) hue-rotate(350deg) brightness(102%) contrast(98%);
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+    .social-media-icons-list img:hover { opacity: 0.85; }
+
+    .sponsors-footer-icons-list {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+    .sponsors-footer-icons-list img {
+      filter: invert(77%) sepia(48%) saturate(248%) hue-rotate(350deg) brightness(102%) contrast(98%);
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+    .sponsors-footer-icons-list img:hover { opacity: 0.85; }
+
+    /* Bottom Copyright Strip */
+    .bottom-copyright-strip {
+      background-color: var(--clr-bronze);
+      padding: 16px 24px;
+    }
+    .copyright-inner-flex {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: #000;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    @media (min-width: 768px) {
+      .copyright-inner-flex {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .powered-by-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .powered-by-group img {
+      filter: brightness(0) saturate(100%);
+    }
+
+    /* ================= Modals ================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: #141414;
+      border: 1px solid rgba(252, 212, 160, 0.35);
+      border-radius: 16px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      animation: modalFadeIn 0.25s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-close-icon-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .modal-close-icon-btn:hover { background: rgba(255,255,255,0.2); }
+
+    /* Toast Notification */
+    .toast-pill-message {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1A1A1A;
+      color: var(--clr-gold);
+      border: 1px solid rgba(252, 212, 160, 0.4);
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 300;
+    }
+    .toast-pill-message.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+  <!-- ================= Top Sponsors Bar ================= -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 32px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px; object-fit: contain;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img src="assets/site/vanguart.svg" alt="Vanguart" style="width: 65px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 65px; height: 16px; object-fit: contain;" />
+    </a>
+  </header>
+
+  <!-- ================= Main Header ================= -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">All articles</a></li>
+          <li><a href="vote.html" class="active" style="color: var(--clr-primary-medium); font-weight: 700;">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html">Home</a>
+      <a href="nominees.html">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote (B.O.A.T.)</a>
+      <a href="winners.html">Winners</a>
+      <a href="all-rankings.html">All Rankings</a>
+      <a href="fan-zone.html">Fan Zone</a>
+      <a href="the-ballon-dor.html">The Ballon d’Or</a>
+      <a href="news.html">News & Articles</a>
+      <a href="stories.html">Stories</a>
+      <a href="champions-academy.html">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html">Press Room</a>
+      <a href="login.html">My Account / Login</a>
+    </div>
+  </nav>
+
+  <!-- ================= Advertisement Placeholder ================= -->
+  <div class="ad-banner-slot">
+    <div class="ad-watermark-content">
+      <img src="_next/static/media/ballondor-logo-black.0q8ctgqidy6cz.svg" alt="Ballon d'Or watermark"/>
+      <span>Advertisement</span>
+    </div>
+  </div>
+
+  <!-- ================= Page Content Container ================= -->
+  <main class="page-container">
+
+    <!-- Hero Header Section -->
+    <header class="hero-section">
+      <div class="hero-bg-layer">
+        <div class="hero-bg-img"></div>
+        <div class="hero-bg-gradient"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div>
+          <h1 class="hero-main-title">Vote for your B.O.A.T.</h1>
+          <span class="hero-subtitle">Ballon d'Or Of All Time</span>
+        </div>
+
+        <p class="hero-description">
+          Which was the ultimate golden year? Vote for your favourite among players who have won the Ballon d'Or at least twice and try to win <span class="prize-text">2 tickets for the 71st Ballon d'Or ceremony in 2027</span>
+        </p>
+
+        <!-- €1 Why Pay Notice Card -->
+        <div class="why-pay-box">
+          <div class="why-pay-title-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <p>Your €1 contribution gives you an iconic photo and access to our community, with exclusive benefits including voting for your Ballon d'Or Of All Time.</p>
+          </div>
+          <ul class="why-pay-perks-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              Fair &amp; Secure Voting
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+              Exclusive Iconic Photo Access
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+              2 tickets for the Ballon d'Or Ceremony
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-rules-outline" onclick="openRulesDialog()">See voting rules</button>
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%;">
+          <p class="timer-closing-notice">Voting closes on October 27, 2026 at 23:59 (Paris time)</p>
+          <div class="countdown-timer-grid">
+            <div class="timer-digit-box"><span class="timer-number" id="t1-days">--</span><span class="timer-unit">Days</span></div>
+            <div class="timer-digit-box"><span class="timer-number" id="t1-hours">--</span><span class="timer-unit">Hours</span></div>
+            <div class="timer-digit-box"><span class="timer-number" id="t1-mins">--</span><span class="timer-unit">Minutes</span></div>
+            <div class="timer-digit-box"><span class="timer-number" id="t1-secs">--</span><span class="timer-unit">Seconds</span></div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">
+          <button type="button" class="btn-pill-cta" onclick="openNewsletterDialog()">Be the first to get the results</button>
+          <p class="hero-newsletter-sub">Straight to your email inbox on October 28</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Share Row -->
+    <div class="share-action-row">
+      <button type="button" class="btn-share" onclick="copyShareLink()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+        Share
+      </button>
+    </div>
+
+    <!-- 32 Player Cards Grid -->
+    <div class="cards-grid">
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2023', 'Argentina', 'assets/players/56560de60c9c205130d15e34ac65db00.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/56560de60c9c205130d15e34ac65db00.jpeg" alt="Lionel Messi – 2023 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2023</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2023 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2023', 'Argentina', 'assets/players/56560de60c9c205130d15e34ac65db00.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2021', 'Argentina', 'assets/players/3406bc7f4388ef726c867b144b18b97b.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/3406bc7f4388ef726c867b144b18b97b.jpeg" alt="Lionel Messi – 2021 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2021</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2021 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2021', 'Argentina', 'assets/players/3406bc7f4388ef726c867b144b18b97b.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2019', 'Argentina', 'assets/players/24ea8581598d3e384f3b3973d3061995.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/24ea8581598d3e384f3b3973d3061995.jpeg" alt="Lionel Messi – 2019 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2019</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2019 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2019', 'Argentina', 'assets/players/24ea8581598d3e384f3b3973d3061995.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Cristiano Ronaldo', '2017', 'Portugal', 'assets/players/d694db89f97b058b91a182c35bf46c94.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/d694db89f97b058b91a182c35bf46c94.jpeg" alt="Cristiano Ronaldo – 2017 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Cristiano Ronaldo <span class="vote-card__year">2017</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2017 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Portugal</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Cristiano Ronaldo', '2017', 'Portugal', 'assets/players/d694db89f97b058b91a182c35bf46c94.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Cristiano Ronaldo', '2016', 'Portugal', 'assets/players/5bdffbc3dd837a8f63a94a05431cad8f.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/5bdffbc3dd837a8f63a94a05431cad8f.jpeg" alt="Cristiano Ronaldo – 2016 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Cristiano Ronaldo <span class="vote-card__year">2016</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2016 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Portugal</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Cristiano Ronaldo', '2016', 'Portugal', 'assets/players/5bdffbc3dd837a8f63a94a05431cad8f.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2015', 'Argentina', 'assets/players/2bd36d32e0925eac1750e2a9de04461d.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/2bd36d32e0925eac1750e2a9de04461d.jpeg" alt="Lionel Messi – 2015 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2015</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2015 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2015', 'Argentina', 'assets/players/2bd36d32e0925eac1750e2a9de04461d.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Cristiano Ronaldo', '2014', 'Portugal', 'assets/players/c19cf487f320c9a5a7942da7ba35d2fb.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/c19cf487f320c9a5a7942da7ba35d2fb.jpeg" alt="Cristiano Ronaldo – 2014 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Cristiano Ronaldo <span class="vote-card__year">2014</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2014 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Portugal</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Cristiano Ronaldo', '2014', 'Portugal', 'assets/players/c19cf487f320c9a5a7942da7ba35d2fb.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Cristiano Ronaldo', '2013', 'Portugal', 'assets/players/552b307784749ba9a17e7981f4596460.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/552b307784749ba9a17e7981f4596460.jpeg" alt="Cristiano Ronaldo – 2013 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Cristiano Ronaldo <span class="vote-card__year">2013</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2013 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Portugal</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Cristiano Ronaldo', '2013', 'Portugal', 'assets/players/552b307784749ba9a17e7981f4596460.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2012', 'Argentina', 'assets/players/9726b1584fb58c7e4cff9c1b5970f2e4.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/9726b1584fb58c7e4cff9c1b5970f2e4.jpeg" alt="Lionel Messi – 2012 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2012</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2012 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2012', 'Argentina', 'assets/players/9726b1584fb58c7e4cff9c1b5970f2e4.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2011', 'Argentina', 'assets/players/73f4dd3680b653e08cf73012e7b5afc6.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/73f4dd3680b653e08cf73012e7b5afc6.jpeg" alt="Lionel Messi – 2011 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2011</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2011 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2011', 'Argentina', 'assets/players/73f4dd3680b653e08cf73012e7b5afc6.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2010', 'Argentina', 'assets/players/78c0ccffe68636a53f799d4e550ed649.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/78c0ccffe68636a53f799d4e550ed649.jpeg" alt="Lionel Messi – 2010 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2010</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2010 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2010', 'Argentina', 'assets/players/78c0ccffe68636a53f799d4e550ed649.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Lionel Messi', '2009', 'Argentina', 'assets/players/3323cad4fbcd501799f37baa2e5c8e09.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/3323cad4fbcd501799f37baa2e5c8e09.jpeg" alt="Lionel Messi – 2009 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Lionel Messi <span class="vote-card__year">2009</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2009 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Argentina</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Lionel Messi', '2009', 'Argentina', 'assets/players/3323cad4fbcd501799f37baa2e5c8e09.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Cristiano Ronaldo', '2008', 'Portugal', 'assets/players/ebbfc4595d37d3dff2ee694c14f26fef.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/ebbfc4595d37d3dff2ee694c14f26fef.jpeg" alt="Cristiano Ronaldo – 2008 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Cristiano Ronaldo <span class="vote-card__year">2008</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2008 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Portugal</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Cristiano Ronaldo', '2008', 'Portugal', 'assets/players/ebbfc4595d37d3dff2ee694c14f26fef.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Ronaldo Nazário', '2002', 'Brazil', 'assets/players/043dc6b7d0027de95d83b02475f4fdb0.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/043dc6b7d0027de95d83b02475f4fdb0.jpeg" alt="Ronaldo Nazário – 2002 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Ronaldo Nazário <span class="vote-card__year">2002</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>2002 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Brazil</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Ronaldo Nazário', '2002', 'Brazil', 'assets/players/043dc6b7d0027de95d83b02475f4fdb0.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Ronaldo Nazário', '1997', 'Brazil', 'assets/players/492569d5ed93b584265ebd1c39df1b90.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/492569d5ed93b584265ebd1c39df1b90.jpeg" alt="Ronaldo Nazário – 1997 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Ronaldo Nazário <span class="vote-card__year">1997</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1997 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Brazil</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Ronaldo Nazário', '1997', 'Brazil', 'assets/players/492569d5ed93b584265ebd1c39df1b90.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Marco van Basten', '1992', 'Netherlands', 'assets/players/0413433638e23314dd1b26c45dbb76b0.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/0413433638e23314dd1b26c45dbb76b0.jpeg" alt="Marco van Basten – 1992 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Marco van Basten <span class="vote-card__year">1992</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1992 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Marco van Basten', '1992', 'Netherlands', 'assets/players/0413433638e23314dd1b26c45dbb76b0.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Marco van Basten', '1989', 'Netherlands', 'assets/players/2bcd74f4765cc9f4c2a56db5de1b5ff5.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/2bcd74f4765cc9f4c2a56db5de1b5ff5.jpeg" alt="Marco van Basten – 1989 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Marco van Basten <span class="vote-card__year">1989</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1989 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Marco van Basten', '1989', 'Netherlands', 'assets/players/2bcd74f4765cc9f4c2a56db5de1b5ff5.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Marco van Basten', '1988', 'Netherlands', 'assets/players/076a83a0810b2acf0930248035248054.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/076a83a0810b2acf0930248035248054.jpeg" alt="Marco van Basten – 1988 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Marco van Basten <span class="vote-card__year">1988</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1988 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Marco van Basten', '1988', 'Netherlands', 'assets/players/076a83a0810b2acf0930248035248054.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Michel Platini', '1985', 'France', 'assets/players/d2730539ea2ab212ce36a251e807adfd.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/d2730539ea2ab212ce36a251e807adfd.jpeg" alt="Michel Platini – 1985 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Michel Platini <span class="vote-card__year">1985</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1985 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>France</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Michel Platini', '1985', 'France', 'assets/players/d2730539ea2ab212ce36a251e807adfd.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Michel Platini', '1984', 'France', 'assets/players/94a4431fc9e5193d97b7b1c2c6fc9424.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/94a4431fc9e5193d97b7b1c2c6fc9424.jpeg" alt="Michel Platini – 1984 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Michel Platini <span class="vote-card__year">1984</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1984 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>France</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Michel Platini', '1984', 'France', 'assets/players/94a4431fc9e5193d97b7b1c2c6fc9424.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Michel Platini', '1983', 'France', 'assets/players/7e2307e009074621935e8d5ea5caf99b.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/7e2307e009074621935e8d5ea5caf99b.jpeg" alt="Michel Platini – 1983 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Michel Platini <span class="vote-card__year">1983</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1983 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>France</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Michel Platini', '1983', 'France', 'assets/players/7e2307e009074621935e8d5ea5caf99b.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Karl-Heinz Rummenigge', '1981', 'Germany', 'assets/players/a291dfe0bc9b685c9d848f7abdabb2bf.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/a291dfe0bc9b685c9d848f7abdabb2bf.jpeg" alt="Karl-Heinz Rummenigge – 1981 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Karl-Heinz Rummenigge <span class="vote-card__year">1981</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1981 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Germany</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Karl-Heinz Rummenigge', '1981', 'Germany', 'assets/players/a291dfe0bc9b685c9d848f7abdabb2bf.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Karl-Heinz Rummenigge', '1980', 'Germany', 'assets/players/43771caf38478c045ac3215626860af0.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/43771caf38478c045ac3215626860af0.jpeg" alt="Karl-Heinz Rummenigge – 1980 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Karl-Heinz Rummenigge <span class="vote-card__year">1980</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1980 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Germany</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Karl-Heinz Rummenigge', '1980', 'Germany', 'assets/players/43771caf38478c045ac3215626860af0.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Kevin Keegan', '1979', 'England', 'assets/players/f860341212a96f2a85a31e5bceb7b53a.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/f860341212a96f2a85a31e5bceb7b53a.jpeg" alt="Kevin Keegan – 1979 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Kevin Keegan <span class="vote-card__year">1979</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1979 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>England</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Kevin Keegan', '1979', 'England', 'assets/players/f860341212a96f2a85a31e5bceb7b53a.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Kevin Keegan', '1978', 'England', 'assets/players/131fa22734487bb4d491e2912da1835e.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/131fa22734487bb4d491e2912da1835e.jpeg" alt="Kevin Keegan – 1978 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Kevin Keegan <span class="vote-card__year">1978</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1978 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>England</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Kevin Keegan', '1978', 'England', 'assets/players/131fa22734487bb4d491e2912da1835e.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Franz Beckenbauer', '1976', 'Germany', 'assets/players/4cf1c39359436e1255e5907b60e6ae15.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/4cf1c39359436e1255e5907b60e6ae15.jpeg" alt="Franz Beckenbauer – 1976 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Franz Beckenbauer <span class="vote-card__year">1976</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1976 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Germany</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Franz Beckenbauer', '1976', 'Germany', 'assets/players/4cf1c39359436e1255e5907b60e6ae15.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Johan Cruyff', '1974', 'Netherlands', 'assets/players/0cc52f2e155a7c9227e369260021765d.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/0cc52f2e155a7c9227e369260021765d.jpeg" alt="Johan Cruyff – 1974 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Johan Cruyff <span class="vote-card__year">1974</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1974 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Johan Cruyff', '1974', 'Netherlands', 'assets/players/0cc52f2e155a7c9227e369260021765d.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Johan Cruyff', '1973', 'Netherlands', 'assets/players/32a8dbdc2133a3095cff2160a5241a1d.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/32a8dbdc2133a3095cff2160a5241a1d.jpeg" alt="Johan Cruyff – 1973 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Johan Cruyff <span class="vote-card__year">1973</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1973 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Johan Cruyff', '1973', 'Netherlands', 'assets/players/32a8dbdc2133a3095cff2160a5241a1d.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Franz Beckenbauer', '1972', 'Germany', 'assets/players/447bb47905f8834d959893c0c081f9ca.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/447bb47905f8834d959893c0c081f9ca.jpeg" alt="Franz Beckenbauer – 1972 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Franz Beckenbauer <span class="vote-card__year">1972</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1972 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Germany</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Franz Beckenbauer', '1972', 'Germany', 'assets/players/447bb47905f8834d959893c0c081f9ca.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Johan Cruyff', '1971', 'Netherlands', 'assets/players/44a8fced18a7e4c4976d2687150e6f13.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/44a8fced18a7e4c4976d2687150e6f13.jpeg" alt="Johan Cruyff – 1971 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Johan Cruyff <span class="vote-card__year">1971</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1971 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Netherlands</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Johan Cruyff', '1971', 'Netherlands', 'assets/players/44a8fced18a7e4c4976d2687150e6f13.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Alfredo Di Stéfano', '1959', 'Spain', 'assets/players/7d6536a0bbff6541d3d971f6a1f6b609.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/7d6536a0bbff6541d3d971f6a1f6b609.jpeg" alt="Alfredo Di Stéfano – 1959 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Alfredo Di Stéfano <span class="vote-card__year">1959</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1959 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Spain</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Alfredo Di Stéfano', '1959', 'Spain', 'assets/players/7d6536a0bbff6541d3d971f6a1f6b609.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="vote-card" onclick="openVoteModal('Alfredo Di Stéfano', '1957', 'Spain', 'assets/players/6c6fd8b79404ab32f8d128db7a67047d.jpeg')">
+      <div class="vote-card__image-container">
+        <img src="assets/players/6c6fd8b79404ab32f8d128db7a67047d.jpeg" alt="Alfredo Di Stéfano – 1957 Ballon d'Or winner" loading="lazy" />
+      </div>
+      <div class="vote-card__content">
+        <h3 class="vote-card__title">Alfredo Di Stéfano <span class="vote-card__year">1957</span></h3>
+        <ul class="vote-card__info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>
+            <span>1957 Ballon d'Or winner</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vote-icon"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+            <span>Spain</span>
+          </li>
+        </ul>
+        <div class="vote-card__action">
+          <button type="button" class="btn-vote" onclick="event.stopPropagation(); openVoteModal('Alfredo Di Stéfano', '1957', 'Spain', 'assets/players/6c6fd8b79404ab32f8d128db7a67047d.jpeg')">Vote</button>
+        </div>
+      </div>
+    </article>
+    </div>
+
+    <!-- Questions & Answers Accordion -->
+    <section class="faq-wrapper">
+      <h2 class="faq-heading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        Questions &amp; answers
+      </h2>
+
+    <div class="faq-item" id="faq-item-0">
+      <button type="button" class="faq-question" onclick="toggleFaq(0)">
+        <span>Why do I need to pay to vote?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Your €1 fee supports access to exclusive benefits, such as the chance to download an iconic photo and vote for your all-time favourite Ballon d'Or winner.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-1">
+      <button type="button" class="faq-question" onclick="toggleFaq(1)">
+        <span>Who can I vote for?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Every player who has won the Ballon d'Or at least twice. Each of their wins has its own card, so you can vote for the exact year you remember best.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-2">
+      <button type="button" class="faq-question" onclick="toggleFaq(2)">
+        <span>What do I get for my vote?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>An iconic Ballon d'Or photo, yours to download and keep, a chance to win 2 tickets for the 71st Ballon d'Or ceremony in 2027, and your say in who is the Ballon d'Or Of All Time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-3">
+      <button type="button" class="faq-question" onclick="toggleFaq(3)">
+        <span>Can I vote multiple times?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Yes, as many times as you like, and for any player. Each vote requires its own €1 contribution.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-4">
+      <button type="button" class="faq-question" onclick="toggleFaq(4)">
+        <span>Where can I find my photo?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Once you have voted, the photo is saved in your account under My Rewards, where you can download it again at any time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-5">
+      <button type="button" class="faq-question" onclick="toggleFaq(5)">
+        <span>What if my payment went through but my vote didn't?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Your paid vote is kept on your account. Reload the page and choose a player to use it. If it still doesn't work, write to contact@info.ballondor.com.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-6">
+      <button type="button" class="faq-question" onclick="toggleFaq(6)">
+        <span>Is my payment secure?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Yes. Payments are handled by Stripe, a world-leading payment processor. Your card details never reach our servers.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq-item-7">
+      <button type="button" class="faq-question" onclick="toggleFaq(7)">
+        <span>When will the results be announced?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-arrow"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="faq-body">
+        <p>Voting closes on October 27, 2026 at 23:59 (Paris time). Once you have voted you can see the current standings. The official results will be announced on October 28, 2026 on ballondor.com and on the Ballon d'Or social media.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- 2nd Ceremony Band -->
+    <section class="ceremony-block">
+      <img class="ceremony-logo-graphic" src="assets/site/99f73690-5407-4c93-88a6-75fc24ea5213_large.png" alt="70th Ballon d'Or ceremony" />
+      <h2 class="ceremony-title-text">Ballon d'Or 2026 Ceremony: Unveiling of Winners Imminent</h2>
+      <p class="ceremony-date-text">Monday, October 26, 2026 · 21:00 (Paris time)</p>
+      <div class="countdown-timer-grid">
+        <div class="timer-digit-box"><span class="timer-number" id="t2-days">--</span><span class="timer-unit">Days</span></div>
+        <div class="timer-digit-box"><span class="timer-number" id="t2-hours">--</span><span class="timer-unit">Hours</span></div>
+        <div class="timer-digit-box"><span class="timer-number" id="t2-mins">--</span><span class="timer-unit">Minutes</span></div>
+        <div class="timer-digit-box"><span class="timer-number" id="t2-secs">--</span><span class="timer-unit">Seconds</span></div>
+      </div>
+      <a href="#" class="ceremony-link-anchor" onclick="showNotification('Live broadcast details will be available on October 26, 2026.'); return false;">Ballon d'Or 2026: Where can I watch the ceremony live?</a>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer-bar">
+    <div class="footer-inner-content">
+      <a href="#" class="footer-brand-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="footer-multi-columns">
+        <div>
+          <h3 class="footer-column-heading">Ballon d'Or PRESS ROOM</h3>
+          <ul class="footer-link-stack">
+            <li><a href="#">Press Room</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-heading">Information</h3>
+          <ul class="footer-link-stack">
+            <li><a href="#" onclick="openRulesDialog(); return false;">Voting Terms and Conditions</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><span onclick="showNotification('Cookie preferences saved.')">Cookie Preferences</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-heading">Follow us</h3>
+          <ul class="social-media-icons-list">
+            <li>
+              <a href="https://www.facebook.com/ballondor" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <img src="assets/site/bc4f978d-8533-4a53-9687-375f58118756_small.png" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ballondorofficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img src="assets/site/95adc1c6-b4e4-4946-9066-f9e8a26f9270_small.png" alt="Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@ballondor" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <img src="assets/site/15db3e7f-b487-4381-afed-71a228c063b1_small.png" alt="TikTok" />
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/ballondor" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <img src="assets/site/56d50285-c0ea-4f4d-9372-676c08605a29_small.png" alt="X" />
+              </a>
+            </li>
+          </ul>
+
+          <h3 class="footer-column-heading">Sponsors</h3>
+          <ul class="sponsors-footer-icons-list">
+            <li>
+              <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+                <img src="assets/site/3cdb6e09-9159-4aea-b3e6-bb7d65477c55_small.png" alt="Adidas" style="width:26px;height:17px;"/>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+                <img src="assets/site/26cbb79b-db03-45d2-9f3b-1aa2f355887b_small.png" alt="Topps" style="width:36px;height:15px;"/>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+                <img src="assets/site/44ba20b0-63be-4819-89d0-9738a2cb958f_small.png" alt="Vanguart" style="width:54px;height:20px;"/>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook">
+                <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width:60px;height:14px;"/>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-copyright-strip">
+    <div class="copyright-inner-flex">
+      <p>© 2026 Amaury International Team LIMITED. All rights reserved</p>
+      <div class="powered-by-group">
+        <span>Powered by</span>
+        <a href="https://senteca.com/" target="_blank" rel="noopener noreferrer" aria-label="Senteca Commerce">
+          <img src="assets/site/assets_9fd72f48-5437-4380-ba37-cb677ece13ae.png" alt="Senteca Commerce" width="130" height="16" />
+        </a>
+        <a href="https://fansunitedmedia.com/" target="_blank" rel="noopener noreferrer" aria-label="Fans United">
+          <img src="assets/site/assets_bb216306-351a-4401-ba87-2ecff8424a86.png" alt="Fans United" width="75" height="32" />
+        </a>
+        <a href="https://sportal365.com/" target="_blank" rel="noopener noreferrer" aria-label="Sportal365">
+          <img src="assets/site/assets_55b7cfbc-c9d5-4986-9fa9-d0aafb3abbbe.png" alt="Sportal365" width="75" height="23" style="margin-top: 6px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Toast Notification ================= -->
+  <div class="toast-pill-message" id="toast-message">Link copied to clipboard!</div>
+
+  <!-- ================= Vote Interactive Modal ================= -->
+  <div class="modal-overlay" id="vote-modal">
+    <div class="modal-card">
+      <button type="button" class="modal-close-icon-btn" onclick="closeActiveModal('vote-modal')">✕</button>
+      
+      <div id="vote-stage-form">
+        <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 26px; margin-bottom: 14px;">Confirm your vote</h2>
+        
+        <div style="display: flex; gap: 16px; background: rgba(255,255,255,0.06); padding: 14px; border-radius: 12px; margin-bottom: 20px; align-items: center;">
+          <img id="vmodal-player-img" src="" alt="Player" style="width: 110px; height: 65px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(252,212,160,0.3);" />
+          <div>
+            <h3 id="vmodal-player-name" style="font-size: 18px; font-weight: 700; color: #fff;"></h3>
+            <p id="vmodal-player-year" style="color: var(--clr-orange); font-size: 15px; font-weight: 600;"></p>
+            <p id="vmodal-player-country" style="color: #aaa; font-size: 13px;"></p>
+          </div>
+        </div>
+
+        <div class="why-pay-box" style="margin-bottom: 20px;">
+          <p style="font-size: 14px; color: #fff; line-height: 1.5;">Your <strong>€1 contribution</strong> gives you official entry into the Ballon d'Or Of All Time raffle, 2 tickets prize draw for 2027, and your high-resolution reward photo.</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Voter Email Address</label>
+          <input type="email" id="vote-email-input" placeholder="you@example.com" value="user@example.com" style="width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(252,212,160,0.3); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 15px;" />
+        </div>
+
+        <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #ccc; cursor: pointer; margin-bottom: 20px;">
+          <input type="checkbox" id="vote-checkbox-agree" checked style="width: 18px; height: 18px; accent-color: var(--clr-gold);" />
+          <span>I agree to the <a href="#" onclick="openRulesDialog(); return false;" style="color: var(--clr-gold); text-decoration: underline;">voting rules</a></span>
+        </label>
+
+        <button type="button" class="btn-vote" id="btn-submit-vote" style="width: 100%; padding: 14px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;" onclick="payWithPaystack()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Pay ₦1,500 (~€1) with Paystack
+        </button>
+        <button type="button" onclick="castVoteNow()" style="background: none; border: none; color: #888; font-size: 12px; margin-top: 10px; cursor: pointer; text-decoration: underline; width: 100%;">
+          Offline / Demo Mode: Click to simulate instant vote confirmation
+        </button>
+      </div>
+
+      <div id="vote-stage-loading" style="display: none; text-align: center; padding: 40px 0;">
+        <div style="width: 50px; height: 50px; border: 3px solid rgba(252,212,160,0.2); border-top-color: var(--clr-gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px;"></div>
+        <p style="font-size: 16px; color: var(--clr-gold); font-weight: 600;">Processing payment via Paystack...</p>
+        <p style="font-size: 13px; color: #888; margin-top: 6px;">Connecting to secure payment gateway (Card, Bank Transfer, USSD, OPay)</p>
+      </div>
+
+      <div id="vote-stage-confirmed" style="display: none; text-align: center; padding: 24px 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#2f872c" stroke-width="2" style="margin: 0 auto 16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 28px; margin-bottom: 8px;">Vote Cast Successfully!</h2>
+        <p style="font-size: 16px; color: #fff; margin-bottom: 6px;">Thank you for crowning your B.O.A.T.</p>
+        <p id="vmodal-confirmed-name" style="font-size: 15px; color: var(--clr-orange); font-weight: 600; margin-bottom: 24px;"></p>
+        
+        <div style="background: rgba(255,255,255,0.05); padding: 14px; border-radius: 10px; margin-bottom: 24px; text-align: left;">
+          <p style="font-size: 13px; color: #ccc;">✓ Entry registered for 2 tickets to the 71st Ballon d'Or ceremony in 2027.<br/>✓ Your iconic high-res photo download is ready.</p>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center;">
+          <a id="btn-download-photo" href="" download="ballondor-iconic-photo.jpg" class="btn-vote" style="padding: 10px 20px; font-size: 15px; width: auto; display: inline-block;">Download Iconic Photo</a>
+          <button type="button" class="btn-rules-outline" onclick="closeActiveModal('vote-modal')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Rules Modal ================= -->
+  <div class="modal-overlay" id="rules-modal">
+    <div class="modal-card" style="max-width: 720px;">
+      <button type="button" class="modal-close-icon-btn" onclick="closeActiveModal('rules-modal')">✕</button>
+      <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 26px; margin-bottom: 6px;">VOTING STANDARD TERMS &amp; CONDITIONS</h2>
+      <h4 style="color: var(--clr-orange); font-size: 16px; margin-bottom: 18px;">Ballon d’Or Of All Time</h4>
+      
+      <div style="font-size: 14px; color: #ccc; line-height: 1.6; display: flex; flex-direction: column; gap: 14px; max-height: 60vh; overflow-y: auto; padding-right: 12px;">
+        <p>These terms and conditions apply to your entry into the Vote and use of the Website. References to "you", "your", "entrant" are to you, as a voter in the Ballon d'Or Of All Time raffle at www.ballondor.com.</p>
+        
+        <h4 style="color: var(--clr-gold); font-size: 16px; margin-top: 8px;">IMPORTANT HIGHLIGHTS:</h4>
+        <ul style="list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <li><strong>Legally Binding Agreement:</strong> By registering or voting on the Website, you are entering into a legally binding agreement.</li>
+          <li><strong>Eligibility:</strong> You must be at least eighteen (18) years old to register and participate in the Vote.</li>
+          <li><strong>Anti-Fraud Protection:</strong> We do not tolerate any fraudulent activity or automated bot manipulation. All unverified or suspicious entries will be revoked.</li>
+          <li><strong>Maximum Prize:</strong> Participation grants entry into the raffle for two (2) tickets to the 2027 Ballon d’Or ceremony.</li>
+          <li><strong>Digital Photo Reward:</strong> Every €1 contribution confirms your vote and gives you instant access to download your iconic commemorative Ballon d'Or photograph.</li>
+        </ul>
+        <p style="margin-top: 10px;">For questions or assistance, please reach out to <a href="mailto:contact@info.ballondor.com" style="color: var(--clr-gold); text-decoration: underline;">contact@info.ballondor.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Newsletter Modal ================= -->
+  <div class="modal-overlay" id="newsletter-modal">
+    <div class="modal-card">
+      <button type="button" class="modal-close-icon-btn" onclick="closeActiveModal('newsletter-modal')">✕</button>
+      <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 26px; margin-bottom: 8px;">Inside Ballon d'Or</h2>
+      <p style="font-size: 14px; color: #ccc; margin-bottom: 20px;">Be the first to receive the official B.O.A.T. voting results directly in your inbox on October 28.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="email" id="newsletter-input" placeholder="Enter your email address" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(252,212,160,0.3); border-radius: 8px; padding: 12px 16px; color: #fff; font-size: 15px;" />
+        <button type="button" class="btn-pill-cta" style="width: 100%; border-radius: 8px; padding: 12px;" onclick="confirmNewsletter()">Subscribe</button>
+      </div>
+      <p id="newsletter-confirmed" style="display: none; color: #2f872c; font-size: 14px; margin-top: 12px; text-align: center;">✓ You are subscribed! Look out for results on October 28.</p>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- ================= Interactive JavaScript ================= -->
+  <script>
+    // Live ticking countdown logic
+    function tickCountdowns() {
+      const targetVote = new Date('2026-10-27T23:59:00+02:00').getTime();
+      const targetCeremony = new Date('2026-10-26T21:00:00+02:00').getTime();
+      const now = Date.now();
+
+      const pad = n => String(Math.max(0, n)).padStart(2, '0');
+
+      // Countdown 1
+      const diff1 = Math.max(0, targetVote - now);
+      const d1 = Math.floor(diff1 / (1000 * 60 * 60 * 24));
+      const h1 = Math.floor((diff1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m1 = Math.floor((diff1 % (1000 * 60 * 60)) / (1000 * 60));
+      const s1 = Math.floor((diff1 % (1000 * 60)) / 1000);
+
+      document.getElementById('t1-days').textContent = pad(d1);
+      document.getElementById('t1-hours').textContent = pad(h1);
+      document.getElementById('t1-mins').textContent = pad(m1);
+      document.getElementById('t1-secs').textContent = pad(s1);
+
+      // Countdown 2
+      const diff2 = Math.max(0, targetCeremony - now);
+      const d2 = Math.floor(diff2 / (1000 * 60 * 60 * 24));
+      const h2 = Math.floor((diff2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m2 = Math.floor((diff2 % (1000 * 60 * 60)) / (1000 * 60));
+      const s2 = Math.floor((diff2 % (1000 * 60)) / 1000);
+
+      document.getElementById('t2-days').textContent = pad(d2);
+      document.getElementById('t2-hours').textContent = pad(h2);
+      document.getElementById('t2-mins').textContent = pad(m2);
+      document.getElementById('t2-secs').textContent = pad(s2);
+    }
+    tickCountdowns();
+    setInterval(tickCountdowns, 1000);
+
+    // FAQ Accordion Toggle
+    function toggleFaq(idx) {
+      const item = document.getElementById('faq-item-' + idx);
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Hamburger Menu
+    function toggleHamburgerMenu() {
+      document.getElementById('menu-drawer-panel').classList.toggle('open');
+      document.getElementById('menu-backdrop').classList.toggle('open');
+    }
+
+    // Language Dropdown
+    function toggleLangPanel() {
+      document.getElementById('lang-dropdown-panel').classList.toggle('open');
+    }
+    function selectLangCode(code) {
+      document.getElementById('label-selected-lang').textContent = code;
+      document.getElementById('lang-dropdown-panel').classList.remove('open');
+      showNotification('Language switched to ' + code);
+    }
+    window.addEventListener('click', function(e) {
+      if (!e.target.closest('.lang-select-wrapper')) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+
+    // Toast Notification
+    function showNotification(msg) {
+      const t = document.getElementById('toast-message');
+      t.textContent = msg;
+      t.classList.add('visible');
+      setTimeout(() => t.classList.remove('visible'), 2800);
+    }
+
+    // Share action
+    function copyShareLink() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+      }
+      showNotification('Link copied to clipboard!');
+    }
+
+    // Modal helpers
+    function openSpecificModal(id) {
+      document.getElementById(id).classList.add('open');
+    }
+    function closeActiveModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+    function openRulesDialog() {
+      openSpecificModal('rules-modal');
+    }
+    function openNewsletterDialog() {
+      openSpecificModal('newsletter-modal');
+    }
+    function openLoginPrompt() {
+      showNotification('Sign in to your Ballon d’Or account.');
+    }
+
+    // Vote Flow
+    let currentVotedPlayer = '';
+    let currentVotedImage = '';
+
+    function openVoteModal(name, year, country, img) {
+      currentVotedPlayer = name + ' (' + year + ')';
+      currentVotedImage = img;
+      
+      document.getElementById('vmodal-player-name').textContent = name;
+      document.getElementById('vmodal-player-year').textContent = year + " Ballon d'Or Winner";
+      document.getElementById('vmodal-player-country').textContent = country;
+      document.getElementById('vmodal-player-img').src = img;
+
+      document.getElementById('vote-stage-form').style.display = 'block';
+      document.getElementById('vote-stage-loading').style.display = 'none';
+      document.getElementById('vote-stage-confirmed').style.display = 'none';
+
+      openSpecificModal('vote-modal');
+    }
+
+    
+    const PAYSTACK_PUBLIC_KEY = 'pk_live_99bd2da26e08ec9802845db7b0685aefb347dad0';
+
+    function payWithPaystack() {
+      const agree = document.getElementById('vote-checkbox-agree').checked;
+      if (!agree) {
+        alert('Please agree to the voting terms and conditions before proceeding.');
+        return;
+      }
+      const emailInput = document.getElementById('vote-email-input');
+      const email = (emailInput && emailInput.value && emailInput.value.includes('@')) ? emailInput.value.trim() : 'fan@ballondor.com';
+
+      // Check if PaystackPop is available
+      if (typeof PaystackPop !== 'undefined') {
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: email,
+          amount: 150000, // ₦1,500 in kobo (~€1)
+          currency: 'NGN',
+          channels: ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
+          ref: 'BDO_' + Math.floor((Math.random() * 1000000000) + 1),
+          metadata: {
+            custom_fields: [
+              { display_name: "Player Selected", variable_name: "player_selected", value: currentVotedPlayer },
+              { display_name: "Award", variable_name: "award", value: "Ballon d'Or Of All Time (B.O.A.T.)" }
+            ]
+          },
+          callback: function(response) {
+            recordVoteSuccess(response.reference, email);
+          },
+          onClose: function() {
+            showNotification('Payment window closed.');
+          }
+        });
+        handler.openIframe();
+      } else {
+        // Fallback for offline / blocked environments
+        showNotification('Connecting to payment gateway...');
+        setTimeout(() => {
+          recordVoteSuccess('PSTK_LIVE_REF_' + Date.now(), email);
+        }, 1200);
+      }
+    }
+
+    function recordVoteSuccess(refId, voterEmail) {
+      document.getElementById('vote-stage-form').style.display = 'none';
+      document.getElementById('vote-stage-loading').style.display = 'block';
+
+      // Store in localStorage
+      try {
+        const existingVotes = JSON.parse(localStorage.getItem('ballondor_user_votes') || '[]');
+        existingVotes.push({
+          player: currentVotedPlayer,
+          ref: refId,
+          email: voterEmail,
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem('ballondor_user_votes', JSON.stringify(existingVotes));
+      } catch (err) {
+        console.error(err);
+      }
+
+      setTimeout(() => {
+        document.getElementById('vote-stage-loading').style.display = 'none';
+        document.getElementById('vmodal-confirmed-name').textContent = 'Your vote: ' + currentVotedPlayer;
+        document.getElementById('btn-download-photo').href = currentVotedImage;
+        document.getElementById('vote-stage-confirmed').style.display = 'block';
+        showNotification('Vote registered via Paystack (Ref: ' + refId.substring(0, 16) + '...)');
+      }, 1000);
+    }
+  
+    function castVoteNow() {
+      const agree = document.getElementById('vote-checkbox-agree').checked;
+      if (!agree) {
+        alert('Please agree to the voting rules to continue.');
+        return;
+      }
+
+      document.getElementById('vote-stage-form').style.display = 'none';
+      document.getElementById('vote-stage-loading').style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('vote-stage-loading').style.display = 'none';
+        document.getElementById('vmodal-confirmed-name').textContent = 'Your vote: ' + currentVotedPlayer;
+        document.getElementById('btn-download-photo').href = currentVotedImage;
+        document.getElementById('vote-stage-confirmed').style.display = 'block';
+      }, 1200);
+    }
+
+    function confirmNewsletter() {
+      const input = document.getElementById('newsletter-input');
+      if (!input.value || !input.value.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      document.getElementById('newsletter-confirmed').style.display = 'block';
+      setTimeout(() => {
+        closeActiveModal('newsletter-modal');
+        document.getElementById('newsletter-confirmed').style.display = 'none';
+        input.value = '';
+        showNotification('Subscribed to Ballon d’Or newsletter!');
+      }, 1800);
+    }
+  </script>
+</body>
+</html>

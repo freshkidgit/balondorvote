@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ballon d'Or Winners — Full List Since 1956 | Ballon d'Or™ Official</title>
+  <meta name="description" content="Explore every single winner of the prestigious Ballon d'Or from 1956 to the present day with authentic photos." />
+  <link rel="icon" href="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site/style.css" />
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <style>
+
+/* Multi-page shared enhancements */
+.page-hero {
+  position: relative;
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(252, 212, 160, 0.12) 0%, rgba(0,0,0,0.95) 75%);
+  border-bottom: 1px solid rgba(252, 212, 160, 0.2);
+}
+.page-hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(252, 212, 160, 0.15);
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: var(--clr-primary-medium, #FCD4A0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: #c4c4c4;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.tabs-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #080808;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(252, 212, 160, 0.15);
+  border-color: rgba(252, 212, 160, 0.4);
+  color: #fff;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%);
+  color: #000;
+  border-color: #FCD4A0;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(252, 212, 160, 0.3);
+}
+
+/* Search Bar Component */
+.filter-search-wrapper {
+  max-width: 700px;
+  margin: 30px auto 20px;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+}
+.search-input-box {
+  flex: 1;
+  position: relative;
+}
+.search-input-box input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: #111;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input-box input:focus {
+  border-color: var(--clr-primary-medium, #FCD4A0);
+  box-shadow: 0 0 12px rgba(252, 212, 160, 0.25);
+}
+.search-input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #121212;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Toast alert */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1a1a;
+  border: 1px solid #FCD4A0;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.95rem;
+}
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+
+    .winners-hub-container { max-width: 1240px; margin: 0 auto 90px; padding: 0 20px; }
+    .winners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
+    .winner-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; position: relative; }
+    .winner-card:hover { transform: translateY(-6px); border-color: #FCD4A0; box-shadow: 0 16px 36px rgba(252, 212, 160, 0.2); }
+    .winner-header-strip { background: linear-gradient(135deg, rgba(252, 212, 160, 0.15) 0%, rgba(0,0,0,0.6) 100%); padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(252, 212, 160, 0.2); }
+    .winner-year-title { font-size: 1.6rem; font-weight: 900; color: #FCD4A0; }
+    .winner-gender-badge { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #ccc; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 6px; }
+    .winner-body { padding: 20px; display: flex; gap: 16px; align-items: center; }
+    .winner-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #FCD4A0; flex-shrink: 0; background: #222; }
+    .winner-details { flex: 1; }
+    .winner-name { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .winner-club-country { font-size: 0.85rem; color: #aaa; margin-bottom: 6px; }
+    .winner-points-text { font-size: 0.8rem; color: #FCD4A0; font-weight: 700; }
+    .winner-footer-action { padding: 12px 20px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); display: flex; justify-content: space-between; align-items: center; }
+    .btn-winner-details { background: none; border: none; color: #FCD4A0; font-size: 0.85rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .faq-section { max-width: 900px; margin: 60px auto 0; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 0; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; font-weight: 700; color: #fff; cursor: pointer; }
+    .faq-answer { display: none; color: #aaa; font-size: 0.95rem; line-height: 1.6; margin-top: 12px; }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-toggle-icon { transform: rotate(180deg); }
+    .faq-toggle-icon { transition: transform 0.2s; color: #FCD4A0; }
+  
+  </style>
+</head>
+<body>
+
+  
+  <!-- Top Sponsors Bar -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 32px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px; object-fit: contain;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img src="assets/site/vanguart.svg" alt="Vanguart" style="width: 65px; height: 22px; object-fit: contain;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 65px; height: 16px; object-fit: contain;" />
+    </a>
+  </header>
+
+  <!-- Sticky Main Nav -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html" class="">Nominees</a></li>
+          <li><a href="news.html" class="">All articles</a></li>
+          <li><a href="vote.html" class="">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html" class="">Home</a>
+      <a href="nominees.html" class="">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote B.O.A.T.</a>
+      <a href="winners.html" class="active-drawer">Winners</a>
+      <a href="all-rankings.html" class="">All Rankings</a>
+      <a href="fan-zone.html" class="">Fan Zone</a>
+      <a href="the-ballon-dor.html" class="">The Ballon d’Or</a>
+      <a href="news.html" class="">News & Articles</a>
+      <a href="stories.html" class="">Stories</a>
+      <a href="champions-academy.html" class="">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html" class="">Press Room</a>
+      <a href="login.html" class="">My Account / Login</a>
+    </div>
+  </nav>
+
+
+  <div class="page-hero">
+    <div class="page-hero-badge">Historic Hall of Fame</div>
+    <h1>Ballon d'Or™ Winners Since 1956</h1>
+    <p>Honouring seven decades of immortal footballing royalty with authentic portraits. Filter by era, category, or search for your favorite legend.</p>
+  </div>
+
+  <!-- Decade Filters -->
+  <div class="tabs-nav-bar">
+    <button class="tab-btn active" onclick="setDecade('all', this)">All Eras</button>
+    <button class="tab-btn" onclick="setDecade('2020s', this)">2020s</button>
+    <button class="tab-btn" onclick="setDecade('2010s', this)">2010s</button>
+    <button class="tab-btn" onclick="setDecade('2000s', this)">2000s</button>
+    <button class="tab-btn" onclick="setDecade('1990s', this)">1990s</button>
+    <button class="tab-btn" onclick="setDecade('classics', this)">1956–1989</button>
+  </div>
+
+  <!-- Search Filter -->
+  <div class="filter-search-wrapper">
+    <div class="search-input-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="winner-search" placeholder="Search by player, club, country, or year..." oninput="filterWinners()" />
+    </div>
+  </div>
+
+  <!-- Winners Grid -->
+  <div class="winners-hub-container">
+    <div class="winners-grid" id="winners-grid">
+      
+        <div class="winner-card" data-year="2024" data-gender="Men" data-name="rodri" data-club="manchester city" data-country="spain">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2024</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/rodri.png" alt="Rodri" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Rodri</div>
+              <div class="winner-club-country">Manchester City • Spain</div>
+              <div class="winner-points-text">1,170 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Vinícius Júnior</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2024', 'Rodri', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2023" data-gender="Men" data-name="lionel messi" data-club="inter miami / psg" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2023</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">Inter Miami / PSG • Argentina</div>
+              <div class="winner-points-text">462 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Erling Haaland</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2023', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2022" data-gender="Men" data-name="karim benzema" data-club="real madrid" data-country="france">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2022</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/karim-benzema.png" alt="Karim Benzema" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Karim Benzema</div>
+              <div class="winner-club-country">Real Madrid • France</div>
+              <div class="winner-points-text">549 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Sadio Mané</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2022', 'Karim Benzema', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2021" data-gender="Men" data-name="lionel messi" data-club="psg / fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2021</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">PSG / FC Barcelona • Argentina</div>
+              <div class="winner-points-text">613 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Robert Lewandowski</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2021', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2019" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2019</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">686 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Virgil van Dijk</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2019', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2018" data-gender="Men" data-name="luka modrić" data-club="real madrid" data-country="croatia">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2018</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/luka-modri-.png" alt="Luka Modrić" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Luka Modrić</div>
+              <div class="winner-club-country">Real Madrid • Croatia</div>
+              <div class="winner-points-text">753 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2018', 'Luka Modrić', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2017" data-gender="Men" data-name="cristiano ronaldo" data-club="real madrid" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2017</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Cristiano Ronaldo</div>
+              <div class="winner-club-country">Real Madrid • Portugal</div>
+              <div class="winner-points-text">946 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Lionel Messi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2017', 'Cristiano Ronaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2016" data-gender="Men" data-name="cristiano ronaldo" data-club="real madrid" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2016</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Cristiano Ronaldo</div>
+              <div class="winner-club-country">Real Madrid • Portugal</div>
+              <div class="winner-points-text">745 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Lionel Messi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2016', 'Cristiano Ronaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2015" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2015</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">41.33%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2015', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2014" data-gender="Men" data-name="cristiano ronaldo" data-club="real madrid" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2014</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Cristiano Ronaldo</div>
+              <div class="winner-club-country">Real Madrid • Portugal</div>
+              <div class="winner-points-text">37.66%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Lionel Messi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2014', 'Cristiano Ronaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2013" data-gender="Men" data-name="cristiano ronaldo" data-club="real madrid" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2013</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Cristiano Ronaldo</div>
+              <div class="winner-club-country">Real Madrid • Portugal</div>
+              <div class="winner-points-text">27.99%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Lionel Messi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2013', 'Cristiano Ronaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2012" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2012</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">41.60%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2012', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2011" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2011</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">47.88%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2011', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2010" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2010</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">22.65%</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Andrés Iniesta</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2010', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2009" data-gender="Men" data-name="lionel messi" data-club="fc barcelona" data-country="argentina">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2009</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lionel-messi.png" alt="Lionel Messi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lionel Messi</div>
+              <div class="winner-club-country">FC Barcelona • Argentina</div>
+              <div class="winner-points-text">473 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2009', 'Lionel Messi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2008" data-gender="Men" data-name="cristiano ronaldo" data-club="manchester united" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2008</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/cristiano-ronaldo.png" alt="Cristiano Ronaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Cristiano Ronaldo</div>
+              <div class="winner-club-country">Manchester United • Portugal</div>
+              <div class="winner-points-text">446 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Lionel Messi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2008', 'Cristiano Ronaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2007" data-gender="Men" data-name="kaká" data-club="ac milan" data-country="brazil">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2007</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/kak-.png" alt="Kaká" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Kaká</div>
+              <div class="winner-club-country">AC Milan • Brazil</div>
+              <div class="winner-points-text">444 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Cristiano Ronaldo</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2007', 'Kaká', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2006" data-gender="Men" data-name="fabio cannavaro" data-club="real madrid / juventus" data-country="italy">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2006</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/fabio-cannavaro.png" alt="Fabio Cannavaro" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Fabio Cannavaro</div>
+              <div class="winner-club-country">Real Madrid / Juventus • Italy</div>
+              <div class="winner-points-text">173 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Gianluigi Buffon</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2006', 'Fabio Cannavaro', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2005" data-gender="Men" data-name="ronaldinho" data-club="fc barcelona" data-country="brazil">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2005</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/ronaldinho.png" alt="Ronaldinho" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Ronaldinho</div>
+              <div class="winner-club-country">FC Barcelona • Brazil</div>
+              <div class="winner-points-text">225 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Frank Lampard</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2005', 'Ronaldinho', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2004" data-gender="Men" data-name="andriy shevchenko" data-club="ac milan" data-country="ukraine">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2004</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/andriy-shevchenko.png" alt="Andriy Shevchenko" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Andriy Shevchenko</div>
+              <div class="winner-club-country">AC Milan • Ukraine</div>
+              <div class="winner-points-text">175 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Deco</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2004', 'Andriy Shevchenko', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2003" data-gender="Men" data-name="pavel nedvěd" data-club="juventus" data-country="czech republic">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2003</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/pavel-nedv-d.png" alt="Pavel Nedvěd" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Pavel Nedvěd</div>
+              <div class="winner-club-country">Juventus • Czech Republic</div>
+              <div class="winner-points-text">190 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Thierry Henry</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2003', 'Pavel Nedvěd', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2002" data-gender="Men" data-name="ronaldo nazário" data-club="real madrid / inter milan" data-country="brazil">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2002</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/ronaldo.png" alt="Ronaldo Nazário" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Ronaldo Nazário</div>
+              <div class="winner-club-country">Real Madrid / Inter Milan • Brazil</div>
+              <div class="winner-points-text">169 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Roberto Carlos</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2002', 'Ronaldo Nazário', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2001" data-gender="Men" data-name="michael owen" data-club="liverpool" data-country="england">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2001</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/michael-owen.png" alt="Michael Owen" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Michael Owen</div>
+              <div class="winner-club-country">Liverpool • England</div>
+              <div class="winner-points-text">176 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Raúl</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2001', 'Michael Owen', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="2000" data-gender="Men" data-name="luís figo" data-club="real madrid / barcelona" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">2000</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/luis-figo.png" alt="Luís Figo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Luís Figo</div>
+              <div class="winner-club-country">Real Madrid / Barcelona • Portugal</div>
+              <div class="winner-points-text">197 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Zinedine Zidane</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('2000', 'Luís Figo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1999" data-gender="Men" data-name="rivaldo" data-club="fc barcelona" data-country="brazil">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1999</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/rivaldo.png" alt="Rivaldo" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Rivaldo</div>
+              <div class="winner-club-country">FC Barcelona • Brazil</div>
+              <div class="winner-points-text">219 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: David Beckham</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1999', 'Rivaldo', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1998" data-gender="Men" data-name="zinedine zidane" data-club="juventus" data-country="france">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1998</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/zinedine-zidane.png" alt="Zinedine Zidane" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Zinedine Zidane</div>
+              <div class="winner-club-country">Juventus • France</div>
+              <div class="winner-points-text">244 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Davor Šuker</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1998', 'Zinedine Zidane', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1997" data-gender="Men" data-name="ronaldo nazário" data-club="inter milan / barcelona" data-country="brazil">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1997</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/ronaldo.png" alt="Ronaldo Nazário" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Ronaldo Nazário</div>
+              <div class="winner-club-country">Inter Milan / Barcelona • Brazil</div>
+              <div class="winner-points-text">222 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Predrag Mijatović</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1997', 'Ronaldo Nazário', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1996" data-gender="Men" data-name="matthias sammer" data-club="borussia dortmund" data-country="germany">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1996</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/matthias-sammer.png" alt="Matthias Sammer" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Matthias Sammer</div>
+              <div class="winner-club-country">Borussia Dortmund • Germany</div>
+              <div class="winner-points-text">144 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Ronaldo Nazário</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1996', 'Matthias Sammer', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1995" data-gender="Men" data-name="george weah" data-club="ac milan / psg" data-country="liberia">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1995</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/george-weah.png" alt="George Weah" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">George Weah</div>
+              <div class="winner-club-country">AC Milan / PSG • Liberia</div>
+              <div class="winner-points-text">144 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Jürgen Klinsmann</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1995', 'George Weah', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1994" data-gender="Men" data-name="hristo stoichkov" data-club="fc barcelona" data-country="bulgaria">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1994</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/hristo-stoichkov.png" alt="Hristo Stoichkov" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Hristo Stoichkov</div>
+              <div class="winner-club-country">FC Barcelona • Bulgaria</div>
+              <div class="winner-points-text">210 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Roberto Baggio</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1994', 'Hristo Stoichkov', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1993" data-gender="Men" data-name="roberto baggio" data-club="juventus" data-country="italy">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1993</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/roberto-baggio.png" alt="Roberto Baggio" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Roberto Baggio</div>
+              <div class="winner-club-country">Juventus • Italy</div>
+              <div class="winner-points-text">142 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Dennis Bergkamp</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1993', 'Roberto Baggio', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1992" data-gender="Men" data-name="marco van basten" data-club="ac milan" data-country="netherlands">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1992</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/marco-van-basten.png" alt="Marco van Basten" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Marco van Basten</div>
+              <div class="winner-club-country">AC Milan • Netherlands</div>
+              <div class="winner-points-text">98 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Hristo Stoichkov</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1992', 'Marco van Basten', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1991" data-gender="Men" data-name="jean-pierre papin" data-club="marseille" data-country="france">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1991</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/jean-pierre-papin.png" alt="Jean-Pierre Papin" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Jean-Pierre Papin</div>
+              <div class="winner-club-country">Marseille • France</div>
+              <div class="winner-points-text">141 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Dejan Savićević</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1991', 'Jean-Pierre Papin', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1990" data-gender="Men" data-name="lothar matthäus" data-club="inter milan" data-country="germany">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1990</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lothar-matth-us.png" alt="Lothar Matthäus" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lothar Matthäus</div>
+              <div class="winner-club-country">Inter Milan • Germany</div>
+              <div class="winner-points-text">137 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Salvatore Schillaci</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1990', 'Lothar Matthäus', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1989" data-gender="Men" data-name="marco van basten" data-club="ac milan" data-country="netherlands">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1989</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/marco-van-basten.png" alt="Marco van Basten" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Marco van Basten</div>
+              <div class="winner-club-country">AC Milan • Netherlands</div>
+              <div class="winner-points-text">119 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Franco Baresi</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1989', 'Marco van Basten', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1988" data-gender="Men" data-name="marco van basten" data-club="ac milan" data-country="netherlands">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1988</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/marco-van-basten.png" alt="Marco van Basten" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Marco van Basten</div>
+              <div class="winner-club-country">AC Milan • Netherlands</div>
+              <div class="winner-points-text">129 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Ruud Gullit</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1988', 'Marco van Basten', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1987" data-gender="Men" data-name="ruud gullit" data-club="ac milan / psv" data-country="netherlands">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1987</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/ruud-gullit.png" alt="Ruud Gullit" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Ruud Gullit</div>
+              <div class="winner-club-country">AC Milan / PSV • Netherlands</div>
+              <div class="winner-points-text">106 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Paulo Futre</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1987', 'Ruud Gullit', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1986" data-gender="Men" data-name="igor belanov" data-club="dynamo kyiv" data-country="soviet union">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1986</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/igor-belanov.png" alt="Igor Belanov" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Igor Belanov</div>
+              <div class="winner-club-country">Dynamo Kyiv • Soviet Union</div>
+              <div class="winner-points-text">84 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Gary Lineker</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1986', 'Igor Belanov', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1985" data-gender="Men" data-name="michel platini" data-club="juventus" data-country="france">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1985</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/michel-platini.png" alt="Michel Platini" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Michel Platini</div>
+              <div class="winner-club-country">Juventus • France</div>
+              <div class="winner-points-text">127 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Preben Elkjær</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1985', 'Michel Platini', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1982" data-gender="Men" data-name="paolo rossi" data-club="juventus" data-country="italy">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1982</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/paolo-rossi.png" alt="Paolo Rossi" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Paolo Rossi</div>
+              <div class="winner-club-country">Juventus • Italy</div>
+              <div class="winner-points-text">115 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Alain Giresse</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1982', 'Paolo Rossi', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1981" data-gender="Men" data-name="karl-heinz rummenigge" data-club="bayern munich" data-country="germany">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1981</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/karl-heinz-rummenigge.png" alt="Karl-Heinz Rummenigge" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Karl-Heinz Rummenigge</div>
+              <div class="winner-club-country">Bayern Munich • Germany</div>
+              <div class="winner-points-text">106 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Paul Breitner</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1981', 'Karl-Heinz Rummenigge', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1979" data-gender="Men" data-name="kevin keegan" data-club="hamburger sv" data-country="england">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1979</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/kevin-keegan.png" alt="Kevin Keegan" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Kevin Keegan</div>
+              <div class="winner-club-country">Hamburger SV • England</div>
+              <div class="winner-points-text">118 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Karl-Heinz Rummenigge</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1979', 'Kevin Keegan', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1977" data-gender="Men" data-name="allan simonsen" data-club="borussia mönchengladbach" data-country="denmark">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1977</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/allan-simonsen.png" alt="Allan Simonsen" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Allan Simonsen</div>
+              <div class="winner-club-country">Borussia Mönchengladbach • Denmark</div>
+              <div class="winner-points-text">74 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Kevin Keegan</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1977', 'Allan Simonsen', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1976" data-gender="Men" data-name="franz beckenbauer" data-club="bayern munich" data-country="germany">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1976</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/franz-beckenbauer.png" alt="Franz Beckenbauer" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Franz Beckenbauer</div>
+              <div class="winner-club-country">Bayern Munich • Germany</div>
+              <div class="winner-points-text">91 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Rob Rensenbrink</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1976', 'Franz Beckenbauer', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1975" data-gender="Men" data-name="oleg blokhin" data-club="dynamo kyiv" data-country="soviet union">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1975</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/oleg-blokhin.png" alt="Oleg Blokhin" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Oleg Blokhin</div>
+              <div class="winner-club-country">Dynamo Kyiv • Soviet Union</div>
+              <div class="winner-points-text">122 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Franz Beckenbauer</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1975', 'Oleg Blokhin', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1974" data-gender="Men" data-name="johan cruyff" data-club="fc barcelona" data-country="netherlands">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1974</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/johan-cruyff.png" alt="Johan Cruyff" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Johan Cruyff</div>
+              <div class="winner-club-country">FC Barcelona • Netherlands</div>
+              <div class="winner-points-text">116 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Franz Beckenbauer</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1974', 'Johan Cruyff', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1970" data-gender="Men" data-name="gerd müller" data-club="bayern munich" data-country="germany">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1970</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/gerd-m-ller.png" alt="Gerd Müller" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Gerd Müller</div>
+              <div class="winner-club-country">Bayern Munich • Germany</div>
+              <div class="winner-points-text">77 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Bobby Moore</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1970', 'Gerd Müller', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1968" data-gender="Men" data-name="george best" data-club="manchester united" data-country="northern ireland">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1968</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/george-best.png" alt="George Best" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">George Best</div>
+              <div class="winner-club-country">Manchester United • Northern Ireland</div>
+              <div class="winner-points-text">61 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Bobby Charlton</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1968', 'George Best', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1966" data-gender="Men" data-name="bobby charlton" data-club="manchester united" data-country="england">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1966</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/bobby-charlton.png" alt="Bobby Charlton" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Bobby Charlton</div>
+              <div class="winner-club-country">Manchester United • England</div>
+              <div class="winner-points-text">81 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Eusébio</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1966', 'Bobby Charlton', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1965" data-gender="Men" data-name="eusébio" data-club="benfica" data-country="portugal">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1965</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/eus-bio.png" alt="Eusébio" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Eusébio</div>
+              <div class="winner-club-country">Benfica • Portugal</div>
+              <div class="winner-points-text">67 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Giacinto Facchetti</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1965', 'Eusébio', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1964" data-gender="Men" data-name="denis law" data-club="manchester united" data-country="scotland">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1964</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/denis-law.png" alt="Denis Law" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Denis Law</div>
+              <div class="winner-club-country">Manchester United • Scotland</div>
+              <div class="winner-points-text">61 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Luis Suárez</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1964', 'Denis Law', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1963" data-gender="Men" data-name="lev yashin" data-club="dynamo moscow" data-country="soviet union">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1963</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/lev-yashin.png" alt="Lev Yashin" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Lev Yashin</div>
+              <div class="winner-club-country">Dynamo Moscow • Soviet Union</div>
+              <div class="winner-points-text">73 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Gianni Rivera</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1963', 'Lev Yashin', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1960" data-gender="Men" data-name="luis suárez" data-club="fc barcelona" data-country="spain">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1960</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/luis-su-rez.png" alt="Luis Suárez" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Luis Suárez</div>
+              <div class="winner-club-country">FC Barcelona • Spain</div>
+              <div class="winner-points-text">54 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Ferenc Puskás</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1960', 'Luis Suárez', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1959" data-gender="Men" data-name="alfredo di stéfano" data-club="real madrid" data-country="spain">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1959</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/alfredo-di-st-fano.png" alt="Alfredo Di Stéfano" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Alfredo Di Stéfano</div>
+              <div class="winner-club-country">Real Madrid • Spain</div>
+              <div class="winner-points-text">80 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Raymond Kopa</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1959', 'Alfredo Di Stéfano', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1958" data-gender="Men" data-name="raymond kopa" data-club="real madrid / reims" data-country="france">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1958</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/raymond-kopa.png" alt="Raymond Kopa" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Raymond Kopa</div>
+              <div class="winner-club-country">Real Madrid / Reims • France</div>
+              <div class="winner-points-text">71 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Helmut Rahn</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1958', 'Raymond Kopa', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+        <div class="winner-card" data-year="1956" data-gender="Men" data-name="stanley matthews" data-club="blackpool" data-country="england">
+          <div class="winner-header-strip">
+            <span class="winner-year-title">1956</span>
+            <span class="winner-gender-badge">Men</span>
+          </div>
+          <div class="winner-body">
+            <img src="assets/winners/stanley-matthews.png" alt="Stanley Matthews" class="winner-avatar" onerror="this.src='assets/winners/rodri.png'" />
+            <div class="winner-details">
+              <div class="winner-name">Stanley Matthews</div>
+              <div class="winner-club-country">Blackpool • England</div>
+              <div class="winner-points-text">47 pts</div>
+            </div>
+          </div>
+          <div class="winner-footer-action">
+            <span style="font-size: 0.75rem; color: #777;">Runner-up: Alfredo Di Stéfano</span>
+            <button class="btn-winner-details" onclick="openWinnerModal('1956', 'Stanley Matthews', 'Men')">
+              Details &rarr;
+            </button>
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="faq-section">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 24px; text-align: center;">Frequently Asked Questions</h2>
+      
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Who has won the most Ballon d'Or awards in history?</span>
+          <svg class="faq-toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          Lionel Messi holds the all-time record with 8 Ballons d'Or (2009, 2010, 2011, 2012, 2015, 2019, 2021, and 2023). Cristiano Ronaldo is second with 5 titles (2008, 2013, 2014, 2016, and 2017).
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Can a goalkeeper win the Ballon d'Or?</span>
+          <svg class="faq-toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          Yes! Lev Yashin, the legendary Dynamo Moscow and Soviet Union shot-stopper known as the "Black Spider", won the Ballon d'Or in 1963. To honour goalkeepers today, France Football established the dedicated Yashin Trophy in 2019.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How does the jury vote for the Ballon d'Or?</span>
+          <svg class="faq-toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          A panel of 100 specialized sports journalists representing the top 100 FIFA ranking nations each select a top 10 list from the 30 finalists. Points are awarded: 15, 12, 10, 8, 7, 5, 4, 3, 2, and 1 point.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Winner Detail Modal -->
+  <div class="modal-overlay" id="winner-modal" onclick="closeWinnerModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeWinnerModal()">&times;</button>
+      <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+        <img id="wm-img" src="" alt="Winner avatar" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid #FCD4A0;" />
+        <div>
+          <div id="wm-year" style="font-size: 1.5rem; font-weight: 900; color: #FCD4A0;">YEAR</div>
+          <h2 id="wm-name" style="font-size: 1.8rem; font-weight: 800; color: #fff; margin: 2px 0;">Player</h2>
+          <div id="wm-meta" style="color: #aaa; font-size: 0.95rem;">Club • Country</div>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(252, 212, 160, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+        <h4 style="color: #FCD4A0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 8px;">Historic Voting Podium</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center; margin-bottom: 16px;">
+          <div style="background: rgba(252, 212, 160, 0.15); border: 1px solid #FCD4A0; padding: 10px; border-radius: 8px;">
+            <div style="font-size: 0.72rem; color: #FCD4A0; font-weight: 700;">1ST (WINNER)</div>
+            <div id="wm-first" style="font-weight: 800; color: #fff; font-size: 0.92rem;">Name</div>
+            <div id="wm-pts" style="font-size: 0.75rem; color: #aaa;">Pts</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 10px; border-radius: 8px;">
+            <div style="font-size: 0.72rem; color: #ccc; font-weight: 700;">2ND PLACE</div>
+            <div id="wm-second" style="font-weight: 700; color: #ddd; font-size: 0.92rem;">Name</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 10px; border-radius: 8px;">
+            <div style="font-size: 0.72rem; color: #cd7f32; font-weight: 700;">3RD PLACE</div>
+            <div id="wm-third" style="font-weight: 700; color: #ddd; font-size: 0.92rem;">Name</div>
+          </div>
+        </div>
+        <p id="wm-notes" style="color: #ddd; line-height: 1.6; font-size: 0.95rem; margin: 0;">Notes</p>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 12px;">
+        <button class="btn-dark-outline" onclick="closeWinnerModal()" style="padding: 10px 20px; font-size: 0.88rem;">Close</button>
+        <a href="vote.html" class="btn-gold-primary" style="padding: 10px 24px; font-size: 0.88rem;">Vote B.O.A.T.</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const winnersDb = [{"year":2024,"gender":"Men","name":"Rodri","club":"Manchester City","country":"Spain","points":"1,170 pts","runnerUp":"Vinícius Júnior","third":"Jude Bellingham","img":"assets/winners/rodri.png","notes":"Became the first defensive midfielder since 1996 and first Spanish man since Luis Suárez (1960) to win."},{"year":2023,"gender":"Men","name":"Lionel Messi","club":"Inter Miami / PSG","country":"Argentina","points":"462 pts","runnerUp":"Erling Haaland","third":"Kylian Mbappé","img":"assets/winners/lionel-messi.png","notes":"Extended his all-time record to 8 Ballons d'Or after leading Argentina to World Cup glory in Qatar."},{"year":2022,"gender":"Men","name":"Karim Benzema","club":"Real Madrid","country":"France","points":"549 pts","runnerUp":"Sadio Mané","third":"Kevin De Bruyne","img":"assets/winners/karim-benzema.png","notes":"Scored 44 goals in 46 games, leading Real Madrid to the Champions League and La Liga double."},{"year":2021,"gender":"Men","name":"Lionel Messi","club":"PSG / FC Barcelona","country":"Argentina","points":"613 pts","runnerUp":"Robert Lewandowski","third":"Jorginho","img":"assets/winners/lionel-messi.png","notes":"Won his 7th Ballon d'Or after captaining Argentina to the Copa América trophy in Rio de Janeiro."},{"year":2019,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"686 pts","runnerUp":"Virgil van Dijk","third":"Cristiano Ronaldo","img":"assets/winners/lionel-messi.png","notes":"Edged Virgil van Dijk by just 7 points after netting 51 goals across all competitions."},{"year":2018,"gender":"Men","name":"Luka Modrić","club":"Real Madrid","country":"Croatia","points":"753 pts","runnerUp":"Cristiano Ronaldo","third":"Antoine Griezmann","img":"assets/winners/luka-modri-.png","notes":"Broke the 10-year Messi-Ronaldo duopoly after winning the Champions League and leading Croatia to the World Cup Final."},{"year":2017,"gender":"Men","name":"Cristiano Ronaldo","club":"Real Madrid","country":"Portugal","points":"946 pts","runnerUp":"Lionel Messi","third":"Neymar","img":"assets/winners/cristiano-ronaldo.png","notes":"Clinched his 5th Ballon d'Or after winning back-to-back Champions Leagues with Real Madrid."},{"year":2016,"gender":"Men","name":"Cristiano Ronaldo","club":"Real Madrid","country":"Portugal","points":"745 pts","runnerUp":"Lionel Messi","third":"Antoine Griezmann","img":"assets/winners/cristiano-ronaldo.png","notes":"Won the Champions League with Real Madrid and Euro 2016 with Portugal in the same historic summer."},{"year":2015,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"41.33%","runnerUp":"Cristiano Ronaldo","third":"Neymar","img":"assets/winners/lionel-messi.png","notes":"Spearheaded Barcelona's second historic treble alongside Suárez and Neymar (MSN)."},{"year":2014,"gender":"Men","name":"Cristiano Ronaldo","club":"Real Madrid","country":"Portugal","points":"37.66%","runnerUp":"Lionel Messi","third":"Manuel Neuer","img":"assets/winners/cristiano-ronaldo.png","notes":"Set the all-time record with 17 Champions League goals in a single season to seal 'La Décima'."},{"year":2013,"gender":"Men","name":"Cristiano Ronaldo","club":"Real Madrid","country":"Portugal","points":"27.99%","runnerUp":"Lionel Messi","third":"Franck Ribéry","img":"assets/winners/cristiano-ronaldo.png","notes":"Scored 69 goals in 59 matches across the calendar year, including playoff heroics vs Sweden."},{"year":2012,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"41.60%","runnerUp":"Cristiano Ronaldo","third":"Andrés Iniesta","img":"assets/winners/lionel-messi.png","notes":"Shattered Gerd Müller's 40-year-old world record by scoring 91 goals in a single calendar year."},{"year":2011,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"47.88%","runnerUp":"Cristiano Ronaldo","third":"Xavi","img":"assets/winners/lionel-messi.png","notes":"Orchestrated one of the finest club displays in history in the 3-1 Wembley Champions League final."},{"year":2010,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"22.65%","runnerUp":"Andrés Iniesta","third":"Xavi","img":"assets/winners/lionel-messi.png","notes":"All three podium spots belonged to FC Barcelona's famed La Masia academy."},{"year":2009,"gender":"Men","name":"Lionel Messi","club":"FC Barcelona","country":"Argentina","points":"473 pts","runnerUp":"Cristiano Ronaldo","third":"Xavi","img":"assets/winners/lionel-messi.png","notes":"Won the first of his 8 Ballons d'Or by record margin after Barcelona's historic Sextuple."},{"year":2008,"gender":"Men","name":"Cristiano Ronaldo","club":"Manchester United","country":"Portugal","points":"446 pts","runnerUp":"Lionel Messi","third":"Fernando Torres","img":"assets/winners/cristiano-ronaldo.png","notes":"Won his first Ballon d'Or after scoring 42 goals and winning the Premier League and Champions League double."},{"year":2007,"gender":"Men","name":"Kaká","club":"AC Milan","country":"Brazil","points":"444 pts","runnerUp":"Cristiano Ronaldo","third":"Lionel Messi","img":"assets/winners/kak-.png","notes":"Masterminded AC Milan's Champions League triumph, finishing as the competition's top scorer."},{"year":2006,"gender":"Men","name":"Fabio Cannavaro","club":"Real Madrid / Juventus","country":"Italy","points":"173 pts","runnerUp":"Gianluigi Buffon","third":"Thierry Henry","img":"assets/winners/fabio-cannavaro.png","notes":"'The Berlin Wall' captained Italy to World Cup glory, conceding only two goals in the entire tournament."},{"year":2005,"gender":"Men","name":"Ronaldinho","club":"FC Barcelona","country":"Brazil","points":"225 pts","runnerUp":"Frank Lampard","third":"Steven Gerrard","img":"assets/winners/ronaldinho.png","notes":"Dazzled the football world with sublime artistry, earning a standing ovation at the Santiago Bernabéu."},{"year":2004,"gender":"Men","name":"Andriy Shevchenko","club":"AC Milan","country":"Ukraine","points":"175 pts","runnerUp":"Deco","third":"Ronaldinho","img":"assets/winners/andriy-shevchenko.png","notes":"Fired AC Milan to the Serie A title with 24 league goals."},{"year":2003,"gender":"Men","name":"Pavel Nedvěd","club":"Juventus","country":"Czech Republic","points":"190 pts","runnerUp":"Thierry Henry","third":"Paolo Maldini","img":"assets/winners/pavel-nedv-d.png","notes":"The tireless engine of Juventus took the Bianconeri to the Scudetto and the Champions League Final."},{"year":2002,"gender":"Men","name":"Ronaldo Nazário","club":"Real Madrid / Inter Milan","country":"Brazil","points":"169 pts","runnerUp":"Roberto Carlos","third":"Oliver Kahn","img":"assets/winners/ronaldo.png","notes":"Miraculous comeback from knee surgery to score 8 goals and brace in the 2002 World Cup Final."},{"year":2001,"gender":"Men","name":"Michael Owen","club":"Liverpool","country":"England","points":"176 pts","runnerUp":"Raúl","third":"Oliver Kahn","img":"assets/winners/michael-owen.png","notes":"Won the UEFA Cup, FA Cup, and League Cup treble at just 21 years of age."},{"year":2000,"gender":"Men","name":"Luís Figo","club":"Real Madrid / Barcelona","country":"Portugal","points":"197 pts","runnerUp":"Zinedine Zidane","third":"Andriy Shevchenko","img":"assets/winners/luis-figo.png","notes":"Dazzled at Euro 2000 and completed a historic transfer that captivated the sports world."},{"year":1999,"gender":"Men","name":"Rivaldo","club":"FC Barcelona","country":"Brazil","points":"219 pts","runnerUp":"David Beckham","third":"Andriy Shevchenko","img":"assets/winners/rivaldo.png","notes":"Spectacular overhead kicks and Copa América glory crowned the Brazilian playmaker."},{"year":1998,"gender":"Men","name":"Zinedine Zidane","club":"Juventus","country":"France","points":"244 pts","runnerUp":"Davor Šuker","third":"Ronaldo Nazário","img":"assets/winners/zinedine-zidane.png","notes":"Two iconic headers in the World Cup Final in Paris gave France their first global crown."},{"year":1997,"gender":"Men","name":"Ronaldo Nazário","club":"Inter Milan / Barcelona","country":"Brazil","points":"222 pts","runnerUp":"Predrag Mijatović","third":"Zinedine Zidane","img":"assets/winners/ronaldo.png","notes":"Youngest winner in history at 21 years old after an astonishing 47-goal season for Barcelona."},{"year":1996,"gender":"Men","name":"Matthias Sammer","club":"Borussia Dortmund","country":"Germany","points":"144 pts","runnerUp":"Ronaldo Nazário","third":"Alan Shearer","img":"assets/winners/matthias-sammer.png","notes":"The sweeper marshalled Germany to Euro 96 victory and Borussia Dortmund to the Bundesliga."},{"year":1995,"gender":"Men","name":"George Weah","club":"AC Milan / PSG","country":"Liberia","points":"144 pts","runnerUp":"Jürgen Klinsmann","third":"Jari Litmanen","img":"assets/winners/george-weah.png","notes":"First and only African player to win the Ballon d'Or in the inaugural year eligibility went global."},{"year":1994,"gender":"Men","name":"Hristo Stoichkov","club":"FC Barcelona","country":"Bulgaria","points":"210 pts","runnerUp":"Roberto Baggio","third":"Paolo Maldini","img":"assets/winners/hristo-stoichkov.png","notes":"Cruyff's 'Dream Team' talisman and World Cup 1994 Golden Boot winner."},{"year":1993,"gender":"Men","name":"Roberto Baggio","club":"Juventus","country":"Italy","points":"142 pts","runnerUp":"Dennis Bergkamp","third":"Eric Cantona","img":"assets/winners/roberto-baggio.png","notes":"'The Divine Ponytail' scored 39 goals and inspired Juventus to the UEFA Cup."},{"year":1992,"gender":"Men","name":"Marco van Basten","club":"AC Milan","country":"Netherlands","points":"98 pts","runnerUp":"Hristo Stoichkov","third":"Dennis Bergkamp","img":"assets/winners/marco-van-basten.png","notes":"Secured his 3rd Ballon d'Or as AC Milan completed an unbeaten Serie A campaign."},{"year":1991,"gender":"Men","name":"Jean-Pierre Papin","club":"Marseille","country":"France","points":"141 pts","runnerUp":"Dejan Savićević","third":"Darko Pančev","img":"assets/winners/jean-pierre-papin.png","notes":"Known for his breathtaking volleys ('papinades'), leading Marseille to the European Cup Final."},{"year":1990,"gender":"Men","name":"Lothar Matthäus","club":"Inter Milan","country":"Germany","points":"137 pts","runnerUp":"Salvatore Schillaci","third":"Andreas Brehme","img":"assets/winners/lothar-matth-us.png","notes":"Captained West Germany to World Cup victory at Italia '90 with immense box-to-box dominance."},{"year":1989,"gender":"Men","name":"Marco van Basten","club":"AC Milan","country":"Netherlands","points":"119 pts","runnerUp":"Franco Baresi","third":"Frank Rijkaard","img":"assets/winners/marco-van-basten.png","notes":"AC Milan locked out all three podium positions in an era of absolute dominance."},{"year":1988,"gender":"Men","name":"Marco van Basten","club":"AC Milan","country":"Netherlands","points":"129 pts","runnerUp":"Ruud Gullit","third":"Frank Rijkaard","img":"assets/winners/marco-van-basten.png","notes":"Scored the greatest volley in football history in the Euro 88 Final against USSR."},{"year":1987,"gender":"Men","name":"Ruud Gullit","club":"AC Milan / PSV","country":"Netherlands","points":"106 pts","runnerUp":"Paulo Futre","third":"Emilio Butragueño","img":"assets/winners/ruud-gullit.png","notes":"Dedicated his Golden Ball to Nelson Mandela, becoming a cultural and sporting icon."},{"year":1986,"gender":"Men","name":"Igor Belanov","club":"Dynamo Kyiv","country":"Soviet Union","points":"84 pts","runnerUp":"Gary Lineker","third":"Emilio Butragueño","img":"assets/winners/igor-belanov.png","notes":"European Cup Winners' Cup champion, famous for his World Cup hat-trick against Belgium."},{"year":1985,"gender":"Men","name":"Michel Platini","club":"Juventus","country":"France","points":"127 pts","runnerUp":"Preben Elkjær","third":"Bernd Schuster","img":"assets/winners/michel-platini.png","notes":"Became the first player ever to win three consecutive Ballons d'Or (1983, 1984, 1985)."},{"year":1982,"gender":"Men","name":"Paolo Rossi","club":"Juventus","country":"Italy","points":"115 pts","runnerUp":"Alain Giresse","third":"Zbigniew Boniek","img":"assets/winners/paolo-rossi.png","notes":"Historic hat-trick vs Brazil and goals in the final won Italy the 1982 World Cup."},{"year":1981,"gender":"Men","name":"Karl-Heinz Rummenigge","club":"Bayern Munich","country":"Germany","points":"106 pts","runnerUp":"Paul Breitner","third":"Bernd Schuster","img":"assets/winners/karl-heinz-rummenigge.png","notes":"Won back-to-back Ballons d'Or after dominating the Bundesliga with Bayern Munich."},{"year":1979,"gender":"Men","name":"Kevin Keegan","club":"Hamburger SV","country":"England","points":"118 pts","runnerUp":"Karl-Heinz Rummenigge","third":"Ruud Krol","img":"assets/winners/kevin-keegan.png","notes":"'Mighty Mouse' led HSV to their first Bundesliga title in 19 years."},{"year":1977,"gender":"Men","name":"Allan Simonsen","club":"Borussia Mönchengladbach","country":"Denmark","points":"74 pts","runnerUp":"Kevin Keegan","third":"Michel Platini","img":"assets/winners/allan-simonsen.png","notes":"Only Danish player to win the award, scoring in the European Cup final."},{"year":1976,"gender":"Men","name":"Franz Beckenbauer","club":"Bayern Munich","country":"Germany","points":"91 pts","runnerUp":"Rob Rensenbrink","third":"Ivo Viktor","img":"assets/winners/franz-beckenbauer.png","notes":"Won his 3rd consecutive European Cup as captain of Bayern Munich."},{"year":1975,"gender":"Men","name":"Oleg Blokhin","club":"Dynamo Kyiv","country":"Soviet Union","points":"122 pts","runnerUp":"Franz Beckenbauer","third":"Johan Cruyff","img":"assets/winners/oleg-blokhin.png","notes":"Scored all three goals over Bayern Munich across two legs in the European Super Cup."},{"year":1974,"gender":"Men","name":"Johan Cruyff","club":"FC Barcelona","country":"Netherlands","points":"116 pts","runnerUp":"Franz Beckenbauer","third":"Kazimierz Deyna","img":"assets/winners/johan-cruyff.png","notes":"Architect of Total Football, winning his 3rd Ballon d'Or after taking Netherlands to the World Cup Final."},{"year":1970,"gender":"Men","name":"Gerd Müller","club":"Bayern Munich","country":"Germany","points":"77 pts","runnerUp":"Bobby Moore","third":"Luigi Riva","img":"assets/winners/gerd-m-ller.png","notes":"'Der Bomber' scored 10 goals at the 1970 World Cup in Mexico."},{"year":1968,"gender":"Men","name":"George Best","club":"Manchester United","country":"Northern Ireland","points":"61 pts","runnerUp":"Bobby Charlton","third":"Dragan Džajić","img":"assets/winners/george-best.png","notes":"'El Beatle' led Manchester United to become the first English club to win the European Cup."},{"year":1966,"gender":"Men","name":"Bobby Charlton","club":"Manchester United","country":"England","points":"81 pts","runnerUp":"Eusébio","third":"Franz Beckenbauer","img":"assets/winners/bobby-charlton.png","notes":"Key leader and talisman of England's 1966 World Cup triumph on home soil."},{"year":1965,"gender":"Men","name":"Eusébio","club":"Benfica","country":"Portugal","points":"67 pts","runnerUp":"Giacinto Facchetti","third":"Luis Suárez","img":"assets/winners/eus-bio.png","notes":"'The Black Panther' guided Benfica to another European Cup final with 48 goals in 36 games."},{"year":1964,"gender":"Men","name":"Denis Law","club":"Manchester United","country":"Scotland","points":"61 pts","runnerUp":"Luis Suárez","third":"Amancio","img":"assets/winners/denis-law.png","notes":"'The King of the Stretford End' scored an astonishing 46 goals in 42 matches in 1963/64."},{"year":1963,"gender":"Men","name":"Lev Yashin","club":"Dynamo Moscow","country":"Soviet Union","points":"73 pts","runnerUp":"Gianni Rivera","third":"Jimmy Greaves","img":"assets/winners/lev-yashin.png","notes":"The only goalkeeper in football history to win the Ballon d'Or. Saved over 150 penalty kicks."},{"year":1960,"gender":"Men","name":"Luis Suárez","club":"FC Barcelona","country":"Spain","points":"54 pts","runnerUp":"Ferenc Puskás","third":"Uwe Seeler","img":"assets/winners/luis-su-rez.png","notes":"'El Arquitecto' orchestrated Barcelona's La Liga and Fairs Cup double."},{"year":1959,"gender":"Men","name":"Alfredo Di Stéfano","club":"Real Madrid","country":"Spain","points":"80 pts","runnerUp":"Raymond Kopa","third":"John Charles","img":"assets/winners/alfredo-di-st-fano.png","notes":"'La Saeta Rubia' scored in Real Madrid's 4th consecutive European Cup triumph."},{"year":1958,"gender":"Men","name":"Raymond Kopa","club":"Real Madrid / Reims","country":"France","points":"71 pts","runnerUp":"Helmut Rahn","third":"Just Fontaine","img":"assets/winners/raymond-kopa.png","notes":"The French maestro was the centerpiece of Real Madrid's European dominance and France's 1958 World Cup."},{"year":1956,"gender":"Men","name":"Stanley Matthews","club":"Blackpool","country":"England","points":"47 pts","runnerUp":"Alfredo Di Stéfano","third":"Raymond Kopa","img":"assets/winners/stanley-matthews.png","notes":"Inaugural Ballon d'Or recipient, winning the prize at the age of 41."}];
+
+    let currentDecade = 'all';
+
+    function setDecade(dec, btn) {
+      currentDecade = dec;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterWinners();
+    }
+
+    function filterWinners() {
+      const q = (document.getElementById('winner-search').value || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('.winner-card');
+
+      cards.forEach(card => {
+        const year = parseInt(card.getAttribute('data-year'), 10);
+        const name = card.getAttribute('data-name');
+        const club = card.getAttribute('data-club');
+        const country = card.getAttribute('data-country');
+
+        // Decade check
+        let decadeMatch = false;
+        if (currentDecade === 'all') decadeMatch = true;
+        else if (currentDecade === '2020s' && year >= 2020) decadeMatch = true;
+        else if (currentDecade === '2010s' && year >= 2010 && year <= 2019) decadeMatch = true;
+        else if (currentDecade === '2000s' && year >= 2000 && year <= 2009) decadeMatch = true;
+        else if (currentDecade === '1990s' && year >= 1990 && year <= 1999) decadeMatch = true;
+        else if (currentDecade === 'classics' && year < 1990) decadeMatch = true;
+
+        // Search check
+        let searchMatch = !q || name.includes(q) || club.includes(q) || country.includes(q) || String(year).includes(q);
+
+        if (decadeMatch && searchMatch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openWinnerModal(year, name, gender) {
+      const w = winnersDb.find(item => String(item.year) === String(year) && item.name === name);
+      if (!w) return;
+      document.getElementById('wm-year').textContent = w.year + " MEN'S BALLON D'OR";
+      document.getElementById('wm-name').textContent = w.name;
+      document.getElementById('wm-meta').textContent = w.club + ' • ' + w.country;
+      document.getElementById('wm-first').textContent = w.name;
+      document.getElementById('wm-pts').textContent = w.points;
+      document.getElementById('wm-second').textContent = w.runnerUp;
+      document.getElementById('wm-third').textContent = w.third;
+      document.getElementById('wm-notes').textContent = w.notes;
+      document.getElementById('wm-img').src = w.img;
+      document.getElementById('winner-modal').classList.add('open');
+    }
+
+    function closeWinnerModal() {
+      document.getElementById('winner-modal').classList.remove('open');
+    }
+
+    function toggleFaq(el) {
+      el.classList.toggle('active');
+    }
+  </script>
+
+  
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col brand-col">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" class="footer-logo" />
+        <p class="footer-tagline">The most prestigious individual award in world football, honouring legendary excellence and greatness since 1956.</p>
+        <div class="social-links-row">
+          <a href="https://instagram.com/ballondor" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/ballondor" target="_blank" aria-label="X / Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@ballondor" target="_blank" aria-label="TikTok">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.32-6.32V8.92a8.28 8.28 0 0 0 4.84 1.57v-3.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/ballondor" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">News & Articles</a></li>
+          <li><a href="vote.html">Vote B.O.A.T.</a></li>
+          <li><a href="fan-zone.html">Fan Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Awards</h4>
+        <ul>
+          <li><a href="winners.html">Winners History</a></li>
+          <li><a href="all-rankings.html">All Rankings</a></li>
+          <li><a href="the-ballon-dor.html">The Trophy & History</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="champions-academy.html">Champions’ Academy</a></li>
+          <li><a href="ballon-dor-press-room.html">Press Room</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive Ballon d'Or ceremony announcements, nominee interviews, and voting results.</p>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletter(event)">
+          <input type="email" id="footer-newsletter-email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <span id="footer-nl-success" class="nl-success-msg" style="display:none; color: #4ade80; font-size: 0.85rem; margin-top: 6px;">Thank you for subscribing!</span>
+      </div>
+    </div>
+
+    <div class="footer-sponsors-section">
+      <span class="partners-label">OFFICIAL PARTNERS & SPONSORS</span>
+      <div class="sponsor-logos-grid">
+        <a href="https://www.adidas.com" target="_blank"><img src="assets/site/adidas.svg" alt="Adidas" style="height: 24px; object-fit: contain;" /></a>
+        <a href="https://www.topps.com" target="_blank"><img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="height: 24px; object-fit: contain;" /></a>
+        <a href="https://www.vanguart.com" target="_blank"><img src="assets/site/vanguart.svg" alt="Vanguart" style="height: 20px; object-fit: contain;" /></a>
+        <a href="https://www.hankooktire.com" target="_blank"><img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook Tire" style="height: 16px; object-fit: contain;" /></a>
+        <a href="https://www.lequipe.fr" target="_blank"><img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="L'Équipe" style="height: 20px; object-fit: contain;" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-legal-links">
+        <a href="voting-terms-and-conditions.html">Voting Terms</a>
+        <a href="terms-and-conditions.html">Terms of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <p class="copyright-text">© 2026 Ballon d'Or™ - L'Équipe 24/24 - UEFA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global Shared Script -->
+  <div id="toast-notification" class="toast-notice">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <script>
+    function toggleHamburgerMenu() {
+      const panel = document.getElementById('menu-drawer-panel');
+      const backdrop = document.getElementById('menu-backdrop');
+      if (panel && backdrop) {
+        panel.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      }
+    }
+
+    function toggleLangPanel() {
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.toggle('open');
+    }
+
+    function selectLangCode(code) {
+      const lbl = document.getElementById('label-selected-lang');
+      if (lbl) lbl.textContent = code;
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.remove('open');
+      showToast('Language switched to ' + code);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      const m = document.getElementById('toast-message');
+      if (t && m) {
+        m.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+
+    function handleFooterNewsletter(e) {
+      e.preventDefault();
+      const inp = document.getElementById('footer-newsletter-email');
+      const msg = document.getElementById('footer-nl-success');
+      if (inp && msg) {
+        localStorage.setItem('ballondor_subscriber', inp.value);
+        inp.value = '';
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        showToast('Subscribed to Ballon d’Or newsletter!');
+      }
+    }
+
+    // Check login state
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = localStorage.getItem('ballondor_logged_user');
+      const btn = document.getElementById('nav-login-btn');
+      if (user && btn) {
+        btn.textContent = user;
+        btn.href = 'login.html';
+      }
+    });
+
+    // Close dropdowns on outer click
+    document.addEventListener('click', (e) => {
+      const langWrap = document.querySelector('.lang-select-wrapper');
+      if (langWrap && !langWrap.contains(e.target)) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
+
+  

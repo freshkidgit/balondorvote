@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fan Zone | Ballon d'Or | Ballon d'Or™ Official</title>
+  <meta name="description" content="Test your football knowledge with the Ballon d'Or Trivia Challenge, vote in live community polls, and generate your official digital Fan Pass." />
+  <link rel="icon" href="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site/style.css" />
+  <style>
+
+/* Multi-page shared enhancements */
+.page-hero {
+  position: relative;
+  padding: 60px 24px 40px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(252, 212, 160, 0.12) 0%, rgba(0,0,0,0.95) 75%);
+  border-bottom: 1px solid rgba(252, 212, 160, 0.2);
+}
+.page-hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(252, 212, 160, 0.15);
+  border: 1px solid rgba(252, 212, 160, 0.4);
+  color: var(--clr-primary-medium, #FCD4A0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: #c4c4c4;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.tabs-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #080808;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(252, 212, 160, 0.15);
+  border-color: rgba(252, 212, 160, 0.4);
+  color: #fff;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, #FCD4A0 0%, #d4a76a 100%);
+  color: #000;
+  border-color: #FCD4A0;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(252, 212, 160, 0.3);
+}
+
+/* Search Bar Component */
+.filter-search-wrapper {
+  max-width: 700px;
+  margin: 30px auto 20px;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+}
+.search-input-box {
+  flex: 1;
+  position: relative;
+}
+.search-input-box input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: #111;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input-box input:focus {
+  border-color: var(--clr-primary-medium, #FCD4A0);
+  box-shadow: 0 0 12px rgba(252, 212, 160, 0.25);
+}
+.search-input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-box {
+  background: #121212;
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Toast alert */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1a1a;
+  border: 1px solid #FCD4A0;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.95rem;
+}
+.toast-notice.show {
+  transform: translateY(0);
+}
+
+
+.fanzone-hub-container {
+  max-width: 1200px;
+  margin: 0 auto 90px;
+  padding: 0 20px;
+}
+
+/* Quiz Card */
+.quiz-interactive-card {
+  background: radial-gradient(circle at 50% 0%, #1f1a14 0%, #0d0d0d 100%);
+  border: 1px solid rgba(252, 212, 160, 0.3);
+  border-radius: 20px;
+  padding: 36px;
+  margin-bottom: 50px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.quiz-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.quiz-step-indicator {
+  color: #FCD4A0;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.quiz-score-indicator {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(255,255,255,0.08);
+  padding: 4px 14px;
+  border-radius: 9999px;
+}
+.quiz-question-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 24px;
+  line-height: 1.35;
+}
+.quiz-answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.quiz-ans-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: #eee;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.quiz-ans-btn:hover:not(:disabled) {
+  border-color: #FCD4A0;
+  background: rgba(252, 212, 160, 0.1);
+}
+.quiz-ans-btn.correct {
+  background: rgba(74, 222, 128, 0.2) !important;
+  border-color: #4ade80 !important;
+  color: #4ade80 !important;
+}
+.quiz-ans-btn.wrong {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+}
+.quiz-explanation-box {
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid #FCD4A0;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  color: #ddd;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  display: none;
+}
+.quiz-action-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Community Polls Section */
+.polls-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 60px;
+}
+.poll-widget-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+}
+.poll-widget-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.poll-widget-desc {
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+.poll-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.poll-click-row {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #eee;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.poll-click-row:hover {
+  border-color: #FCD4A0;
+}
+.poll-row-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(252, 212, 160, 0.2);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.poll-row-label {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+}
+.poll-row-pct {
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  color: #FCD4A0;
+}
+
+/* Fan Pass Generator Card */
+.fanpass-card-section {
+  background: linear-gradient(135deg, #161412 0%, #0c0b0a 100%);
+  border: 2px solid rgba(252, 212, 160, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.fanpass-ticket-preview {
+  background: radial-gradient(circle at 50% 0%, #302619 0%, #110e0a 100%);
+  border: 2px solid #FCD4A0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 36px rgba(252, 212, 160, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+.fanpass-ticket-preview::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(252, 212, 160, 0.3) 0%, transparent 70%);
+}
+
+@media (max-width: 900px) {
+  .polls-grid-container { grid-template-columns: 1fr; }
+  .fanpass-card-section { grid-template-columns: 1fr; }
+  .quiz-answers-grid { grid-template-columns: 1fr; }
+}
+
+  </style>
+</head>
+<body>
+
+  
+  <!-- Top Sponsors Bar -->
+  <header class="top-sponsors-bar">
+    <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
+      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 25px; height: 25px;" />
+    </a>
+    <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
+      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px;" />
+    </a>
+    <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
+      <img class="sponsor-desktop-only" src="assets/site/vanguart.svg" alt="Vanguart" style="width: 45px; height: 21px;" />
+      <img class="sponsor-mobile-only" src="assets/site/assets_09a24a2d-ace3-44dd-a28b-85ab89532d2a.png" alt="Vanguart" style="width: 22px; height: 22px;" />
+    </a>
+    <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
+      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 60px; height: 14px;" />
+    </a>
+  </header>
+
+  <!-- Sticky Main Nav -->
+  <nav class="main-nav-header">
+    <div class="nav-inner">
+      <div class="nav-left-group">
+        <button type="button" class="btn-hamburger" aria-label="Menu" onclick="toggleHamburgerMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <ul class="nav-menu-links">
+          <li><a href="nominees.html" class="">Nominees</a></li>
+          <li><a href="news.html" class="">All articles</a></li>
+          <li><a href="vote.html" class="">Vote</a></li>
+          <li><a href="https://shop.ballondor.com" target="_blank" class="shop-highlight">Shop</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="nav-center-logo" aria-label="Ballon d'Or">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" />
+      </a>
+
+      <div class="nav-right-group">
+        <div class="lang-select-wrapper">
+          <button type="button" class="btn-lang" onclick="toggleLangPanel()">
+            <span id="label-selected-lang">EN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-panel" id="lang-dropdown-panel">
+            <a href="#" onclick="selectLangCode('EN'); return false;">EN</a>
+            <a href="#" onclick="selectLangCode('PT'); return false;">PT</a>
+            <a href="#" onclick="selectLangCode('ES'); return false;">ES</a>
+            <a href="#" onclick="selectLangCode('FR'); return false;">FR</a>
+          </div>
+        </div>
+        <a href="login.html" class="nav-login-link" id="nav-login-btn">Login</a>
+      </div>
+    </div>
+
+    <!-- Dropdown menu panel -->
+    <div class="menu-drawer-backdrop" id="menu-backdrop" onclick="toggleHamburgerMenu()"></div>
+    <div class="menu-drawer-panel" id="menu-drawer-panel">
+      <a href="index.html" class="">Home</a>
+      <a href="nominees.html" class="">Nominees</a>
+      <a href="vote.html" style="color: var(--clr-primary-medium); font-weight: 700;">Vote B.O.A.T.</a>
+      <a href="winners.html" class="">Winners</a>
+      <a href="all-rankings.html" class="">All Rankings</a>
+      <a href="fan-zone.html" class="active-drawer">Fan Zone</a>
+      <a href="the-ballon-dor.html" class="">The Ballon d’Or</a>
+      <a href="news.html" class="">News & Articles</a>
+      <a href="stories.html" class="">Stories</a>
+      <a href="champions-academy.html" class="">Champions’ Academy</a>
+      <a href="ballon-dor-press-room.html" class="">Press Room</a>
+      <a href="login.html" class="">My Account / Login</a>
+    </div>
+  </nav>
+
+
+  <div class="page-hero">
+    <div class="page-hero-badge">Interactive Hub</div>
+    <h1>Ballon d'Or™ Fan Zone</h1>
+    <p>Play the official Ballon d'Or Trivia Challenge, vote in community polls, make 2026 podium predictions, and generate your official Fan Pass.</p>
+  </div>
+
+  <div class="fanzone-hub-container">
+    <!-- Ballon d'Or Trivia Master -->
+    <div class="quiz-interactive-card" id="quiz-container">
+      <div class="quiz-header-bar">
+        <div class="quiz-step-indicator" id="q-step">Question 1 of 5</div>
+        <div class="quiz-score-indicator">Score: <span id="q-score">0</span> / 5</div>
+      </div>
+      <div class="quiz-question-text" id="q-question">
+        Loading question...
+      </div>
+      <div class="quiz-answers-grid" id="q-options">
+        <!-- Options injected -->
+      </div>
+      <div class="quiz-explanation-box" id="q-explanation">
+        Explanation
+      </div>
+      <div class="quiz-action-bar">
+        <button class="btn-gold-primary" id="q-next-btn" onclick="nextQuestion()" style="display: none; padding: 12px 28px; font-size: 0.95rem;">Next Question &rarr;</button>
+        <button class="btn-gold-primary" id="q-restart-btn" onclick="restartQuiz()" style="display: none; padding: 12px 28px; font-size: 0.95rem;">Retake Trivia Challenge</button>
+      </div>
+    </div>
+
+    <!-- Live Community Polls Grid -->
+    <div style="margin-bottom: 24px;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 8px;">Live Community Polls</h2>
+      <p style="color: #888; font-size: 0.95rem;">Join football fans worldwide in shaping the consensus.</p>
+    </div>
+
+    <div class="polls-grid-container">
+      <!-- Poll 1 -->
+      <div class="poll-widget-card" id="poll-card-0">
+        <div class="poll-widget-title">Who is your Ballon d'Or of All Time (B.O.A.T.)?</div>
+        <div class="poll-widget-desc">Total Votes: 148,290 • Live updating</div>
+        <div class="poll-items-list">
+          <div class="poll-click-row" onclick="votePoll(0, 0, 48)">
+            <div class="poll-row-progress" id="p-0-0" style="width: 48%;"></div>
+            <span class="poll-row-label">Cristiano Ronaldo (5x)</span>
+            <span class="poll-row-pct" id="pct-0-0">48%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(0, 1, 44)">
+            <div class="poll-row-progress" id="p-0-1" style="width: 44%;"></div>
+            <span class="poll-row-label">Lionel Messi (8x)</span>
+            <span class="poll-row-pct" id="pct-0-1">44%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(0, 2, 5)">
+            <div class="poll-row-progress" id="p-0-2" style="width: 5%;"></div>
+            <span class="poll-row-label">Johan Cruyff (3x)</span>
+            <span class="poll-row-pct" id="pct-0-2">5%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(0, 3, 3)">
+            <div class="poll-row-progress" id="p-0-3" style="width: 3%;"></div>
+            <span class="poll-row-label">Marco van Basten (3x)</span>
+            <span class="poll-row-pct" id="pct-0-3">3%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poll 2 -->
+      <div class="poll-widget-card" id="poll-card-1">
+        <div class="poll-widget-title">Who should win the 2026 Men's Ballon d'Or?</div>
+        <div class="poll-widget-desc">Total Votes: 96,410 • Official nominee pool</div>
+        <div class="poll-items-list">
+          <div class="poll-click-row" onclick="votePoll(1, 0, 46)">
+            <div class="poll-row-progress" id="p-1-0" style="width: 46%;"></div>
+            <span class="poll-row-label">Vinícius Júnior (Real Madrid)</span>
+            <span class="poll-row-pct" id="pct-1-0">46%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(1, 1, 35)">
+            <div class="poll-row-progress" id="p-1-1" style="width: 35%;"></div>
+            <span class="poll-row-label">Rodri (Manchester City)</span>
+            <span class="poll-row-pct" id="pct-1-1">35%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(1, 2, 12)">
+            <div class="poll-row-progress" id="p-1-2" style="width: 12%;"></div>
+            <span class="poll-row-label">Jude Bellingham (Real Madrid)</span>
+            <span class="poll-row-pct" id="pct-1-2">12%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(1, 3, 7)">
+            <div class="poll-row-progress" id="p-1-3" style="width: 7%;"></div>
+            <span class="poll-row-label">Dani Carvajal (Real Madrid)</span>
+            <span class="poll-row-pct" id="pct-1-3">7%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poll 3 -->
+      <div class="poll-widget-card" id="poll-card-2">
+        <div class="poll-widget-title">Who should win the 2026 Ballon d'Or Féminin?</div>
+        <div class="poll-widget-desc">Total Votes: 41,200 • Live updating</div>
+        <div class="poll-items-list">
+          <div class="poll-click-row" onclick="votePoll(2, 0, 52)">
+            <div class="poll-row-progress" id="p-2-0" style="width: 52%;"></div>
+            <span class="poll-row-label">Aitana Bonmatí (FC Barcelona)</span>
+            <span class="poll-row-pct" id="pct-2-0">52%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(2, 1, 26)">
+            <div class="poll-row-progress" id="p-2-1" style="width: 26%;"></div>
+            <span class="poll-row-label">Caroline Graham Hansen (FC Barcelona)</span>
+            <span class="poll-row-pct" id="pct-2-1">26%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(2, 2, 14)">
+            <div class="poll-row-progress" id="p-2-2" style="width: 14%;"></div>
+            <span class="poll-row-label">Sophia Smith (Portland Thorns)</span>
+            <span class="poll-row-pct" id="pct-2-2">14%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(2, 3, 8)">
+            <div class="poll-row-progress" id="p-2-3" style="width: 8%;"></div>
+            <span class="poll-row-label">Salma Paralluelo (FC Barcelona)</span>
+            <span class="poll-row-pct" id="pct-2-3">8%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poll 4 -->
+      <div class="poll-widget-card" id="poll-card-3">
+        <div class="poll-widget-title">Best Kopa Trophy Candidate (U21)?</div>
+        <div class="poll-widget-desc">Total Votes: 78,550 • Top rising talents</div>
+        <div class="poll-items-list">
+          <div class="poll-click-row" onclick="votePoll(3, 0, 71)">
+            <div class="poll-row-progress" id="p-3-0" style="width: 71%;"></div>
+            <span class="poll-row-label">Lamine Yamal (FC Barcelona)</span>
+            <span class="poll-row-pct" id="pct-3-0">71%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(3, 1, 15)">
+            <div class="poll-row-progress" id="p-3-1" style="width: 15%;"></div>
+            <span class="poll-row-label">Arda Güler (Real Madrid)</span>
+            <span class="poll-row-pct" id="pct-3-1">15%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(3, 2, 9)">
+            <div class="poll-row-progress" id="p-3-2" style="width: 9%;"></div>
+            <span class="poll-row-label">Kobbie Mainoo (Manchester United)</span>
+            <span class="poll-row-pct" id="pct-3-2">9%</span>
+          </div>
+          <div class="poll-click-row" onclick="votePoll(3, 3, 5)">
+            <div class="poll-row-progress" id="p-3-3" style="width: 5%;"></div>
+            <span class="poll-row-label">Pau Cubarsí (FC Barcelona)</span>
+            <span class="poll-row-pct" id="pct-3-3">5%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Digital Fan Pass Generator -->
+    <div class="fanpass-card-section">
+      <div>
+        <div style="color: #FCD4A0; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Exclusive Memorabilia</div>
+        <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 14px;">Generate Your Official Digital Fan Pass</h2>
+        <p style="color: #aaa; line-height: 1.6; margin-bottom: 24px;">Personalize your verified 70th Ballon d'Or ceremony digital access pass. Download or share with friends on social media.</p>
+        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin-bottom: 20px;">
+          <input type="text" id="fan-name-input" placeholder="Enter Your Full Name" value="Alex Morgan" oninput="updateFanPass()" style="padding: 12px 18px; border-radius: 8px; background: #1a1a1a; border: 1px solid rgba(252, 212, 160, 0.3); color: #fff;" />
+          <input type="text" id="fan-club-input" placeholder="Favorite Football Club" value="Real Madrid" oninput="updateFanPass()" style="padding: 12px 18px; border-radius: 8px; background: #1a1a1a; border: 1px solid rgba(252, 212, 160, 0.3); color: #fff;" />
+        </div>
+        <button class="btn-gold-primary" onclick="downloadFanPass()" style="padding: 12px 28px; font-size: 0.95rem;">
+          Download Fan Pass Badge
+        </button>
+      </div>
+
+      <!-- Live Ticket Preview -->
+      <div class="fanpass-ticket-preview" id="fan-ticket-preview">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(252, 212, 160, 0.3); padding-bottom: 12px; margin-bottom: 16px;">
+          <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Logo" style="height: 28px;" />
+          <span style="font-size: 0.72rem; font-weight: 800; color: #FCD4A0; letter-spacing: 0.1em;">OFFICIAL FAN PASS</span>
+        </div>
+        <div style="font-size: 0.72rem; color: #888; text-transform: uppercase;">PASS HOLDER</div>
+        <div id="tp-name" style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 12px;">Alex Morgan</div>
+        <div style="font-size: 0.72rem; color: #888; text-transform: uppercase;">SUPPORTED CLUB</div>
+        <div id="tp-club" style="font-size: 1.05rem; font-weight: 700; color: #FCD4A0; margin-bottom: 16px;">Real Madrid</div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #aaa; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+          <span>London Palladium • Oct 26</span>
+          <span style="color: #4ade80; font-weight: 700;">#BDO-70-VERIFIED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Trivia Data
+    const quizData = [
+      {
+        q: "Who was the first goalkeeper in football history to win the Ballon d'Or?",
+        opts: ["Lev Yashin", "Dino Zoff", "Gianluigi Buffon", "Iker Casillas"],
+        ans: 0,
+        exp: "Lev Yashin won the Ballon d'Or in 1963 playing for Dynamo Moscow and the Soviet Union. He remains the only goalkeeper to win the award."
+      },
+      {
+        q: "Which player holds the all-time record with 8 Ballon d'Or awards?",
+        opts: ["Cristiano Ronaldo", "Lionel Messi", "Johan Cruyff", "Michel Platini"],
+        ans: 1,
+        exp: "Lionel Messi has won 8 Ballons d'Or (2009, 2010, 2011, 2012, 2015, 2019, 2021, and 2023)."
+      },
+      {
+        q: "In what year was the first ever Ballon d'Or awarded to Stanley Matthews?",
+        opts: ["1950", "1956", "1960", "1966"],
+        ans: 1,
+        exp: "The inaugural Ballon d'Or was presented by France Football in 1956 to 41-year-old Stanley Matthews of Blackpool."
+      },
+      {
+        q: "Who was the inaugural winner of the Ballon d'Or Féminin in 2018?",
+        opts: ["Ada Hegerberg", "Megan Rapinoe", "Alexia Putellas", "Marta"],
+        ans: 0,
+        exp: "Ada Hegerberg of Olympique Lyonnais won the inaugural Ballon d'Or Féminin in 2018."
+      },
+      {
+        q: "Which African legend made history by winning the Ballon d'Or in 1995?",
+        opts: ["Samuel Eto'o", "Didier Drogba", "George Weah", "Sadio Mané"],
+        ans: 2,
+        exp: "George Weah won the Ballon d'Or in 1995, the first year the award was opened to non-European players."
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    function renderQuestion() {
+      const q = quizData[currentQ];
+      document.getElementById('q-step').textContent = 'Question ' + (currentQ + 1) + ' of ' + quizData.length;
+      document.getElementById('q-question').textContent = q.q;
+      document.getElementById('q-explanation').style.display = 'none';
+      document.getElementById('q-next-btn').style.display = 'none';
+      document.getElementById('q-restart-btn').style.display = 'none';
+
+      const optContainer = document.getElementById('q-options');
+      optContainer.innerHTML = q.opts.map((opt, i) => `
+        <button class="quiz-ans-btn" onclick="selectAnswer(${i})">${opt}</button>
+      `).join('');
+    }
+
+    function selectAnswer(chosenIdx) {
+      const q = quizData[currentQ];
+      const btns = document.querySelectorAll('.quiz-ans-btn');
+      btns.forEach((b, i) => {
+        b.disabled = true;
+        if (i === q.ans) b.classList.add('correct');
+        else if (i === chosenIdx) b.classList.add('wrong');
+      });
+
+      if (chosenIdx === q.ans) {
+        score++;
+        document.getElementById('q-score').textContent = score;
+      }
+
+      const exp = document.getElementById('q-explanation');
+      exp.textContent = q.exp;
+      exp.style.display = 'block';
+
+      if (currentQ < quizData.length - 1) {
+        document.getElementById('q-next-btn').style.display = 'inline-flex';
+      } else {
+        document.getElementById('q-restart-btn').style.display = 'inline-flex';
+        showToast('Trivia Challenge Completed! Final Score: ' + score + ' / 5');
+      }
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      renderQuestion();
+    }
+
+    function restartQuiz() {
+      currentQ = 0;
+      score = 0;
+      document.getElementById('q-score').textContent = '0';
+      renderQuestion();
+    }
+
+    // Community Polls
+    function votePoll(pollId, rowId, curPct) {
+      const elBar = document.getElementById('p-' + pollId + '-' + rowId);
+      const elPct = document.getElementById('pct-' + pollId + '-' + rowId);
+      if (elBar && elPct) {
+        const newPct = curPct + 2;
+        elBar.style.width = newPct + '%';
+        elPct.textContent = newPct + '%';
+        showToast('Your community vote was recorded!');
+      }
+    }
+
+    // Fan Pass
+    function updateFanPass() {
+      const name = document.getElementById('fan-name-input').value || 'Football Fan';
+      const club = document.getElementById('fan-club-input').value || 'World Football';
+      document.getElementById('tp-name').textContent = name;
+      document.getElementById('tp-club').textContent = club;
+    }
+
+    function downloadFanPass() {
+      showToast('Generating official digital fan pass...');
+      const name = document.getElementById('tp-name').textContent;
+      const club = document.getElementById('tp-club').textContent;
+      const passText = 'BALLON D\'OR 70TH ANNIVERSARY OFFICIAL FAN PASS\n\nHolder: ' + name + '\nClub: ' + club + '\nEvent: 70th Ballon d\'Or Gala\nVenue: London Palladium, UK\nStatus: Verified Fan Member';
+      const blob = new Blob([passText], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Ballon_dOr_FanPass_' + name.replace(/\s+/g, '_') + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Fan pass downloaded successfully!');
+    }
+
+    // Init
+    renderQuestion();
+  </script>
+
+  
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col brand-col">
+        <img src="assets/site/e22f92d8-3226-4ed5-8511-8e759b046a6d_small.png" alt="Ballon d'Or" class="footer-logo" />
+        <p class="footer-tagline">The most prestigious individual award in world football, honouring legendary excellence and greatness since 1956.</p>
+        <div class="social-links-row">
+          <a href="https://instagram.com/ballondor" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/ballondor" target="_blank" aria-label="X / Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@ballondor" target="_blank" aria-label="TikTok">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.32-6.32V8.92a8.28 8.28 0 0 0 4.84 1.57v-3.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/ballondor" target="_blank" aria-label="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nominees.html">Nominees</a></li>
+          <li><a href="news.html">News & Articles</a></li>
+          <li><a href="vote.html">Vote B.O.A.T.</a></li>
+          <li><a href="fan-zone.html">Fan Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Awards</h4>
+        <ul>
+          <li><a href="winners.html">Winners History</a></li>
+          <li><a href="all-rankings.html">All Rankings</a></li>
+          <li><a href="the-ballon-dor.html">The Trophy & History</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="champions-academy.html">Champions’ Academy</a></li>
+          <li><a href="ballon-dor-press-room.html">Press Room</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive Ballon d'Or ceremony announcements, nominee interviews, and voting results.</p>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletter(event)">
+          <input type="email" id="footer-newsletter-email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <span id="footer-nl-success" class="nl-success-msg" style="display:none; color: #4ade80; font-size: 0.85rem; margin-top: 6px;">Thank you for subscribing!</span>
+      </div>
+    </div>
+
+    <div class="footer-sponsors-section">
+      <span class="partners-label">OFFICIAL PARTNERS & SPONSORS</span>
+      <div class="sponsor-logos-grid">
+        <a href="https://www.adidas.com" target="_blank"><img src="assets/site/adidas.svg" alt="Adidas" /></a>
+        <a href="https://www.topps.com" target="_blank"><img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" /></a>
+        <a href="https://www.vanguart.com" target="_blank"><img src="assets/site/vanguart.svg" alt="Vanguart" /></a>
+        <a href="https://www.hankooktire.com" target="_blank"><img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook Tire" /></a>
+        <a href="https://www.lequipe.fr" target="_blank"><img src="assets/site/assets_6e1ff10d-adc3-4b0b-bd3e-fb20a257514e.png" alt="L'Équipe" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-legal-links">
+        <a href="voting-terms-and-conditions.html">Voting Terms</a>
+        <a href="terms-and-conditions.html">Terms of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <p class="copyright-text">© 2026 Ballon d'Or™ - L'Équipe 24/24 - UEFA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Global Shared Script -->
+  <div id="toast-notification" class="toast-notice">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <script>
+    function toggleHamburgerMenu() {
+      const panel = document.getElementById('menu-drawer-panel');
+      const backdrop = document.getElementById('menu-backdrop');
+      if (panel && backdrop) {
+        panel.classList.toggle('open');
+        backdrop.classList.toggle('open');
+      }
+    }
+
+    function toggleLangPanel() {
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.toggle('open');
+    }
+
+    function selectLangCode(code) {
+      const lbl = document.getElementById('label-selected-lang');
+      if (lbl) lbl.textContent = code;
+      const panel = document.getElementById('lang-dropdown-panel');
+      if (panel) panel.classList.remove('open');
+      showToast('Language switched to ' + code);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-notification');
+      const m = document.getElementById('toast-message');
+      if (t && m) {
+        m.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+      }
+    }
+
+    function handleFooterNewsletter(e) {
+      e.preventDefault();
+      const inp = document.getElementById('footer-newsletter-email');
+      const msg = document.getElementById('footer-nl-success');
+      if (inp && msg) {
+        localStorage.setItem('ballondor_subscriber', inp.value);
+        inp.value = '';
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        showToast('Subscribed to Ballon d’Or newsletter!');
+      }
+    }
+
+    // Check login state
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = localStorage.getItem('ballondor_logged_user');
+      const btn = document.getElementById('nav-login-btn');
+      if (user && btn) {
+        btn.textContent = user;
+        btn.href = 'login.html';
+      }
+    });
+
+    // Close dropdowns on outer click
+    document.addEventListener('click', (e) => {
+      const langWrap = document.querySelector('.lang-select-wrapper');
+      if (langWrap && !langWrap.contains(e.target)) {
+        const p = document.getElementById('lang-dropdown-panel');
+        if (p) p.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
+
+  
