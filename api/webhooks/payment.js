@@ -1,11 +1,10 @@
 /**
- * Vercel Serverless Function: /api/webhooks/payment (and /api/webhooks/stripe)
- * Handles payment callbacks from Paystack, Stripe, and AetherWeave Chaos Testing
+ * Vercel Serverless Function: /api/webhooks/paystack (and /api/webhooks/payment)
+ * Handles Paystack payment webhooks and AetherWeave Chaos Testing
  * 
  * Features:
- * - Strict Idempotency: Prevents duplicate votes on webhook replay/retry attacks
- * - Handles eventId, payment_intent_id, Paystack reference, and Stripe evt_/pi_ IDs
- * - Supports body.data.object (Stripe) and body.data (Paystack) and direct AetherWeave payloads
+ * - Strict Idempotency: Prevents duplicate votes on Paystack webhook replay/retry storms
+ * - Checks Paystack transaction reference (data.reference)
  * - Returns HTTP 200 with duplicate_detected: true and votes_awarded: 0 for replays
  */
 
@@ -21,7 +20,7 @@ const candidateTallies = {
   'jude-bellingham-2024': 0
 };
 
-// Optional /tmp persistence on Vercel runtime
+// /tmp persistence on Vercel runtime
 const TMP_FILE = '/tmp/ballondor_processed_webhooks.json';
 
 function loadPersistedState() {
@@ -63,7 +62,7 @@ module.exports = async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Paystack-Signature, Stripe-Signature, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Paystack-Signature, Authorization');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -73,11 +72,11 @@ module.exports = async function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({
       status: 'healthy',
-      service: 'Ballon d\'Or 2026 Payment Webhook Gateway',
+      service: 'Ballon d\'Or 2026 Paystack Webhook Gateway',
       idempotency_engine: 'active',
       total_unique_transactions: processedReferences.size,
       vote_tallies: candidateTallies,
-      supported_formats: ['stripe_payment_intent', 'paystack_standard', 'aetherweave_chaos_emitter']
+      supported_formats: ['paystack_standard', 'aetherweave_chaos_emitter']
     });
   }
 
@@ -88,80 +87,59 @@ module.exports = async function handler(req, res) {
   try {
     const body = req.body || {};
 
-    // 1. EXTRACT IDEMPOTENCY KEY / TRANSACTION REFERENCE
-    // Checks Stripe event ID (evt_...), payment intent (pi_...), Paystack ref, or custom eventId
+    // 1. EXTRACT PAYSTACK TRANSACTION REFERENCE / IDEMPOTENCY KEY
     let reference = 
-      body.eventId ||
-      body.payment_intent_id ||
-      body.transaction_id ||
-      body.reference ||
-      (body.data && body.data.object && (body.data.object.id || body.data.object.payment_intent)) ||
       (body.data && (body.data.reference || body.data.id)) ||
+      body.reference ||
+      body.transaction_id ||
+      body.eventId ||
       body.id;
 
     // 2. EXTRACT CANDIDATE & VOTE DETAILS
     let candidateId = 'lionel-messi-2023';
     let candidateName = 'Lionel Messi (2023)';
     let votesCount = 1;
-    let amount = 100;
+    let amountKobo = 150000;
     let customerEmail = 'voter@ballondor.com';
 
-    // Check Stripe data.object metadata, Paystack data.metadata, or top-level body
-    const stripeObj = (body.data && body.data.object) ? body.data.object : null;
-    const paystackData = (body.data && !stripeObj && typeof body.data === 'object') ? body.data : null;
-    const meta = (stripeObj && stripeObj.metadata) || (paystackData && paystackData.metadata) || body.metadata || {};
+    if (body.data && typeof body.data === 'object') {
+      // Official Paystack webhook structure: { event: "charge.success", data: { reference, amount, metadata, customer } }
+      const d = body.data;
+      if (d.amount !== undefined) amountKobo = d.amount;
+      if (d.customer && d.customer.email) customerEmail = d.customer.email;
 
-    candidateId = 
-      meta.candidate_id || 
-      meta.player_selected || 
-      body.candidate_id || 
-      body.player_selected || 
-      body.candidate || 
-      candidateId;
-
-    candidateName = 
-      meta.player_selected || 
-      meta.candidate_name || 
-      body.candidate_name || 
-      body.player_selected || 
-      candidateName;
-
-    if (meta.votes_cast !== undefined) votesCount = parseInt(meta.votes_cast, 10) || 1;
-    else if (meta.votes !== undefined) votesCount = parseInt(meta.votes, 10) || 1;
-    else if (body.votes_cast !== undefined) votesCount = parseInt(body.votes_cast, 10) || 1;
-    else if (body.votes !== undefined) votesCount = parseInt(body.votes, 10) || 1;
-
-    if (stripeObj) {
-      if (stripeObj.amount !== undefined) amount = stripeObj.amount;
-      if (stripeObj.receipt_email) customerEmail = stripeObj.receipt_email;
-      else if (stripeObj.customer) customerEmail = String(stripeObj.customer);
-    } else if (paystackData) {
-      if (paystackData.amount !== undefined) amount = paystackData.amount;
-      if (paystackData.customer && paystackData.customer.email) customerEmail = paystackData.customer.email;
+      const meta = d.metadata || {};
+      candidateId = meta.candidate_id || meta.player_selected || candidateId;
+      candidateName = meta.player_selected || meta.candidate_name || candidateName;
+      if (meta.votes_cast !== undefined) votesCount = parseInt(meta.votes_cast, 10) || 1;
     } else {
-      if (body.amount !== undefined) amount = body.amount;
+      // Direct AetherWeave emitter payload
+      candidateId = body.candidate_id || body.player_selected || body.candidate || candidateId;
+      candidateName = body.candidate_name || body.player_selected || candidateName;
+      if (body.votes_cast !== undefined) votesCount = parseInt(body.votes_cast, 10) || 1;
+      else if (body.votes !== undefined) votesCount = parseInt(body.votes, 10) || 1;
+      if (body.amount !== undefined) amountKobo = body.amount;
       if (body.email || body.customer_email) customerEmail = body.email || body.customer_email;
     }
 
     if (!reference) {
       return res.status(400).json({
-        error: 'Missing required transaction reference / event ID.',
+        error: 'Missing required Paystack transaction reference.',
         received_body: body
       });
     }
 
     reference = String(reference).trim();
 
-    // 3. IDEMPOTENCY CHECK (DUPLICATE VOTE PREVENTION)
-    // If this transaction reference has already been processed, return HTTP 200 immediately
-    // without awarding extra votes to prevent double-voting under chaos/retry storms.
+    // 3. IDEMPOTENCY CHECK (PREVENT DUPLICATE VOTES)
+    // If Paystack retries or AetherWeave fires a duplicate payload with the same reference:
     if (processedReferences.has(reference)) {
       return res.status(200).json({
         status: 'success',
         idempotent: true,
         duplicate_detected: true,
-        message: `Idempotency check passed: Event/Transaction '${reference}' was already processed. No duplicate votes awarded.`,
-        idempotency_key: reference,
+        message: `Idempotency check passed: Paystack transaction '${reference}' was already processed. No duplicate votes awarded.`,
+        transaction_reference: reference,
         candidate_id: candidateId,
         votes_awarded_this_request: 0,
         candidate_total_votes: candidateTallies[candidateId] || 0
@@ -177,20 +155,20 @@ module.exports = async function handler(req, res) {
       status: 'success',
       idempotent: false,
       duplicate_detected: false,
-      message: `Payment verified. Awarded ${votesCount} vote(s) to ${candidateName}.`,
-      idempotency_key: reference,
+      message: `Paystack payment verified. Awarded ${votesCount} vote(s) to ${candidateName}.`,
+      transaction_reference: reference,
       candidate_id: candidateId,
       candidate_name: candidateName,
       votes_awarded_this_request: votesCount,
       candidate_total_votes: candidateTallies[candidateId],
-      amount_received: amount,
+      amount_kobo: amountKobo,
       voter_email: customerEmail,
       timestamp: new Date().toISOString()
     });
 
   } catch (error) {
     return res.status(500).json({
-      error: 'Internal Webhook Processing Error',
+      error: 'Paystack Webhook Processing Error',
       details: error.message
     });
   }
