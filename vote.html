@@ -879,6 +879,194 @@
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
+  
+    /* ================= Top Sponsors Bar ================= */
+    .top-sponsors-bar {
+      background-color: var(--clr-gold, #FCD4A0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(1.2rem, 3.5vw, 3.5rem);
+      padding: 9px 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .top-sponsors-bar a {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+      transition: opacity 0.2s;
+    }
+    .top-sponsors-bar a:hover { opacity: 0.65; }
+    .top-sponsors-bar img {
+      height: auto;
+      object-fit: contain;
+    }
+    @media (max-width: 767px) {
+      .top-sponsors-bar { gap: 1.2rem; padding: 7px 12px; }
+      .top-sponsors-bar img { max-height: 16px; }
+    }
+
+    /* ================= Modal Design ================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      max-width: 490px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px;
+      position: relative;
+      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.95);
+      animation: modalFadeIn 0.22s ease-out;
+      box-sizing: border-box;
+      color: #FFFFFF;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(6px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-close-icon-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #999;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 16px;
+      line-height: 1;
+      padding: 0;
+    }
+    .modal-close-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .vote-quick-pills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .vote-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 9px 4px;
+      color: #ddd;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+      line-height: 1.25;
+    }
+    .vote-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+    .vote-pill.active {
+      background: rgba(229, 88, 56, 0.15);
+      border-color: #E55838;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(229, 88, 56, 0.25);
+    }
+    .vote-pill span {
+      display: block;
+      font-size: 10px;
+      color: #999;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .vote-pill.active span {
+      color: #FCD4A0;
+    }
+    .vote-stepper {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 42px;
+    }
+    .vote-stepper button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      width: 44px;
+      height: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .vote-stepper button:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .vote-stepper input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      padding: 0;
+    }
+    .vote-btn-primary {
+      background: linear-gradient(90deg, #FFFFFF 0%, #E55838 99.52%);
+      color: #000000;
+      font-weight: 700;
+      font-size: 15px;
+      height: 48px;
+      border-radius: 8px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 18px rgba(229, 88, 56, 0.25);
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .vote-btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+    .vote-btn-primary:active {
+      transform: translateY(0);
+    }
+  
   </style>
   <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
@@ -887,29 +1075,25 @@
   <!-- ================= Top Sponsors Bar ================= -->
   <header class="top-sponsors-bar">
     <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" aria-label="Adidas">
-      <img src="assets/site/adidas.svg" alt="Adidas" style="width: 32px; height: 22px; object-fit: contain;" />
+      <img src="assets/site/sponsor-adidas.png" alt="Adidas" style="height: 20px; width: auto; object-fit: contain;" />
     </a>
     <a href="https://www.topps.com/" target="_blank" rel="noopener noreferrer" aria-label="Topps">
-      <img src="assets/site/assets_39778cee-db77-46f4-af02-b5c5641bfeca.png" alt="Topps" style="width: 50px; height: 35px; object-fit: contain;" />
+      <img src="assets/site/sponsor-topps.png" alt="Topps" style="height: 22px; width: auto; object-fit: contain;" />
     </a>
     <a href="https://www.vanguart.com/" target="_blank" rel="noopener noreferrer" aria-label="Vanguart">
-      <img src="assets/site/vanguart.svg" alt="Vanguart" style="width: 65px; height: 22px; object-fit: contain;" />
+      <img src="assets/site/sponsor-vanguart.png" alt="Vanguart" style="height: 16px; width: auto; object-fit: contain;" />
     </a>
     <a href="https://www.hankooktire.com/" target="_blank" rel="noopener noreferrer" aria-label="Hankook Tire">
-      <img src="assets/site/d87b9011-5b44-4661-bc16-d0b86e022a6b_large.png" alt="Hankook" style="width: 65px; height: 16px; object-fit: contain;" />
+      <img src="assets/site/sponsor-hankook.png" alt="Hankook" style="height: 13px; width: auto; object-fit: contain;" />
     </a>
-    <a href="https://www.alipay.com/" target="_blank" rel="noopener noreferrer" aria-label="Alipay+" class="sponsor-desktop-only">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 28" style="height:18px;width:auto;" fill="none">
-        <text x="0" y="21" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#1677FF">支付</text>
-        <text x="40" y="21" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#1677FF">Alipay</text>
-        <text x="102" y="14" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="#1677FF">+</text>
-      </svg>
+    <a href="https://www.strauss.com/" target="_blank" rel="noopener noreferrer" aria-label="Strauss">
+      <img src="assets/site/sponsor-strauss.png" alt="Strauss" style="height: 20px; width: auto; object-fit: contain;" />
     </a>
-    <a href="https://www.meta.com/" target="_blank" rel="noopener noreferrer" aria-label="Meta" class="sponsor-desktop-only">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 24" style="height:16px;width:auto;">
-        <path d="M5 12c0-3.5 2.5-7 5.5-7 1.8 0 3.2 1.2 4.5 3 1.3-1.8 2.7-3 4.5-3 3 0 5.5 3.5 5.5 7 0 5-3.5 9-5.5 9-1.2 0-2.5-1-4.5-4-2 3-3.3 4-4.5 4C8.5 21 5 17 5 12z" fill="#0081FB"/>
-        <text x="28" y="18" font-family="Arial,sans-serif" font-weight="700" font-size="17" fill="#0081FB">meta</text>
-      </svg>
+    <a href="https://www.alipay.com/" target="_blank" rel="noopener noreferrer" aria-label="Alipay+">
+      <img src="assets/site/sponsor-alipay.png" alt="Alipay+" style="height: 19px; width: auto; object-fit: contain;" />
+    </a>
+    <a href="https://www.meta.com/" target="_blank" rel="noopener noreferrer" aria-label="Meta">
+      <img src="assets/site/sponsor-meta.png" alt="Meta" style="height: 16px; width: auto; object-fit: contain;" />
     </a>
   </header>
 
@@ -1956,80 +2140,128 @@
   <div class="toast-pill-message" id="toast-message">Link copied to clipboard!</div>
 
   <!-- ================= Vote Interactive Modal ================= -->
+    <!-- ================= Vote Modal ================= -->
   <div class="modal-overlay" id="vote-modal">
     <div class="modal-card">
-      <button type="button" class="modal-close-icon-btn" onclick="closeActiveModal('vote-modal')">✕</button>
+      <button type="button" class="modal-close-icon-btn" onclick="closeActiveModal('vote-modal')" aria-label="Close modal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
       
       <div id="vote-stage-form">
-        <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 26px; margin-bottom: 14px;">Confirm your vote</h2>
+        <!-- Modal Header -->
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--clr-gold, #FCD4A0);">Ballon d'Or Of All Time</span>
+        </div>
+        <h2 style="font-size: 22px; font-weight: 700; color: #FFFFFF; margin: 0 0 16px 0; letter-spacing: -0.01em;">Confirm your vote</h2>
         
-        <div style="display: flex; gap: 16px; background: rgba(255,255,255,0.06); padding: 14px; border-radius: 12px; margin-bottom: 20px; align-items: center;">
-          <img id="vmodal-player-img" src="" alt="Player" style="width: 110px; height: 65px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(252,212,160,0.3);" />
-          <div>
-            <h3 id="vmodal-player-name" style="font-size: 18px; font-weight: 700; color: #fff;"></h3>
-            <p id="vmodal-player-year" style="color: var(--clr-orange); font-size: 15px; font-weight: 600;"></p>
-            <p id="vmodal-player-country" style="color: #aaa; font-size: 13px;"></p>
+        <!-- Player Summary Card -->
+        <div style="display: flex; gap: 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.09); padding: 12px 14px; border-radius: 12px; margin-bottom: 18px; align-items: center;">
+          <img id="vmodal-player-img" src="" alt="Player" style="width: 64px; height: 64px; object-fit: cover; border-radius: 8px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); flex-shrink: 0;" />
+          <div style="flex: 1; min-width: 0;">
+            <h3 id="vmodal-player-name" style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></h3>
+            <p id="vmodal-player-year" style="color: #E55838; font-size: 13px; font-weight: 600; margin: 0 0 2px 0;"></p>
+            <p id="vmodal-player-country" style="color: #888888; font-size: 12px; margin: 0;"></p>
           </div>
         </div>
 
-        <div class="why-pay-box" style="margin-bottom: 20px;">
-          <p style="font-size: 14px; color: #fff; line-height: 1.5;">Each <strong>€1 vote</strong> gives you an official entry into the Ballon d'Or Of All Time draw and access to exclusive rewards. Vote multiple times to boost your chances — every vote counts!</p>
-        </div>
-
-        <div style="margin-bottom: 20px;">
-          <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Your Email Address <span style="color:#e05a00;">*</span></label>
-          <input type="email" id="vote-email-input" placeholder="you@example.com" required style="width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(252,212,160,0.3); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 15px; box-sizing: border-box;" />
-        </div>
-
-        <div style="margin-bottom: 20px;">
-          <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Number of Votes</label>
-          <div style="display: flex; align-items: center; gap: 0; border: 1px solid rgba(252,212,160,0.3); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.08);">
-            <button type="button" onclick="changeVoteQty(-1)" style="background: rgba(255,255,255,0.08); border: none; color: #fff; font-size: 22px; font-weight: 700; padding: 0 18px; height: 44px; cursor: pointer; line-height: 1;">−</button>
-            <input type="number" id="vote-qty-input" value="1" min="1" max="100" readonly style="flex: 1; background: transparent; border: none; color: #fff; font-size: 18px; font-weight: 700; text-align: center; padding: 0; height: 44px; width: 60px;" />
-            <button type="button" onclick="changeVoteQty(1)" style="background: rgba(255,255,255,0.08); border: none; color: #fff; font-size: 22px; font-weight: 700; padding: 0 18px; height: 44px; cursor: pointer; line-height: 1;">+</button>
+        <!-- Quantity Picker -->
+        <div style="margin-bottom: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #A0A0A0; margin: 0;">Select Votes</label>
+            <span style="font-size: 12px; color: #E55838; font-weight: 600;">€1.00 / vote</span>
           </div>
-          <p style="font-size: 12px; color: #888; margin-top: 6px; text-align: center;">Each vote = €1.00 &nbsp;|&nbsp; Total: <strong id="vote-total-display" style="color: var(--clr-gold);">€1.00</strong></p>
+          
+          <div class="vote-quick-pills">
+            <button type="button" class="vote-pill active" data-qty="1" onclick="selectVotePill(1)">1 Vote<span>€1.00</span></button>
+            <button type="button" class="vote-pill" data-qty="3" onclick="selectVotePill(3)">3 Votes<span>€3.00</span></button>
+            <button type="button" class="vote-pill" data-qty="5" onclick="selectVotePill(5)">5 Votes<span>€5.00</span></button>
+            <button type="button" class="vote-pill" data-qty="10" onclick="selectVotePill(10)">10 Votes<span>€10.00</span></button>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+            <span style="font-size: 12px; color: #888;">Custom quantity:</span>
+            <div class="vote-stepper" style="width: 140px;">
+              <button type="button" onclick="changeVoteQty(-1)" aria-label="Decrease votes">−</button>
+              <input type="number" id="vote-qty-input" value="1" min="1" max="100" readonly />
+              <button type="button" onclick="changeVoteQty(1)" aria-label="Increase votes">+</button>
+            </div>
+          </div>
         </div>
 
-        <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #ccc; cursor: pointer; margin-bottom: 20px;">
-          <input type="checkbox" id="vote-checkbox-agree" checked style="width: 18px; height: 18px; accent-color: var(--clr-gold);" />
-          <span>I agree to the <a href="#" onclick="openRulesDialog(); return false;" style="color: var(--clr-gold); text-decoration: underline;">voting rules</a></span>
+        <!-- Voter Email -->
+        <div style="margin-bottom: 16px;">
+          <label for="vote-email-input" style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #A0A0A0; margin-bottom: 6px;">Your Email Address</label>
+          <input type="email" id="vote-email-input" placeholder="name@domain.com" required style="width: 100%; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 8px; padding: 11px 13px; color: #FFFFFF; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#E55838'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'" />
+          <p style="font-size: 11px; color: #777; margin: 5px 0 0 0;">Your digital certificate and official raffle confirmation will be sent here.</p>
+        </div>
+
+        <!-- Perks List -->
+        <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 11px 14px; margin-bottom: 18px;">
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #B0B0B0;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E55838" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Official B.O.A.T. verified vote recorded</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E55838" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Entry for 2 tickets to the 71st Ballon d'Or ceremony</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E55838" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Instant high-resolution commemorative photo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agreement Checkbox -->
+        <label style="display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #AAA; cursor: pointer; margin-bottom: 18px; line-height: 1.4;">
+          <input type="checkbox" id="vote-checkbox-agree" checked style="width: 16px; height: 16px; accent-color: #E55838; margin-top: 2px; cursor: pointer;" />
+          <span>I agree to the <a href="#" onclick="openRulesDialog(); return false;" style="color: #FCD4A0; text-decoration: underline;">voting rules</a> and confirm I am 18 or older.</span>
         </label>
 
-        <button type="button" class="btn-vote" id="btn-submit-vote" style="width: 100%; padding: 15px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; letter-spacing: 0.02em;" onclick="payWithPaystack()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Confirm &amp; Cast Vote — <span id="btn-total-label">€1.00</span>
+        <!-- Submit Button -->
+        <button type="button" class="vote-btn-primary" id="btn-submit-vote" onclick="payWithPaystack()">
+          <span>Confirm &amp; Cast Vote</span>
+          <span style="opacity: 0.6;">•</span>
+          <span id="btn-total-label">€1.00</span>
         </button>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: #888; font-size: 12px;">
+
+        <!-- Trust Badges -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; color: #666; font-size: 11px;">
           <span>🔒 256-bit SSL Encrypted</span>
           <span>•</span>
           <span>Visa, Mastercard, Apple Pay</span>
         </div>
-        
       </div>
 
-      <div id="vote-stage-loading" style="display: none; text-align: center; padding: 40px 0;">
-        <div style="width: 50px; height: 50px; border: 3px solid rgba(252,212,160,0.2); border-top-color: var(--clr-gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px;"></div>
-        <p style="font-size: 16px; color: var(--clr-gold); font-weight: 600;">Processing secure transaction...</p>
-        <p style="font-size: 13px; color: #888; margin-top: 6px;">Connecting to encrypted global card gateway (Visa, Mastercard, Apple Pay)</p>
+      <!-- Loading State -->
+      <div id="vote-stage-loading" style="display: none; text-align: center; padding: 40px 10px;">
+        <div style="width: 48px; height: 48px; border: 3px solid rgba(255,255,255,0.1); border-top-color: #E55838; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px;"></div>
+        <p style="font-size: 16px; color: #FFFFFF; font-weight: 600; margin: 0 0 6px 0;">Processing secure transaction...</p>
+        <p style="font-size: 12px; color: #888888; margin: 0;">Connecting to encrypted global card gateway</p>
       </div>
 
-      <div id="vote-stage-confirmed" style="display: none; text-align: center; padding: 24px 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#2f872c" stroke-width="2" style="margin: 0 auto 16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <h2 style="font-family: var(--font-headline); color: var(--clr-gold); font-size: 28px; margin-bottom: 8px;">Vote Cast Successfully!</h2>
-        <p style="font-size: 16px; color: #fff; margin-bottom: 6px;">Thank you for crowning your B.O.A.T.</p>
-        <p id="vmodal-confirmed-name" style="font-size: 15px; color: var(--clr-orange); font-weight: 600; margin-bottom: 24px;"></p>
+      <!-- Confirmed State -->
+      <div id="vote-stage-confirmed" style="display: none; text-align: center; padding: 24px 8px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(46, 125, 50, 0.15); border: 1px solid #2e7d32; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h2 style="color: #FFFFFF; font-size: 22px; font-weight: 700; margin: 0 0 6px 0;">Vote Cast Successfully!</h2>
+        <p style="font-size: 14px; color: #AAA; margin: 0 0 4px 0;">Thank you for crowning your B.O.A.T.</p>
+        <p id="vmodal-confirmed-name" style="font-size: 15px; color: #E55838; font-weight: 600; margin: 0 0 20px 0;"></p>
         
-        <div style="background: rgba(255,255,255,0.05); padding: 14px; border-radius: 10px; margin-bottom: 24px; text-align: left;">
-          <p style="font-size: 13px; color: #ccc;">✓ Entry registered for 2 tickets to the 71st Ballon d'Or ceremony in 2027.<br/>✓ Your iconic high-res photo download is ready.</p>
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px; border-radius: 10px; margin-bottom: 22px; text-align: left;">
+          <p style="font-size: 12px; color: #CCC; margin: 0 0 6px 0;">✓ Entry registered for 2 tickets to the 71st Ballon d'Or ceremony in 2027.</p>
+          <p style="font-size: 12px; color: #CCC; margin: 0;">✓ Your iconic high-res photo download is ready.</p>
         </div>
 
-        <div style="display: flex; gap: 12px; justify-content: center;">
-          <a id="btn-download-photo" href="" download="ballondor-iconic-photo.jpg" class="btn-vote" style="padding: 10px 20px; font-size: 15px; width: auto; display: inline-block;">Download Iconic Photo</a>
-          <button type="button" class="btn-rules-outline" onclick="closeActiveModal('vote-modal')">Close</button>
+        <div style="display: flex; gap: 10px; justify-content: center;">
+          <a id="btn-download-photo" href="" download="ballondor-iconic-photo.jpg" class="vote-btn-primary" style="padding: 0 20px; font-size: 14px; width: auto; height: 42px; display: inline-flex; text-decoration: none;">Download Iconic Photo</a>
+          <button type="button" class="btn-rules-outline" style="border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; border-radius: 8px; padding: 0 18px; height: 42px; font-size: 14px; font-weight: 600; cursor: pointer;" onclick="closeActiveModal('vote-modal')">Close</button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <!-- ================= Rules Modal ================= -->
@@ -2202,21 +2434,68 @@
     const PAYSTACK_PUBLIC_KEY = 'pk_live_99bd2da26e08ec9802845db7b0685aefb347dad0';
 
 
+    let currentVotedQty = 1;
+
+    function selectVotePill(qty) {
+      currentVotedQty = qty;
+      const inp = document.getElementById('vote-qty-input');
+      if (inp) inp.value = qty;
+      
+      // Update pills active state
+      document.querySelectorAll('.vote-pill').forEach(pill => {
+        if (parseInt(pill.getAttribute('data-qty')) === qty) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+      updateVoteTotals(qty);
+    }
+
     function changeVoteQty(delta) {
       const inp = document.getElementById('vote-qty-input');
       let val = parseInt(inp.value) || 1;
       val = Math.max(1, Math.min(100, val + delta));
       inp.value = val;
+      currentVotedQty = val;
+      
+      // Update pills active state if matches
+      document.querySelectorAll('.vote-pill').forEach(pill => {
+        if (parseInt(pill.getAttribute('data-qty')) === val) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
       updateVoteTotals(val);
     }
 
     function updateVoteTotals(qty) {
       const total = (qty * 1).toFixed(2);
-      const el = document.getElementById('vote-total-display');
       const btnLabel = document.getElementById('btn-total-label');
-      if (el) el.textContent = '€' + total;
       if (btnLabel) btnLabel.textContent = '€' + total;
     }
+
+    function openVoteModal(name, year, country, img) {
+      currentVotedPlayer = name + ' (' + year + ')';
+      currentVotedImage = img;
+      
+      document.getElementById('vmodal-player-name').textContent = name;
+      document.getElementById('vmodal-player-year').textContent = year + " Ballon d'Or Winner";
+      document.getElementById('vmodal-player-country').textContent = country;
+      document.getElementById('vmodal-player-img').src = img;
+
+      // Reset quantity to 1
+      selectVotePill(1);
+
+      document.getElementById('vote-stage-form').style.display = 'block';
+      document.getElementById('vote-stage-loading').style.display = 'none';
+      document.getElementById('vote-stage-confirmed').style.display = 'none';
+
+      openSpecificModal('vote-modal');
+    }
+
+    // const PAYSTACK_PUBLIC_KEY = 'pk_live_99bd2da26e08ec9802845db7b0685aefb347dad0';
 
     function payWithPaystack() {
       const agree = document.getElementById('vote-checkbox-agree').checked;
@@ -2227,13 +2506,13 @@
       const emailInput = document.getElementById('vote-email-input');
       const email = (emailInput && emailInput.value && emailInput.value.includes('@')) ? emailInput.value.trim() : null;
       if (!email) {
-        alert('Please enter a valid email address to continue.');
+        alert('Please enter a valid email address to receive your confirmation.');
         if (emailInput) emailInput.focus();
         return;
       }
 
       const qty = parseInt(document.getElementById('vote-qty-input').value) || 1;
-      const amountKobo = qty * 150000; // ₦1,500 per vote in kobo (≈€1 per vote)
+      const amountKobo = qty * 150000; // ₦1,500 per vote in kobo (≈€1.00 per vote)
 
       if (typeof PaystackPop !== 'undefined') {
         const handler = PaystackPop.setup({
@@ -2247,6 +2526,7 @@
             custom_fields: [
               { display_name: "Player Selected", variable_name: "player_selected", value: currentVotedPlayer },
               { display_name: "Votes Cast", variable_name: "votes_cast", value: String(qty) },
+              { display_name: "Amount (EUR)", variable_name: "amount_eur", value: '€' + (qty * 1).toFixed(2) },
               { display_name: "Award", variable_name: "award", value: "Ballon d'Or Of All Time (B.O.A.T.)" }
             ]
           },
@@ -2259,7 +2539,7 @@
         });
         handler.openIframe();
       } else {
-        showNotification('Connecting to payment gateway...');
+        showNotification('Connecting to secure gateway...');
         setTimeout(() => {
           recordVoteSuccess('BDO_TX_' + Date.now(), email, qty);
         }, 1200);
@@ -2271,13 +2551,13 @@
       document.getElementById('vote-stage-form').style.display = 'none';
       document.getElementById('vote-stage-loading').style.display = 'block';
 
-      // Store in localStorage
       try {
         const existingVotes = JSON.parse(localStorage.getItem('ballondor_user_votes') || '[]');
         existingVotes.push({
           player: currentVotedPlayer,
           ref: refId,
           email: voterEmail,
+          votes: qty,
           timestamp: new Date().toISOString()
         });
         localStorage.setItem('ballondor_user_votes', JSON.stringify(existingVotes));
@@ -2287,10 +2567,9 @@
 
       setTimeout(() => {
         document.getElementById('vote-stage-loading').style.display = 'none';
+        document.getElementById('vote-stage-confirmed').style.display = 'block';
         document.getElementById('vmodal-confirmed-name').textContent = (qty > 1 ? qty + ' votes' : '1 vote') + ' for: ' + currentVotedPlayer;
         document.getElementById('btn-download-photo').href = currentVotedImage;
-        document.getElementById('vote-stage-confirmed').style.display = 'block';
-        showNotification('Official vote confirmed! (Ref: ' + refId.substring(0, 16) + '...)');
       }, 1000);
     }
   
